@@ -1,2 +1,2 @@
-# Color-
-ColorSpace Library
+# ColorPlus2
+C++ ColorSpace Library
