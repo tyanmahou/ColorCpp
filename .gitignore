@@ -415,3 +415,4 @@ gmon.out
 **/App/dll
 
 # Application
+*.lib
