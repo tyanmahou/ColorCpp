@@ -28,8 +28,12 @@ void Main()
 	constexpr RYB ryb{ 1.0, 1.0, 0.0 };
 	constexpr ColorF color = ColorCast<ColorF>(ryb);
 
+	constexpr CMY cmy{ 0.0, 0.0, 1.0 };
+	constexpr ColorF color2 = ColorCast<ColorF>(cmy);
+
 	while (System::Update())
 	{
 		Rect{ 0, 0, 100, 100 }.draw(color);
+		Rect{ 100, 0, 100, 100 }.draw(color2);
 	}
 }

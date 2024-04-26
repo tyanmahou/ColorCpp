@@ -3,3 +3,4 @@
 export import :ColorCast;
 export import :RGB;
 export import :RYB;
+export import :CMY;

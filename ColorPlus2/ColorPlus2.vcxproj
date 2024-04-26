@@ -147,8 +147,13 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\ColorCast\ColorCastTrait.ixx" />
+    <ClCompile Include="src\ColorCast\ToCMY.ixx" />
+    <ClCompile Include="src\ColorCast\ToRGB.ixx" />
+    <ClCompile Include="src\ColorCast\ToRYB.ixx" />
     <ClCompile Include="src\ColorPlus2.ixx" />
     <ClCompile Include="src\ColorCast\ColorCast.ixx" />
+    <ClCompile Include="src\ColorSpace\CMY.ixx" />
     <ClCompile Include="src\ColorSpace\RGB.ixx" />
     <ClCompile Include="src\ColorSpace\RYB.ixx" />
     <ClCompile Include="src\Util\Math.ixx" />
