@@ -150,7 +150,6 @@
     <ClCompile Include="src\ColorPlus2.ixx" />
     <ClCompile Include="src\ColorCast\ColorCast.ixx" />
     <ClCompile Include="src\ColorSpace\RGB.ixx" />
-    <ClCompile Include="src\ColorSpace\RGB24.ixx" />
     <ClCompile Include="src\ColorSpace\RYB.ixx" />
     <ClCompile Include="src\Util\Math.ixx" />
     <ClCompile Include="src\Util\Type.ixx" />

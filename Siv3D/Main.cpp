@@ -8,8 +8,8 @@ namespace cp2
 	{
 		constexpr static s3d::ColorF Cast(const From& from)
 		{
-			auto [r, g, b] = ColorCast<RGB>(from);
-			return { r, g, b, 1.0 };
+			auto [r, g, b, a] = ColorCast<RGBA>(from);
+			return { r, g, b, a };
 		}
 	};
 	template<class From>
@@ -17,8 +17,8 @@ namespace cp2
 	{
 		constexpr static s3d::Color Cast(const From& from)
 		{
-			auto colorf = ColorCast<ColorF>(from);
-			return Color{ colorf };
+			auto [r, g, b, a] = ColorCast<RGBA32>(from);
+			return { r, g, b, a };
 		}
 	};
 }
