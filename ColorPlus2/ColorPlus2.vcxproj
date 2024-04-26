@@ -147,7 +147,6 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\ColorCast\ColorCast.cpp" />
     <ClCompile Include="src\ColorPlus2.ixx" />
     <ClCompile Include="src\ColorCast\ColorCast.ixx" />
     <ClCompile Include="src\ColorSpace\RGB.ixx" />
