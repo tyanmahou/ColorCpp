@@ -1,5 +1,6 @@
 ﻿export module ColorPlus2:RGB;
 import :Type;
+import :Math;
 
 export namespace cp2
 {
@@ -213,4 +214,29 @@ export namespace cp2
 
 		friend constexpr bool operator==(const RGBA32& a, const RGBA32& b) = default;
 	};
+
+	constexpr inline double LinearToSRGB(double v)
+	{
+		if (v <= 0.0031308) {
+			return 12.92 * v;
+		} else {
+			return 1.055 * Pow(v, 1.0 / 2.4) - 0.055;
+		}
+	}
+	constexpr inline double SRGBToLinear(double v)
+	{
+		if (v <= 0.04045) {
+			return v / 12.92;
+		} else {
+			return Pow((v + 0.055) / 1.055, 2.4);
+		}
+	}
+	constexpr inline double LinearToAdobeRGB(double v)
+	{
+		return Pow(v, 1.0 / 2.19921875);
+	}
+	constexpr inline double AdobeRGBToLinear(double v)
+	{
+		return Pow(v, 2.19921875);
+	}
 }

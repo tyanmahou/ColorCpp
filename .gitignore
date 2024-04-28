@@ -416,3 +416,4 @@ gmon.out
 
 # Application
 *.ifc
+*.ifcast
