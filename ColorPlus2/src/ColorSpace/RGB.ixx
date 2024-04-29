@@ -223,6 +223,14 @@ export namespace cp2
 			return 1.055 * Pow(v, 1.0 / 2.4) - 0.055;
 		}
 	}
+	constexpr inline RGB LinearToSRGB(const RGB& rgb)
+	{
+		return {
+			.r = LinearToSRGB(rgb.r),
+			.g = LinearToSRGB(rgb.g),
+			.b = LinearToSRGB(rgb.b),
+		};
+	}
 	constexpr inline double SRGBToLinear(double v)
 	{
 		if (v <= 0.04045) {
@@ -231,12 +239,36 @@ export namespace cp2
 			return Pow((v + 0.055) / 1.055, 2.4);
 		}
 	}
+	constexpr inline RGB SRGBToLinear(const RGB& rgb)
+	{
+		return {
+			.r = SRGBToLinear(rgb.r),
+			.g = SRGBToLinear(rgb.g),
+			.b = SRGBToLinear(rgb.b),
+		};
+	}
 	constexpr inline double LinearToAdobeRGB(double v)
 	{
 		return Pow(v, 1.0 / 2.19921875);
 	}
+	constexpr inline RGB LinearToAdobeRGB(const RGB& rgb)
+	{
+		return {
+			.r = LinearToAdobeRGB(rgb.r),
+			.g = LinearToAdobeRGB(rgb.g),
+			.b = LinearToAdobeRGB(rgb.b),
+		};
+	}
 	constexpr inline double AdobeRGBToLinear(double v)
 	{
 		return Pow(v, 2.19921875);
+	}
+	constexpr inline RGB AdobeRGBToLinear(const RGB& rgb)
+	{
+		return {
+			.r = AdobeRGBToLinear(rgb.r),
+			.g = AdobeRGBToLinear(rgb.g),
+			.b = AdobeRGBToLinear(rgb.b),
+		};
 	}
 }
