@@ -1,4 +1,4 @@
-﻿export module ColorPlus2:ToCMY;
+﻿export module ColorPlus2:CastCMY;
 import :ColorCastTrait;
 
 import :RGB;

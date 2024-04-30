@@ -1,5 +1,5 @@
 ﻿export module ColorPlus2:ColorCast;
 export import :ColorCastTrait;
-export import :ToRGB;
-export import :ToRYB;
-export import :ToCMY;
+export import :CastRGB;
+export import :CastRYB;
+export import :CastCMY;

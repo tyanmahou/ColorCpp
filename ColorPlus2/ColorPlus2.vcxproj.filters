@@ -36,16 +36,16 @@
     <ClCompile Include="src\ColorCast\ColorCastTrait.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColorCast\ToRGB.ixx">
+    <ClCompile Include="src\ColorCast\CastRGB.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColorCast\ToRYB.ixx">
+    <ClCompile Include="src\ColorCast\CastRYB.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\ColorSpace\CMY.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColorCast\ToCMY.ixx">
+    <ClCompile Include="src\ColorCast\CastCMY.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

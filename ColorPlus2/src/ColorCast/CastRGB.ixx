@@ -1,4 +1,4 @@
-﻿export module ColorPlus2:ToRGB;
+﻿export module ColorPlus2:CastRGB;
 import :ColorCastTrait;
 import :RGB;
 import :Math;

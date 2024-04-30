@@ -1,4 +1,4 @@
-﻿export module ColorPlus2:ToRYB;
+﻿export module ColorPlus2:CastRYB;
 import :ColorCastTrait;
 
 import :RGB;
