@@ -4,3 +4,4 @@ export import :CastRGB;
 export import :CastRYB;
 export import :CastCMY;
 export import :CastXYZ;
+export import :CastLab;
