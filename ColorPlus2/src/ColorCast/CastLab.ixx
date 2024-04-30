@@ -1,13 +1,14 @@
 ﻿export module ColorPlus2:CastLab;
 import :ColorCastTrait;
 
+import :RGB;
 import :XYZ;
 import :Lab;
 import :Math;
 
 export namespace cp2
 {
-	// To XYZ
+	// To Lab
 	template<>
 	struct ColorCastTraits<Lab, XYZ>
 	{
@@ -63,11 +64,45 @@ export namespace cp2
 	template<class From>
 	struct ColorCastTraits<HunterLab, From>
 	{
-		constexpr static Lab Cast(const From& from)
+		constexpr static HunterLab Cast(const From& from)
 		{
 			return ColorCast<HunterLab>(ColorCast<XYZ>(from));
 		}
 	};
+
+	// To OKLab
+	// https://bottosson.github.io/posts/oklab/#converting-from-linear-srgb-to-oklab
+	template<>
+	struct ColorCastTraits<OkLab, RGB>
+	{
+		constexpr static OkLab Cast(const RGB& rgb)
+		{
+			auto [r, g, b] = LinearToSRGB(rgb);
+
+			double l = 0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b;
+			double m = 0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b;
+			double s = 0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b;
+
+			double l_ = Cbrt(l);
+			double m_ = Cbrt(m);
+			double s_ = Cbrt(s);
+
+			return OkLab{
+				.l = 0.2104542553 * l_ + 0.7936177850 * m_ - 0.0040720468 * s_,
+				.a = 1.9779984951 * l_ - 2.4285922050 * m_ + 0.4505937099 * s_,
+				.b = 0.0259040371 * l_ + 0.7827717662 * m_ - 0.8086757660 * s_,
+			};
+		}
+	};
+	template<class From>
+	struct ColorCastTraits<OkLab, From>
+	{
+		constexpr static OkLab Cast(const From& from)
+		{
+			return ColorCast<OkLab>(ColorCast<RGB>(from));
+		}
+	};
+
 	// To XYZ
 	template<>
 	struct ColorCastTraits<XYZ, Lab>
@@ -86,9 +121,9 @@ export namespace cp2
 			double fx = (a  / 500.0) + fy;
 			double fz = fy - (b / 200.0);
 
-			double fx3 = Pow(fx, 3.0);
-			double fy3 = Pow(fy, 3.0);
-			double fz3 = Pow(fz, 3.0);
+			double fx3 = fx * fx * fx;
+			double fy3 = fy * fy * fy;
+			double fz3 = fz * fz * fz;
 
 			return XYZ{
 				.x = ((fx3 > epsilon) ? fx3 : (116.0 * fx - 16.0) / kappa) * xr,
@@ -111,6 +146,29 @@ export namespace cp2
 				.y = y / 100.0,
 				.z = -(z - y) / 84.7
 			};
+		}
+	};
+
+	// To RGB
+	template<>
+	struct ColorCastTraits<RGB, OkLab>
+	{
+		constexpr static RGB Cast(const OkLab& lab)
+		{
+			double l_ = lab.l + 0.3963377774 * lab.a + 0.2158037573 * lab.b;
+			double m_ = lab.l - 0.1055613458 * lab.a - 0.0638541728 * lab.b;
+			double s_ = lab.l - 0.0894841775 * lab.a - 1.2914855480 * lab.b;
+
+			double l = l_ * l_ * l_;
+			double m = m_ * m_ * m_;
+			double s = s_ * s_ * s_;
+
+			RGB srgb{
+				+4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s,
+				-1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
+				-0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s,
+			};
+			return SRGBToLinear(srgb);
 		}
 	};
 }
