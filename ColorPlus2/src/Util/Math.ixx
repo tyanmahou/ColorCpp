@@ -20,12 +20,17 @@ export namespace cp2
 	{
 		return std::max(x, std::max(y, z));
 	}
-	// TODO: C++26でpowがconstexpr対応
+	// TODO: C++26でconstexpr対応
+	constexpr inline auto Sqrt(auto x) noexcept
+	{
+		return std::sqrt(x);
+	}
+	// TODO: C++26でconstexpr対応
 	constexpr inline auto Pow(auto x, auto y) noexcept
 	{
 		return std::pow(x, y);
 	}
-	// TODO: C++26でcbrtがconstexpr対応
+	// TODO: C++26でconstexpr対応
 	constexpr inline auto Cbrt(auto x) noexcept
 	{
 		return std::cbrt(x);

@@ -147,6 +147,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\ColorCast\CastLab.ixx" />
+    <ClCompile Include="src\ColorCast\CastXYZ.ixx" />
     <ClCompile Include="src\ColorCast\ColorCastTrait.ixx" />
     <ClCompile Include="src\ColorCast\CastCMY.ixx" />
     <ClCompile Include="src\ColorCast\CastRGB.ixx" />
@@ -154,8 +156,10 @@
     <ClCompile Include="src\ColorPlus2.ixx" />
     <ClCompile Include="src\ColorCast\ColorCast.ixx" />
     <ClCompile Include="src\ColorSpace\CMY.ixx" />
+    <ClCompile Include="src\ColorSpace\Lab.ixx" />
     <ClCompile Include="src\ColorSpace\RGB.ixx" />
     <ClCompile Include="src\ColorSpace\RYB.ixx" />
+    <ClCompile Include="src\ColorSpace\XYZ.ixx" />
     <ClCompile Include="src\Util\Math.ixx" />
     <ClCompile Include="src\Util\Type.ixx" />
   </ItemGroup>

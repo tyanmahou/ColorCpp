@@ -42,15 +42,38 @@ export namespace cp2
 		}
 	};
 
+	// To HunterLab
+	template<>
+	struct ColorCastTraits<HunterLab, XYZ>
+	{
+		constexpr static HunterLab Cast(const XYZ& xyz)
+		{
+			double x = 100.0 * xyz.x;
+			double y = 100.0 * xyz.y;
+			double z = 100.0 * xyz.z;
+
+
+			return HunterLab{
+				.l = 10.0 * Sqrt(y),
+				.a = (y != 0) ? (17.5 * (1.02 * x- y) / sqrt(y)) : 0,
+				.b = (y != 0) ? (7.0 * (y - 0.847 * z) / sqrt(y)) : 0
+			};
+		}
+	};
+	template<class From>
+	struct ColorCastTraits<HunterLab, From>
+	{
+		constexpr static Lab Cast(const From& from)
+		{
+			return ColorCast<HunterLab>(ColorCast<XYZ>(from));
+		}
+	};
 	// To XYZ
 	template<>
 	struct ColorCastTraits<XYZ, Lab>
 	{
 		constexpr static XYZ Cast(const Lab& lab)
 		{
-			constexpr double epsilon = 0.008856;
-			constexpr double kappa = 903.3;
-
 			constexpr double epsilon = 0.008856;
 			constexpr double kappa = 903.3;
 			constexpr double xr = 0.950456;
@@ -71,6 +94,22 @@ export namespace cp2
 				.x = ((fx3 > epsilon) ? fx3 : (116.0 * fx - 16.0) / kappa) * xr,
 				.y = ((fy3 > epsilon) ? fy3 : (116.0 * fy - 16.0) / kappa) * yr,
 				.z = ((fz3 > epsilon) ? fz3 : (116.0 * fz - 16.0) / kappa) * zr
+			};
+		}
+	};
+	template<>
+	struct ColorCastTraits<XYZ, HunterLab>
+	{
+		constexpr static XYZ Cast(const HunterLab& lab)
+		{
+			double x = (lab.a / 17.5) * (lab.l / 10.0);
+			double y = lab.l * lab.l / 100;
+			double z = lab.b / 7.0 * lab.l / 10.0;
+
+			return XYZ{
+				.x = (x + y) / 100.02,
+				.y = y / 100.0,
+				.z = -(z - y) / 84.7
 			};
 		}
 	};
