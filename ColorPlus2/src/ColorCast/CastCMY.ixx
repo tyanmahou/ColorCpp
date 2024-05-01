@@ -35,7 +35,7 @@ export namespace cp2
 		constexpr static CMYK Cast(const RGB& rgb)
 		{
 			auto [r, g, b] = rgb;
-			double k = Min(1 - r, 1 - g, 1 - b);
+			double k = Math::Min(1 - r, 1 - g, 1 - b);
 			double invK = k == 1 ? 1 : 1 - k;
 			return {
 				.c = (1 - r - k) / invK,

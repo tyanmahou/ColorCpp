@@ -9,17 +9,17 @@ export namespace cp2
 	struct XYZ
 	{
 		/// <summary>
-		/// X 0～1
+		/// X [0, 1]
 		/// </summary>
 		double x;
 
 		/// <summary>
-		/// Y 0～1
+		/// Y [0, 1]
 		/// </summary>
 		double y;
 
 		/// <summary>
-		/// Z 0～1
+		/// Z [0, 1]
 		/// </summary>
 		double z;
 

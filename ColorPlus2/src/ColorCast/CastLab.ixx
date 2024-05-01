@@ -23,9 +23,9 @@ export namespace cp2
 			constexpr double yr = 1.0;
 			constexpr double zr = 1.088754;
 
-			double fx = (x > epsilon) ? Cbrt(x / xr) : (kappa * x + 16.0) / 116.0;
-			double fy = (y > epsilon) ? Cbrt(y / yr) : (kappa * y + 16.0) / 116.0;
-			double fz = (z > epsilon) ? Cbrt(x / xr) : (kappa * z + 16.0) / 116.0;
+			double fx = (x > epsilon) ? Math::Cbrt(x / xr) : (kappa * x + 16.0) / 116.0;
+			double fy = (y > epsilon) ? Math::Cbrt(y / yr) : (kappa * y + 16.0) / 116.0;
+			double fz = (z > epsilon) ? Math::Cbrt(x / xr) : (kappa * z + 16.0) / 116.0;
 
 			return Lab{
 				.l = 116.0 * fy - 16.0,
@@ -55,9 +55,9 @@ export namespace cp2
 
 
 			return HunterLab{
-				.l = 10.0 * Sqrt(y),
-				.a = (y != 0) ? (17.5 * (1.02 * x- y) / sqrt(y)) : 0,
-				.b = (y != 0) ? (7.0 * (y - 0.847 * z) / sqrt(y)) : 0
+				.l = 10.0 * Math::Sqrt(y),
+				.a = (y != 0) ? (17.5 * (1.02 * x- y) / Math::Sqrt(y)) : 0,
+				.b = (y != 0) ? (7.0 * (y - 0.847 * z) / Math::Sqrt(y)) : 0
 			};
 		}
 	};
@@ -83,9 +83,9 @@ export namespace cp2
 			double m = 0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b;
 			double s = 0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b;
 
-			double l_ = Cbrt(l);
-			double m_ = Cbrt(m);
-			double s_ = Cbrt(s);
+			double l_ = Math::Cbrt(l);
+			double m_ = Math::Cbrt(m);
+			double s_ = Math::Cbrt(s);
 
 			return OkLab{
 				.l = 0.2104542553 * l_ + 0.7936177850 * m_ - 0.0040720468 * s_,
@@ -105,9 +105,9 @@ export namespace cp2
 			double m = 0.0329845436 * x + 0.9293118715 * y + 0.0361456387 * z;
 			double s = 0.0482003018 * x + 0.2643662691 * y + 0.6338517070 * z;
 
-			double l_ = Cbrt(l);
-			double m_ = Cbrt(m);
-			double s_ = Cbrt(s);
+			double l_ = Math::Cbrt(l);
+			double m_ = Math::Cbrt(m);
+			double s_ = Math::Cbrt(s);
 
 			return OkLab{
 				.l = 0.2104542553 * l_ + 0.7936177850 * m_ - 0.0040720468 * s_,
