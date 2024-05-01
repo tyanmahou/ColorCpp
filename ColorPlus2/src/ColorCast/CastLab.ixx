@@ -94,6 +94,28 @@ export namespace cp2
 			};
 		}
 	};
+	template<>
+	struct ColorCastTraits<OkLab, XYZ>
+	{
+		constexpr static OkLab Cast(const XYZ& xyz)
+		{
+			auto&& [x, y, z] = xyz;
+
+			double l = 0.8189330101 * x + 0.3618667424 * y - 0.1288597137 * z;
+			double m = 0.0329845436 * x + 0.9293118715 * y + 0.0361456387 * z;
+			double s = 0.0482003018 * x + 0.2643662691 * y + 0.6338517070 * z;
+
+			double l_ = Cbrt(l);
+			double m_ = Cbrt(m);
+			double s_ = Cbrt(s);
+
+			return OkLab{
+				.l = 0.2104542553 * l_ + 0.7936177850 * m_ - 0.0040720468 * s_,
+				.a = 1.9779984951 * l_ - 2.4285922050 * m_ + 0.4505937099 * s_,
+				.b = 0.0259040371 * l_ + 0.7827717662 * m_ - 0.8086757660 * s_,
+			};
+		}
+	};
 	template<class From>
 	struct ColorCastTraits<OkLab, From>
 	{
@@ -149,6 +171,26 @@ export namespace cp2
 		}
 	};
 
+	template<>
+	struct ColorCastTraits<XYZ, OkLab>
+	{
+		constexpr static XYZ Cast(const HunterLab& lab)
+		{
+			double l_ = lab.l + 0.3963377774 * lab.a + 0.2158037573 * lab.b;
+			double m_ = lab.l - 0.1055613458 * lab.a - 0.0638541728 * lab.b;
+			double s_ = lab.l - 0.0894841775 * lab.a - 1.2914855480 * lab.b;
+
+			double l = l_ * l_ * l_;
+			double m = m_ * m_ * m_;
+			double s = s_ * s_ * s_;
+
+			return XYZ{
+				+1.227013851 * l - 0.5577999807 * m + 0.281256149 * s,
+				-0.04058017842 * l + 1.11225687 * m - 0.07167667867 * s,
+				-0.07638128451 * l - 0.4214819784 * m + 1.58616322 * s,
+			};
+		}
+	};
 	// To RGB
 	template<>
 	struct ColorCastTraits<RGB, OkLab>
