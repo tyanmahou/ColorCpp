@@ -1,6 +1,9 @@
 ﻿export module ColorPlus2:CastLCH;
 import :ColorCastTrait;
 
+import :RGB;
+import :CastLab;
+
 import :Lab;
 import :LCH;
 import :Math;
@@ -36,9 +39,9 @@ export namespace cp2
 
 	// To OkLCH
 	template<>
-	struct ColorCastTraits<OkLCH, Lab>
+	struct ColorCastTraits<OkLCH, OkLab>
 	{
-		constexpr static OkLCH Cast(const Lab& lab)
+		constexpr static OkLCH Cast(const OkLab& lab)
 		{
 			double l = lab.l;
 			double c = Math::Sqrt(lab.a * lab.a + lab.b * lab.b);
@@ -56,7 +59,7 @@ export namespace cp2
 	{
 		constexpr static OkLCH Cast(const From& from)
 		{
-			return ColorCast<OkLCH>(ColorCast<Lab>(from));
+			return ColorCast<OkLCH>(ColorCast<OkLab>(from));
 		}
 	};
 
@@ -66,23 +69,42 @@ export namespace cp2
 	{
 		constexpr static Lab Cast(const LCH& lch)
 		{
+			double h = lch.h * std::numbers::pi / 180.0;
 			return Lab{
 				.l = lch.l,
-				.a = Math::Cos(lch.h) * lch.c,
-				.b = Math::Sin(lch.h) * lch.c,
+				.a = Math::Cos(h) * lch.c,
+				.b = Math::Sin(h) * lch.c,
 			};
 		}
 	};
 	template<>
-	struct ColorCastTraits<Lab, OkLCH>
+	struct ColorCastTraits<OkLab, OkLCH>
 	{
-		constexpr static Lab Cast(const OkLCH& lch)
+		constexpr static OkLab Cast(const OkLCH& lch)
 		{
-			return Lab{
+			double h = lch.h * std::numbers::pi / 180.0;
+			return OkLab{
 				.l = lch.l,
-				.a = Math::Cos(lch.h) * lch.c,
-				.b = Math::Sin(lch.h) * lch.c,
+				.a = Math::Cos(h) * lch.c,
+				.b = Math::Sin(h) * lch.c,
 			};
+		}
+	};
+	// To RGB
+	template<>
+	struct ColorCastTraits<RGB, LCH>
+	{
+		constexpr static RGB Cast(const LCH& lch)
+		{
+			return ColorCast<RGB>(ColorCast<Lab>(lch));
+		}
+	};
+	template<>
+	struct ColorCastTraits<RGB, OkLCH>
+	{
+		constexpr static RGB Cast(const OkLCH& lch)
+		{
+			return ColorCast<RGB>(ColorCast<OkLab>(lch));
 		}
 	};
 }

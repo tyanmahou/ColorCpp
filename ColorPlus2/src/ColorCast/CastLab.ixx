@@ -2,6 +2,8 @@
 import :ColorCastTrait;
 
 import :RGB;
+import :CastXYZ;
+
 import :XYZ;
 import :Lab;
 import :Math;
@@ -25,7 +27,7 @@ export namespace cp2
 
 			double fx = (x > epsilon) ? Math::Cbrt(x / xr) : (kappa * x + 16.0) / 116.0;
 			double fy = (y > epsilon) ? Math::Cbrt(y / yr) : (kappa * y + 16.0) / 116.0;
-			double fz = (z > epsilon) ? Math::Cbrt(x / xr) : (kappa * z + 16.0) / 116.0;
+			double fz = (z > epsilon) ? Math::Cbrt(z / zr) : (kappa * z + 16.0) / 116.0;
 
 			return Lab{
 				.l = 116.0 * fy - 16.0,
@@ -77,7 +79,7 @@ export namespace cp2
 	{
 		constexpr static OkLab Cast(const RGB& rgb)
 		{
-			auto [r, g, b] = LinearToSRGB(rgb);
+			auto [r, g, b] = SRGBToLinear(rgb);
 
 			double l = 0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b;
 			double m = 0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b;
@@ -174,7 +176,7 @@ export namespace cp2
 	template<>
 	struct ColorCastTraits<XYZ, OkLab>
 	{
-		constexpr static XYZ Cast(const HunterLab& lab)
+		constexpr static XYZ Cast(const OkLab& lab)
 		{
 			double l_ = lab.l + 0.3963377774 * lab.a + 0.2158037573 * lab.b;
 			double m_ = lab.l - 0.1055613458 * lab.a - 0.0638541728 * lab.b;
@@ -193,6 +195,22 @@ export namespace cp2
 	};
 	// To RGB
 	template<>
+	struct ColorCastTraits<RGB, Lab>
+	{
+		constexpr static RGB Cast(const Lab& lab)
+		{
+			return ColorCast<RGB>(ColorCast<XYZ>(lab));
+		}
+	};
+	template<>
+	struct ColorCastTraits<RGB, HunterLab>
+	{
+		constexpr static RGB Cast(const HunterLab& lab)
+		{
+			return ColorCast<RGB>(ColorCast<XYZ>(lab));
+		}
+	};
+	template<>
 	struct ColorCastTraits<RGB, OkLab>
 	{
 		constexpr static RGB Cast(const OkLab& lab)
@@ -205,12 +223,12 @@ export namespace cp2
 			double m = m_ * m_ * m_;
 			double s = s_ * s_ * s_;
 
-			RGB srgb{
+			RGB lrgb{
 				+4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s,
 				-1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
 				-0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s,
 			};
-			return SRGBToLinear(srgb);
+			return LinearToSRGB(lrgb);
 		}
 	};
 }

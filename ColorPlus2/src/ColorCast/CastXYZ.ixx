@@ -12,7 +12,7 @@ export namespace cp2
 	{
 		constexpr static XYZ Cast(const RGB& rgb)
 		{
-			auto [r, g, b] = LinearToSRGB(rgb);
+			auto [r, g, b] = SRGBToLinear(rgb);
 			return {
 				.x = 0.4124564 * r + 0.3575761 * g + 0.1804375 * b,
 				.y = 0.2126729 * r + 0.7151522 * g + 0.0721750 * b,
@@ -40,7 +40,7 @@ export namespace cp2
 				.g = -0.9692660 * xyz.x + 1.8760108 * xyz.y + 0.0415560 * xyz.z,
 				.b = 0.0556434 * xyz.x -0.2040259 * xyz.y + 1.0572252 * xyz.z
 			};
-			return SRGBToLinear(rgb);
+			return LinearToSRGB(rgb);
 		}
 	};
 }

@@ -4,6 +4,9 @@ import :Math;
 
 export namespace cp2
 {
+    /// <summary>
+    /// sRGB
+    /// </summary>
     struct RGB
     {
         double r;
