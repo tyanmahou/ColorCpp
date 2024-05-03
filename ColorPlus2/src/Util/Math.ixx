@@ -23,6 +23,15 @@ export namespace cp2
 		{
 			return std::max(x, std::max(y, z));
 		}
+		static constexpr inline double Clamp(double x, double min, double max)
+		{
+			return std::clamp(x, min, max);
+		}
+		static constexpr inline double Saturate(double x)
+		{
+			return Clamp(x, 0.0, 1.0);
+		}
+
 		// TODO: C++26でconstexpr対応
 		static constexpr inline double Sqrt(auto x) noexcept
 		{
@@ -58,6 +67,11 @@ export namespace cp2
 		static constexpr inline double Repeat(auto x, auto y) noexcept
 		{
 			return std::fmod(std::fmod(x, y) + y, y);
+		}
+
+		static constexpr inline double RepeatHue360(double h) noexcept
+		{
+			return Repeat(h, 360.0);
 		}
 	};
 }

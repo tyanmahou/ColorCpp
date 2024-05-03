@@ -157,6 +157,7 @@
     <ClCompile Include="src\ColorPlus2.ixx" />
     <ClCompile Include="src\ColorCast\ColorCast.ixx" />
     <ClCompile Include="src\ColorSpace\CMY.ixx" />
+    <ClCompile Include="src\ColorSpace\HSV.ixx" />
     <ClCompile Include="src\ColorSpace\Lab.ixx" />
     <ClCompile Include="src\ColorSpace\LCH.ixx" />
     <ClCompile Include="src\ColorSpace\RGB.ixx" />

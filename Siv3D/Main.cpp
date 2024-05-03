@@ -60,7 +60,7 @@ void Main()
 {
 	Scene::Resize(800, 600);
 	using namespace cp2;
-	Color base = Color{U"#123456"}; //Palette::Red;
+	Color base = Color{U"#FF0000"}; //Palette::Red;
 	s3d::HSV hsv = base;
 	LCH lch = ColorCast<LCH>(base);
 	OkLCH oklch = ColorCast<OkLCH>(base);
@@ -76,12 +76,12 @@ void Main()
 		}
 		for (size_t i = 0; i < 8; ++i) {
 			LCH copy = lch;
-			copy.l = Math::Lerp(0.0, 100.0, (i + 1) / 8.0);
+			copy.l = s3d::Math::Lerp(0.0, 100.0, s3d::Math::InvLerp(0, 7, i));
 			Rect{ 100 * i, 100, 100, 100 }.draw(ColorCast<ColorF>(copy));
 		}
 		for (size_t i = 0; i < 8; ++i) {
 			OkLCH copy = oklch;
-			copy.l = Math::Lerp(0.0, 1.0, (i+1) / 8.0);
+			copy.l = s3d::Math::Lerp(0.0, 1.0, s3d::Math::InvLerp(0, 7, i));
 			Rect{ 100 * i, 200, 100, 100 }.draw(ColorCast<ColorF>(copy));
 		}
 	}
