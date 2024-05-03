@@ -7,3 +7,4 @@ export import :CMY;
 export import :XYZ;
 export import :Lab;
 export import :LCH;
+export import :Utility;

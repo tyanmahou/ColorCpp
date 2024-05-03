@@ -18,12 +18,9 @@ export namespace cp2
 		{
 			auto&& [x, y, z] = xyz;
 
-			constexpr double epsilon = 0.008856;
-			constexpr double kappa = 903.3;
-
-			constexpr double xr = 0.950456;
-			constexpr double yr = 1.0;
-			constexpr double zr = 1.088754;
+			constexpr double epsilon = 0.008856451679;
+			constexpr double kappa = 903.296296296;
+			const auto& [xr, yr, zr] = D65;
 
 			double fx = (x > epsilon) ? Math::Cbrt(x / xr) : (kappa * x + 16.0) / 116.0;
 			double fy = (y > epsilon) ? Math::Cbrt(y / yr) : (kappa * y + 16.0) / 116.0;
@@ -133,16 +130,14 @@ export namespace cp2
 	{
 		constexpr static XYZ Cast(const Lab& lab)
 		{
-			constexpr double epsilon = 0.008856;
-			constexpr double kappa = 903.3;
-			constexpr double xr = 0.950456;
-			constexpr double yr = 1.0;
-			constexpr double zr = 1.088754;
+			constexpr double epsilon = 0.008856451679;
+			constexpr double kappa = 903.296296296;
+			const auto& [xr, yr, zr] = D65;
 
 			auto&& [l, a, b] = lab;
 
 			double fy = (l + 16.0) / 116.0;
-			double fx = (a  / 500.0) + fy;
+			double fx = (a / 500.0) + fy;
 			double fz = fy - (b / 200.0);
 
 			double fx3 = fx * fx * fx;

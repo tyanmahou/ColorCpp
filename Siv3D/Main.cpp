@@ -60,29 +60,24 @@ void Main()
 {
 	Scene::Resize(800, 600);
 	using namespace cp2;
-	Color base = Color{U"#FF0000"}; //Palette::Red;
+	Color base = Palette::Red;
 	s3d::HSV hsv = base;
 	LCH lch = ColorCast<LCH>(base);
 	OkLCH oklch = ColorCast<OkLCH>(base);
-
 	while (System::Update())
 	{
 		ClearPrint();
-		Print << U"({}, {}, {})"_fmt(lch.l, lch.c, lch.h);
-		Print << U"({}, {}, {})"_fmt(oklch.l, oklch.c, oklch.h);
-		for (size_t i = 0; i < 8; ++i) {
-			hsv.s = i / 8.0;
-			Rect{ 100 * i, 0, 100, 100 }.draw(hsv);
-		}
 		for (size_t i = 0; i < 8; ++i) {
 			LCH copy = lch;
 			copy.l = s3d::Math::Lerp(0.0, 100.0, s3d::Math::InvLerp(0, 7, i));
-			Rect{ 100 * i, 100, 100, 100 }.draw(ColorCast<ColorF>(copy));
+			copy = cp2::Utility::ClampChroma(copy);
+			Rect{ 100 * i, 000, 100, 100 }.draw(ColorCast<ColorF>(copy));
 		}
 		for (size_t i = 0; i < 8; ++i) {
 			OkLCH copy = oklch;
 			copy.l = s3d::Math::Lerp(0.0, 1.0, s3d::Math::InvLerp(0, 7, i));
-			Rect{ 100 * i, 200, 100, 100 }.draw(ColorCast<ColorF>(copy));
+			copy = cp2::Utility::ClampChroma(copy);
+			Rect{ 100 * i, 100, 100, 100 }.draw(ColorCast<ColorF>(copy));
 		}
 	}
 }

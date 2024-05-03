@@ -121,7 +121,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y /I "$(OutDir)Intermediate\*.ifc" "$(ProjectDir)ifc\"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -143,7 +144,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y /I "$(OutDir)Intermediate\*.ifc" "$(ProjectDir)ifc\"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -163,6 +165,7 @@
     <ClCompile Include="src\ColorSpace\RGB.ixx" />
     <ClCompile Include="src\ColorSpace\RYB.ixx" />
     <ClCompile Include="src\ColorSpace\XYZ.ixx" />
+    <ClCompile Include="src\Util\Utility.ixx" />
     <ClCompile Include="src\Util\Math.ixx" />
     <ClCompile Include="src\Util\Type.ixx" />
   </ItemGroup>

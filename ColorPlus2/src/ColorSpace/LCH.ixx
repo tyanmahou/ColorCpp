@@ -31,7 +31,7 @@ export namespace cp2
 	struct OkLCH
 	{
 		/// <summary>
-		/// 明度 [0, 100]
+		/// 明度 [0, 1]
 		/// </summary>
 		double l;
 

@@ -14,9 +14,9 @@ export namespace cp2
 		{
 			auto [r, g, b] = SRGBToLinear(rgb);
 			return {
-				.x = 0.4124564 * r + 0.3575761 * g + 0.1804375 * b,
-				.y = 0.2126729 * r + 0.7151522 * g + 0.0721750 * b,
-				.z = 0.0193339 * r + 0.1191920 * g + 0.9503041 * b,
+				.x = 0.412391 * r + 0.357584 * g + 0.180481 * b,
+				.y = 0.212639 * r + 0.715169 * g + 0.072192 * b,
+				.z = 0.019331 * r + 0.119195 * g + 0.950532 * b,
 			};
 		}
 	};
@@ -36,9 +36,9 @@ export namespace cp2
 		constexpr static RGB Cast(const XYZ& xyz)
 		{
 			RGB rgb{
-				.r = 3.2404542 * xyz.x -1.5371385 * xyz.y -0.4985314 * xyz.z,
-				.g = -0.9692660 * xyz.x + 1.8760108 * xyz.y + 0.0415560 * xyz.z,
-				.b = 0.0556434 * xyz.x -0.2040259 * xyz.y + 1.0572252 * xyz.z
+				.r = 3.240970 * xyz.x - 1.537383 * xyz.y - 0.498611 * xyz.z,
+				.g = -0.969244 * xyz.x + 1.875968 * xyz.y + 0.041555 * xyz.z,
+				.b = 0.055630 * xyz.x - 0.203977 * xyz.y + 1.056972 * xyz.z
 			};
 			return LinearToSRGB(rgb);
 		}
