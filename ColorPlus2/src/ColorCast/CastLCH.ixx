@@ -20,7 +20,7 @@ export namespace cp2
 			double l = lab.l;
 			double c = Math::Sqrt(lab.a * lab.a + lab.b * lab.b);
 			double h = Math::Atan2(lab.b, lab.a) * 180.0 / std::numbers::pi;
-			h = Math::Repeat(h, 360.0);
+			h = Math::RepeatHue360(h);
 			return LCH{
 				.l = l,
 				.c = c,
@@ -46,7 +46,7 @@ export namespace cp2
 			double l = lab.l;
 			double c = Math::Sqrt(lab.a * lab.a + lab.b * lab.b);
 			double h = Math::Atan2(lab.b, lab.a) * 180.0 / std::numbers::pi;
-			h = Math::Repeat(h, 360.0);
+			h = Math::RepeatHue360(h);
 			return OkLCH{
 				.l = l,
 				.c = c,
