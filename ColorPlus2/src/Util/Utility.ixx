@@ -2,9 +2,12 @@
 import :Math;
 import :RGB;
 import :LCH;
+import :OkLCH;
 
 import :CastLCH;
 import :CastLab;
+import :CastOkLCH;
+import :CastOkLab;
 
 export namespace cp2
 {
@@ -92,6 +95,11 @@ export namespace cp2
                 clamped.c = c;
             }
             return clamped;
+        }
+
+        static constexpr inline double RepeatHue360(double h) noexcept
+        {
+            return Math::Repeat(h, 360.0);
         }
     };
 }

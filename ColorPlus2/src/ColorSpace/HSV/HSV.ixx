@@ -9,7 +9,7 @@ export namespace cp2
 	struct HSV
 	{
 		/// <summary>
-		/// 色相 [0, 360]
+		/// 色相 [0, 360)
 		/// </summary>
 		double h;
 

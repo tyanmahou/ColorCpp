@@ -42,10 +42,10 @@
     <ClCompile Include="src\ColorCast\CastRYB.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColorSpace\CMY.ixx">
+    <ClCompile Include="src\ColorSpace\CMY\CMY.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColorCast\CastCMY.ixx">
+    <ClCompile Include="src\ColorSpace\CMY\CastCMY.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\ColorSpace\XYZ.ixx">
@@ -54,22 +54,46 @@
     <ClCompile Include="src\ColorCast\CastXYZ.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColorSpace\Lab.ixx">
+    <ClCompile Include="src\ColorSpace\Lab\Lab.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColorCast\CastLab.ixx">
+    <ClCompile Include="src\ColorSpace\LCH\LCH.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColorSpace\LCH.ixx">
+    <ClCompile Include="src\ColorSpace\LCH\CastLCH.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColorCast\CastLCH.ixx">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ColorSpace\HSV.ixx">
+    <ClCompile Include="src\ColorSpace\HSV\HSV.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\Util\Utility.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\CMYK\CMYK.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\CMYK\CastCMYK.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\OkLab\OkLab.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\HunterLab\HunterLab.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\Lab\CastLab.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\OkLab\CastOkLab.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\HunterLab\CastHunterLab.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\OkLCH\OkLCH.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\OkLCH\CastOkLCH.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

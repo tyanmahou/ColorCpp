@@ -149,19 +149,27 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\ColorCast\CastLab.ixx" />
-    <ClCompile Include="src\ColorCast\CastLCH.ixx" />
+    <ClCompile Include="src\ColorSpace\LCH\CastLCH.ixx" />
     <ClCompile Include="src\ColorCast\CastXYZ.ixx" />
     <ClCompile Include="src\ColorCast\ColorCastTrait.ixx" />
-    <ClCompile Include="src\ColorCast\CastCMY.ixx" />
+    <ClCompile Include="src\ColorSpace\CMYK\CastCMYK.ixx" />
+    <ClCompile Include="src\ColorSpace\CMYK\CMYK.ixx" />
+    <ClCompile Include="src\ColorSpace\CMY\CastCMY.ixx" />
     <ClCompile Include="src\ColorCast\CastRGB.ixx" />
     <ClCompile Include="src\ColorCast\CastRYB.ixx" />
     <ClCompile Include="src\ColorPlus2.ixx" />
     <ClCompile Include="src\ColorCast\ColorCast.ixx" />
-    <ClCompile Include="src\ColorSpace\CMY.ixx" />
-    <ClCompile Include="src\ColorSpace\HSV.ixx" />
-    <ClCompile Include="src\ColorSpace\Lab.ixx" />
-    <ClCompile Include="src\ColorSpace\LCH.ixx" />
+    <ClCompile Include="src\ColorSpace\CMY\CMY.ixx" />
+    <ClCompile Include="src\ColorSpace\HSV\HSV.ixx" />
+    <ClCompile Include="src\ColorSpace\HunterLab\CastHunterLab.ixx" />
+    <ClCompile Include="src\ColorSpace\HunterLab\HunterLab.ixx" />
+    <ClCompile Include="src\ColorSpace\Lab\CastLab.ixx" />
+    <ClCompile Include="src\ColorSpace\Lab\Lab.ixx" />
+    <ClCompile Include="src\ColorSpace\LCH\LCH.ixx" />
+    <ClCompile Include="src\ColorSpace\OkLab\CastOkLab.ixx" />
+    <ClCompile Include="src\ColorSpace\OkLab\OkLab.ixx" />
+    <ClCompile Include="src\ColorSpace\OkLCH\CastOkLCH.ixx" />
+    <ClCompile Include="src\ColorSpace\OkLCH\OkLCH.ixx" />
     <ClCompile Include="src\ColorSpace\RGB.ixx" />
     <ClCompile Include="src\ColorSpace\RYB.ixx" />
     <ClCompile Include="src\ColorSpace\XYZ.ixx" />
