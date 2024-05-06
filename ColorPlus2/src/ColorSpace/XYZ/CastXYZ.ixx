@@ -6,7 +6,7 @@ import :XYZ;
 
 export namespace cp2
 {
-	// To XYZ
+	// XYZ <=> RGB
 	template<>
 	struct ColorCastTraits<XYZ, RGB>
 	{
@@ -20,16 +20,6 @@ export namespace cp2
 			};
 		}
 	};
-	template<class From>
-	struct ColorCastTraits<XYZ, From>
-	{
-		constexpr static XYZ Cast(const From& from)
-		{
-			return ColorCast<XYZ>(ColorCast<RGB>(from));
-		}
-	};
-
-	// To RGB
 	template<>
 	struct ColorCastTraits<RGB, XYZ>
 	{
@@ -41,6 +31,16 @@ export namespace cp2
 				.b = 0.055630 * xyz.x - 0.203977 * xyz.y + 1.056972 * xyz.z
 			};
 			return LinearToSRGB(rgb);
+		}
+	};
+
+	// XYZ <=> OTHER
+	template<class From>
+	struct ColorCastTraits<XYZ, From>
+	{
+		constexpr static XYZ Cast(const From& from)
+		{
+			return ColorCast<XYZ>(ColorCast<RGB>(from));
 		}
 	};
 }
