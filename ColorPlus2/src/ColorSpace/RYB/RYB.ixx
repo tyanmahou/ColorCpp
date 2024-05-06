@@ -4,8 +4,19 @@ export namespace cp2
 {
     struct RYB
     {
+        /// <summary>
+        /// Red [0, 1]
+        /// </summary>
         double r;
+
+        /// <summary>
+        /// Yellow [0, 1]
+        /// </summary>
         double y;
+
+        /// <summary>
+        /// Blue [0, 1]
+        /// </summary>
         double b;
 
 		constexpr RYB operator +(const RYB& other) const noexcept

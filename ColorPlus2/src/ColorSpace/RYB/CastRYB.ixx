@@ -7,13 +7,13 @@ import :Math;
 
 export namespace cp2
 {
-	// To RYB
+	// RYB <=> RGB
 	template<>
 	struct ColorCastTraits<RYB, RGB>
 	{
 		constexpr static RYB Cast(const RGB& rgb)
 		{
-			auto [R, G, B] = rgb;
+			auto&& [R, G, B] = rgb;
 			const double Iw = Math::Min(R, G, B);
 			const double rRGB = R - Iw;
 			const double gRGB = G - Iw;
@@ -41,22 +41,13 @@ export namespace cp2
 			};
 		}
 	};
-	template<class From>
-	struct ColorCastTraits<RYB, From>
-	{
-		constexpr static RYB Cast(const From& from)
-		{
-			return ColorCast<RYB>(ColorCast<RGB>(from));
-		}
-	};
 
-	// To RGB
 	template<>
 	struct ColorCastTraits<RGB, RYB>
 	{
 		constexpr static RGB Cast(const RYB& ryb)
 		{
-			auto [R, Y, B] = ryb;
+			auto&& [R, Y, B] = ryb;
 			const double Ib = Math::Min(R, Y, B);
 			const double rRYB = R - Ib;
 			const double yRYB = Y - Ib;
@@ -82,6 +73,16 @@ export namespace cp2
 				gRGB_ + Iw,
 				bRGB_ + Iw,
 			};
+		}
+	};
+
+	// RYB <=> OTHER
+	template<class From>
+	struct ColorCastTraits<RYB, From>
+	{
+		constexpr static RYB Cast(const From& from)
+		{
+			return ColorCast<RYB>(ColorCast<RGB>(from));
 		}
 	};
 }
