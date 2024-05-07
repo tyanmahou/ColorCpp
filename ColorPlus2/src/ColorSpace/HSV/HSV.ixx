@@ -4,7 +4,7 @@ import :Math;
 export namespace cp2
 {
 	/// <summary>
-	/// HSV
+	/// HSV (円柱モデル)
 	/// </summary>
 	struct HSV
 	{

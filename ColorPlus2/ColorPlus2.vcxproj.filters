@@ -18,10 +18,10 @@
     <ClCompile Include="src\ColorPlus2.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColorSpace\RGB.ixx">
+    <ClCompile Include="src\ColorSpace\RGB\RGB.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColorSpace\RYB.ixx">
+    <ClCompile Include="src\ColorSpace\RYB\RYB.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\ColorCast\ColorCast.ixx">
@@ -36,10 +36,10 @@
     <ClCompile Include="src\ColorCast\ColorCastTrait.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColorCast\CastRGB.ixx">
+    <ClCompile Include="src\ColorSpace\RGB\CastRGB.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColorCast\CastRYB.ixx">
+    <ClCompile Include="src\ColorSpace\RYB\CastRYB.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\ColorSpace\CMY\CMY.ixx">
@@ -48,10 +48,10 @@
     <ClCompile Include="src\ColorSpace\CMY\CastCMY.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColorSpace\XYZ.ixx">
+    <ClCompile Include="src\ColorSpace\XYZ\XYZ.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColorCast\CastXYZ.ixx">
+    <ClCompile Include="src\ColorSpace\XYZ\CastXYZ.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\ColorSpace\Lab\Lab.ixx">
@@ -94,6 +94,27 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\ColorSpace\OkLCH\CastOkLCH.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\RGBA\RGBA.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\RGBA32\RGBA32.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\RGB24\RGB24.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\RGB24\CastRGB24.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\RGBA\CastRGBA.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\RGBA32\CastRGBA32.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\HSV\CastHSV.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

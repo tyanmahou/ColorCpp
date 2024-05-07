@@ -62,21 +62,19 @@ void Main()
 	using namespace cp2;
 	Color base = Palette::Red;
 	s3d::HSV hsv = base;
-	LCH lch = ColorCast<LCH>(base);
-	OkLCH oklch = ColorCast<OkLCH>(base);
+	cp2::HSV hsv2 = ColorCast<cp2::HSV>(base);
+
 	while (System::Update())
 	{
 		ClearPrint();
 		for (size_t i = 0; i < 8; ++i) {
-			LCH copy = lch;
-			copy.l = s3d::Math::Lerp(0.0, 100.0, s3d::Math::InvLerp(0, 7, i));
-			copy = cp2::Utility::ClampChroma(copy);
-			Rect{ 100 * i, 000, 100, 100 }.draw(ColorCast<ColorF>(copy));
+			s3d::HSV copy = hsv;
+			copy.h = s3d::Math::Lerp(0.0, 360.0, s3d::Math::InvLerp(0, 7, i));
+			Rect{ 100 * i, 000, 100, 100 }.draw(copy);
 		}
 		for (size_t i = 0; i < 8; ++i) {
-			OkLCH copy = oklch;
-			copy.l = s3d::Math::Lerp(0.0, 1.0, s3d::Math::InvLerp(0, 7, i));
-			copy = cp2::Utility::ClampChroma(copy);
+			cp2::HSV copy = hsv2;
+			copy.h = s3d::Math::Lerp(0.0, 360.0, s3d::Math::InvLerp(0, 7, i));
 			Rect{ 100 * i, 100, 100, 100 }.draw(ColorCast<ColorF>(copy));
 		}
 	}
