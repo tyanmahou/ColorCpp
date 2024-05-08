@@ -149,6 +149,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\ColorSpace\HSL\CastHSL.ixx" />
+    <ClCompile Include="src\ColorSpace\HSL\HSL.ixx" />
     <ClCompile Include="src\ColorSpace\HSV\CastHSV.ixx" />
     <ClCompile Include="src\ColorSpace\LCH\CastLCH.ixx" />
     <ClCompile Include="src\ColorSpace\RGB24\CastRGB24.ixx" />

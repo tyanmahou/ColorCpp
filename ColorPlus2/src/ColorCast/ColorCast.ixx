@@ -5,6 +5,7 @@ export import :CastRGBA;
 export import :CastRGB24;
 export import :CastRGBA32;
 export import :CastHSV;
+export import :CastHSL;
 export import :CastRYB;
 export import :CastCMY;
 export import :CastCMYK;
