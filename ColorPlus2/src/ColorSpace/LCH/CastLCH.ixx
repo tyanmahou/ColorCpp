@@ -7,7 +7,9 @@ import :Math;
 import <numbers>;
 
 import :RGB;
+import :LRGB;
 import :XYZ;
+import :CastLRGB;
 import :CastXYZ;
 import :CastLab;
 
@@ -66,7 +68,7 @@ export namespace cp2
 	{
 		constexpr static RGB Cast(const LCH& lch)
 		{
-			return ColorCast<RGB>(ColorCast<XYZ>(ColorCast<Lab>(lch)));
+			return ColorCast<RGB>(ColorCast<LRGB>(ColorCast<XYZ>(ColorCast<Lab>(lch))));
 		}
 	};
 }

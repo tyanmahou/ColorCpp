@@ -132,5 +132,11 @@
     <ClCompile Include="src\Util\Constants.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\ColorSpace\LRGB\LRGB.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\LRGB\CastLRGB.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

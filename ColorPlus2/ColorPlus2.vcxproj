@@ -153,6 +153,8 @@
     <ClCompile Include="src\ColorSpace\HSL\HSL.ixx" />
     <ClCompile Include="src\ColorSpace\HSV\CastHSV.ixx" />
     <ClCompile Include="src\ColorSpace\LCH\CastLCH.ixx" />
+    <ClCompile Include="src\ColorSpace\LRGB\CastLRGB.ixx" />
+    <ClCompile Include="src\ColorSpace\LRGB\LRGB.ixx" />
     <ClCompile Include="src\ColorSpace\Luv\CastLuv.ixx" />
     <ClCompile Include="src\ColorSpace\Luv\Luv.ixx" />
     <ClCompile Include="src\ColorSpace\RGB24\CastRGB24.ixx" />

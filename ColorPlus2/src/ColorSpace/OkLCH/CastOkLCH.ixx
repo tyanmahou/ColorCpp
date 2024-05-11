@@ -7,6 +7,8 @@ import :Math;
 import <numbers>;
 
 import :RGB;
+import :LRGB;
+import :CastLRGB;
 import :CastOkLab;
 
 export namespace cp2
@@ -64,7 +66,7 @@ export namespace cp2
 	{
 		constexpr static RGB Cast(const OkLCH& lch)
 		{
-			return ColorCast<RGB>(ColorCast<OkLab>(lch));
+			return ColorCast<RGB>(ColorCast<LRGB>(ColorCast<OkLab>(lch)));
 		}
 	};
 }

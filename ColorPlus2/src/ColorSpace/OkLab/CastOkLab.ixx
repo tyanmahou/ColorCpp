@@ -1,7 +1,7 @@
 ﻿export module ColorPlus2:CastOkLab;
 import :ColorCastTrait;
 
-import :RGB;
+import :LRGB;
 import :CastXYZ;
 
 import :XYZ;
@@ -57,11 +57,11 @@ export namespace cp2
 	// OkLab <=> RGB
 	// https://bottosson.github.io/posts/oklab/#converting-from-linear-srgb-to-oklab
 	template<>
-	struct ColorCastTraits<OkLab, RGB>
+	struct ColorCastTraits<OkLab, LRGB>
 	{
-		constexpr static OkLab Cast(const RGB& rgb)
+		constexpr static OkLab Cast(const LRGB& rgb)
 		{
-			auto [r, g, b] = SRGBToLinear(rgb);
+			const auto& [r, g, b] = rgb;
 
 			double l = 0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b;
 			double m = 0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b;
@@ -79,9 +79,9 @@ export namespace cp2
 		}
 	};
 	template<>
-	struct ColorCastTraits<RGB, OkLab>
+	struct ColorCastTraits<LRGB, OkLab>
 	{
-		constexpr static RGB Cast(const OkLab& lab)
+		constexpr static LRGB Cast(const OkLab& lab)
 		{
 			double l_ = lab.l + 0.3963377774 * lab.a + 0.2158037573 * lab.b;
 			double m_ = lab.l - 0.1055613458 * lab.a - 0.0638541728 * lab.b;
@@ -90,13 +90,12 @@ export namespace cp2
 			double l = l_ * l_ * l_;
 			double m = m_ * m_ * m_;
 			double s = s_ * s_ * s_;
-
-			RGB lrgb{
+			
+			return LRGB{
 				+4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s,
 				-1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
 				-0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s,
 			};
-			return LinearToSRGB(lrgb);
 		}
 	};
 	// OkLab <=> OTHER
@@ -105,7 +104,7 @@ export namespace cp2
 	{
 		constexpr static OkLab Cast(const From& from)
 		{
-			return ColorCast<OkLab>(ColorCast<RGB>(from));
+			return ColorCast<OkLab>(ColorCast<LRGB>(from));
 		}
 	};
 	//template<class To>
