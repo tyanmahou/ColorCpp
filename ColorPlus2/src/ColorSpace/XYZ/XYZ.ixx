@@ -25,7 +25,4 @@ export namespace cp2
 
 		friend constexpr bool operator==(const XYZ& a, const XYZ& b) = default;
 	};
-
-	inline constexpr XYZ D50{ 0.96419503 ,1.0,0.82511874 };
-	inline constexpr XYZ D65{ 0.950456 , 1.0 , 1.088754 };
 }

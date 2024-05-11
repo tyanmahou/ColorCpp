@@ -6,6 +6,7 @@ import :CastXYZ;
 import :XYZ;
 import :Lab;
 import :Math;
+import :Constants;
 
 export namespace cp2
 {
@@ -17,13 +18,11 @@ export namespace cp2
 		{
 			auto&& [x, y, z] = xyz;
 
-			constexpr double epsilon = 0.008856451679;
-			constexpr double kappa = 903.296296296;
 			const auto& [xr, yr, zr] = D65;
 
-			double fx = (x > epsilon) ? Math::Cbrt(x / xr) : (kappa * x + 16.0) / 116.0;
-			double fy = (y > epsilon) ? Math::Cbrt(y / yr) : (kappa * y + 16.0) / 116.0;
-			double fz = (z > epsilon) ? Math::Cbrt(z / zr) : (kappa * z + 16.0) / 116.0;
+			double fx = (x > Epsilon) ? Math::Cbrt(x / xr) : (Kappa * x + 16.0) / 116.0;
+			double fy = (y > Epsilon) ? Math::Cbrt(y / yr) : (Kappa * y + 16.0) / 116.0;
+			double fz = (z > Epsilon) ? Math::Cbrt(z / zr) : (Kappa * z + 16.0) / 116.0;
 
 			return Lab{
 				.l = 116.0 * fy - 16.0,
@@ -37,8 +36,6 @@ export namespace cp2
 	{
 		constexpr static XYZ Cast(const Lab& lab)
 		{
-			constexpr double epsilon = 0.008856451679;
-			constexpr double kappa = 903.296296296;
 			const auto& [xr, yr, zr] = D65;
 
 			auto&& [l, a, b] = lab;
@@ -52,9 +49,9 @@ export namespace cp2
 			double fz3 = fz * fz * fz;
 
 			return XYZ{
-				.x = ((fx3 > epsilon) ? fx3 : (116.0 * fx - 16.0) / kappa) * xr,
-				.y = ((fy3 > epsilon) ? fy3 : (116.0 * fy - 16.0) / kappa) * yr,
-				.z = ((fz3 > epsilon) ? fz3 : (116.0 * fz - 16.0) / kappa) * zr
+				.x = ((fx3 > Epsilon) ? fx3 : (116.0 * fx - 16.0) / Kappa) * xr,
+				.y = ((fy3 > Epsilon) ? fy3 : (116.0 * fy - 16.0) / Kappa) * yr,
+				.z = ((fz3 > Epsilon) ? fz3 : (116.0 * fz - 16.0) / Kappa) * zr
 			};
 		}
 	};

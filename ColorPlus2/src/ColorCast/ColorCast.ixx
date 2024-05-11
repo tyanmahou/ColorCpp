@@ -15,3 +15,4 @@ export import :CastOkLab;
 export import :CastHunterLab;
 export import :CastLCH;
 export import :CastOkLCH;
+export import :CastLuv;

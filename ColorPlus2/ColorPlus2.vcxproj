@@ -153,6 +153,8 @@
     <ClCompile Include="src\ColorSpace\HSL\HSL.ixx" />
     <ClCompile Include="src\ColorSpace\HSV\CastHSV.ixx" />
     <ClCompile Include="src\ColorSpace\LCH\CastLCH.ixx" />
+    <ClCompile Include="src\ColorSpace\Luv\CastLuv.ixx" />
+    <ClCompile Include="src\ColorSpace\Luv\Luv.ixx" />
     <ClCompile Include="src\ColorSpace\RGB24\CastRGB24.ixx" />
     <ClCompile Include="src\ColorSpace\RGB24\RGB24.ixx" />
     <ClCompile Include="src\ColorSpace\RGBA32\CastRGBA32.ixx" />
@@ -182,6 +184,7 @@
     <ClCompile Include="src\ColorSpace\RGB\RGB.ixx" />
     <ClCompile Include="src\ColorSpace\RYB\RYB.ixx" />
     <ClCompile Include="src\ColorSpace\XYZ\XYZ.ixx" />
+    <ClCompile Include="src\Util\Constants.ixx" />
     <ClCompile Include="src\Util\Utility.ixx" />
     <ClCompile Include="src\Util\Math.ixx" />
     <ClCompile Include="src\Util\Type.ixx" />
