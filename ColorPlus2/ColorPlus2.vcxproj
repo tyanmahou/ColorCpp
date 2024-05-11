@@ -163,7 +163,6 @@
     <ClCompile Include="src\ColorSpace\RGBA32\RGBA32.ixx" />
     <ClCompile Include="src\ColorSpace\RGBA\CastRGBA.ixx" />
     <ClCompile Include="src\ColorSpace\RGBA\RGBA.ixx" />
-    <ClCompile Include="src\ColorSpace\XYZ\CastXYZ.ixx" />
     <ClCompile Include="src\ColorCast\ColorCastTrait.ixx" />
     <ClCompile Include="src\ColorSpace\CMYK\CastCMYK.ixx" />
     <ClCompile Include="src\ColorSpace\CMYK\CMYK.ixx" />
@@ -185,6 +184,7 @@
     <ClCompile Include="src\ColorSpace\OkLCH\OkLCH.ixx" />
     <ClCompile Include="src\ColorSpace\RGB\RGB.ixx" />
     <ClCompile Include="src\ColorSpace\RYB\RYB.ixx" />
+    <ClCompile Include="src\ColorSpace\XYZ\CastXYZ.ixx" />
     <ClCompile Include="src\ColorSpace\XYZ\XYZ.ixx" />
     <ClCompile Include="src\Util\Constants.ixx" />
     <ClCompile Include="src\Util\Utility.ixx" />

@@ -68,7 +68,7 @@ export namespace cp2
 	{
 		constexpr static RGB Cast(const LCH& lch)
 		{
-			return ColorCast<RGB>(ColorCast<LRGB>(ColorCast<XYZ>(ColorCast<Lab>(lch))));
+			return ColorCast<RGB>(ColorCast<LRGB>(ColorCast<XYZ65>(ColorCast<Lab>(lch))));
 		}
 	};
 }

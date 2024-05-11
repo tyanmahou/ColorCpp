@@ -10,11 +10,11 @@ import :Math;
 
 export namespace cp2
 {
-	// OkLab <=> XYZ
+	// OkLab <=> XYZ65
 	template<>
-	struct ColorCastTraits<OkLab, XYZ>
+	struct ColorCastTraits<OkLab, XYZ65>
 	{
-		constexpr static OkLab Cast(const XYZ& xyz)
+		constexpr static OkLab Cast(const XYZ65& xyz)
 		{
 			auto&& [x, y, z] = xyz;
 
@@ -34,9 +34,9 @@ export namespace cp2
 		}
 	};
 	template<>
-	struct ColorCastTraits<XYZ, OkLab>
+	struct ColorCastTraits<XYZ65, OkLab>
 	{
-		constexpr static XYZ Cast(const OkLab& lab)
+		constexpr static XYZ65 Cast(const OkLab& lab)
 		{
 			double l_ = lab.l + 0.3963377774 * lab.a + 0.2158037573 * lab.b;
 			double m_ = lab.l - 0.1055613458 * lab.a - 0.0638541728 * lab.b;
@@ -46,7 +46,7 @@ export namespace cp2
 			double m = m_ * m_ * m_;
 			double s = s_ * s_ * s_;
 
-			return XYZ{
+			return XYZ65{
 				+1.227013851 * l - 0.5577999807 * m + 0.281256149 * s,
 				-0.04058017842 * l + 1.11225687 * m - 0.07167667867 * s,
 				-0.07638128451 * l - 0.4214819784 * m + 1.58616322 * s,

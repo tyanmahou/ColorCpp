@@ -11,14 +11,14 @@ import :Constants;
 export namespace cp2
 {
 	// Lab <=> XYZ
-	template<>
-	struct ColorCastTraits<Lab, XYZ>
+	template<class WhitePointTag>
+	struct ColorCastTraits<Lab, XYZBase<WhitePointTag>>
 	{
-		constexpr static Lab Cast(const XYZ& xyz)
+		constexpr static Lab Cast(const XYZBase<WhitePointTag>& xyz)
 		{
 			auto&& [x, y, z] = xyz;
 
-			const auto& [xr, yr, zr] = D65;
+			const auto& [xr, yr, zr] = WhitePoint<XYZBase<WhitePointTag>>;
 
 			double fx = (x > Epsilon) ? Math::Cbrt(x / xr) : (Kappa * x + 16.0) / 116.0;
 			double fy = (y > Epsilon) ? Math::Cbrt(y / yr) : (Kappa * y + 16.0) / 116.0;
@@ -31,12 +31,12 @@ export namespace cp2
 			};
 		}
 	};
-	template<>
-	struct ColorCastTraits<XYZ, Lab>
+	template<class WhitePointTag>
+	struct ColorCastTraits<XYZBase<WhitePointTag>, Lab>
 	{
-		constexpr static XYZ Cast(const Lab& lab)
+		constexpr static XYZBase<WhitePointTag> Cast(const Lab& lab)
 		{
-			const auto& [xr, yr, zr] = D65;
+			const auto& [xr, yr, zr] = WhitePoint<XYZBase<WhitePointTag>>;
 
 			auto&& [l, a, b] = lab;
 
@@ -48,7 +48,7 @@ export namespace cp2
 			double fy3 = fy * fy * fy;
 			double fz3 = fz * fz * fz;
 
-			return XYZ{
+			return XYZBase<WhitePointTag>{
 				.x = ((fx3 > Epsilon) ? fx3 : (116.0 * fx - 16.0) / Kappa) * xr,
 				.y = ((fy3 > Epsilon) ? fy3 : (116.0 * fy - 16.0) / Kappa) * yr,
 				.z = ((fz3 > Epsilon) ? fz3 : (116.0 * fz - 16.0) / Kappa) * zr
@@ -62,7 +62,7 @@ export namespace cp2
 	{
 		constexpr static Lab Cast(const From& from)
 		{
-			return ColorCast<Lab>(ColorCast<XYZ>(from));
+			return ColorCast<Lab>(ColorCast<XYZ65>(from));
 		}
 	};
 	//template<class To>

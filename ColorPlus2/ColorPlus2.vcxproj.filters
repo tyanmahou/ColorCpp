@@ -48,12 +48,6 @@
     <ClCompile Include="src\ColorSpace\CMY\CastCMY.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColorSpace\XYZ\XYZ.ixx">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ColorSpace\XYZ\CastXYZ.ixx">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="src\ColorSpace\Lab\Lab.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -136,6 +130,12 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\ColorSpace\LRGB\CastLRGB.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\XYZ\XYZ.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\XYZ\CastXYZ.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
