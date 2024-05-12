@@ -2,11 +2,22 @@
 #include <cstdint>
 
 export module ColorPlus2:Type;
+import <concepts>;
 
 namespace cp2
 {
     using uint8 = std::uint8_t;
     using uint32 = std::uint32_t;
+
+    template <typename T>
+    concept Character =
+        std::same_as<T, char> ||
+        std::same_as<T, signed char> ||
+        std::same_as<T, unsigned char> ||
+        std::same_as<T, wchar_t> ||
+        std::same_as<T, char8_t> ||
+        std::same_as<T, char16_t> ||
+        std::same_as<T, char32_t>;
 
     constexpr inline uint8 DoubleToUInt8(double v)
     {

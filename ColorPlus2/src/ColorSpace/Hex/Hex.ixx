@@ -1,4 +1,5 @@
 ﻿export module ColorPlus2:Hex;
+import :Type;
 import <string_view>;
 
 export namespace cp2
@@ -10,7 +11,13 @@ export namespace cp2
 	{
 		constexpr Hex() = default;
 
-		template<class CharT>
+		template<Character CharT>
+		constexpr Hex(const CharT* code) :
+			Hex(std::basic_string_view<CharT>(code))
+		{
+
+		}
+		template<Character CharT>
 		constexpr Hex(std::basic_string_view<CharT> code)
 		{
 			if (code.empty()) {
@@ -21,7 +28,7 @@ export namespace cp2
 			}
 			if (code.length() == 3 || code.length() == 4) {
 				for (size_t i = 0; i < 3; ++i) {
-					_hex[i] = _hex[i * 2 + 1] = code[i];
+					_hex[i * 2] = _hex[i * 2 + 1] = code[i];
 				}
 				_hex[6] = _hex[7] = (code.length() == 4) ? code[3] : 'F';
 			} else if (code.length() == 6 || code.length() == 8) {
