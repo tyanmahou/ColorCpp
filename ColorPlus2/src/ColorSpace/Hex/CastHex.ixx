@@ -12,7 +12,7 @@ export namespace cp2
 	{
 		constexpr static RGBA32 Cast(const Hex& hex)
 		{
-			auto hexView = hex.hex();
+			auto hexView = hex.hexView();
 
 			return RGBA32{
 				.r = static_cast<uint8>(HexToDecimal(hexView[0]) * 16 + HexToDecimal(hexView[1])),

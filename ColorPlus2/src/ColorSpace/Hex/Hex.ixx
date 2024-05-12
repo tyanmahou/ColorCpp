@@ -1,7 +1,16 @@
 ﻿export module ColorPlus2:Hex;
 import :Type;
+import <string>;
 import <string_view>;
 
+namespace
+{
+	template<cp2::Character CharT>
+	inline constexpr char ToUpper(CharT c)
+	{
+		return c >= 'a' ? c - ('a' - 'A') : c;
+	}
+}
 export namespace cp2
 {
 	/// <summary>
@@ -28,22 +37,26 @@ export namespace cp2
 			}
 			if (code.length() == 3 || code.length() == 4) {
 				for (size_t i = 0; i < 3; ++i) {
-					_hex[i * 2] = _hex[i * 2 + 1] = code[i];
+					_hex[i * 2] = _hex[i * 2 + 1] = ToUpper(code[i]);
 				}
-				_hex[6] = _hex[7] = (code.length() == 4) ? code[3] : 'F';
+				_hex[6] = _hex[7] = (code.length() == 4) ? ToUpper(code[3]) : 'F';
 			} else if (code.length() == 6 || code.length() == 8) {
 				for (size_t i = 0; i < 6; ++i) {
-					_hex[i] = code[i];
+					_hex[i] = ToUpper(code[i]);
 				}
-				_hex[6] = (code.length() == 8) ? code[6] : 'F';
-				_hex[7] = (code.length() == 8) ? code[7] : 'F';
+				_hex[6] = (code.length() == 8) ? ToUpper(code[6]) : 'F';
+				_hex[7] = (code.length() == 8) ? ToUpper(code[7]) : 'F';
 			}
 		}
-
-		constexpr std::string_view hex() const noexcept
+		std::string hex() const
+		{
+			return std::string(_hex, 8);
+		}
+		constexpr std::string_view hexView() const& noexcept
 		{
 			return { _hex, 8 };
 		}
+		std::string_view hexView() const&& noexcept = delete;
 
 		friend constexpr bool operator==(const Hex& a, const Hex& b) = default;
 	private:
