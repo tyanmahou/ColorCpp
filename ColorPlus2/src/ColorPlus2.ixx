@@ -17,6 +17,7 @@ export import :HunterLab;
 export import :LCH;
 export import :OkLCH;
 export import :Luv;
+export import :Hex;
 
 export import :ColorCast;
 

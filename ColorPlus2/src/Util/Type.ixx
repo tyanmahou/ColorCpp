@@ -6,6 +6,7 @@ export module ColorPlus2:Type;
 namespace cp2
 {
     using uint8 = std::uint8_t;
+    using uint32 = std::uint32_t;
 
     constexpr inline uint8 DoubleToUInt8(double v)
     {
@@ -20,5 +21,17 @@ namespace cp2
     constexpr inline double UInt8ToDouble(uint8 v)
     {
         return v / 255.0;
+    }
+
+    constexpr inline uint8 HexToDecimal(char hex)
+    {
+        // 1,A,aの下位4bitがそれぞれ 0x01～なので0x0Fでマスクすると
+        // 0～9 => 0～9, A～F => 1～6, a～f => 1～6になる
+        // (hex & 0x40) >> 6 で 0～9 => 0, a～f,A～F => 1　になる
+        return (hex & 0x0F) + ((hex & 0x40) >> 6) * 9;
+    }
+    constexpr inline char DecimalToHex(uint8 d)
+    {
+        return d >= 10 ? (d - 10) + 'A' : d + '0';
     }
 }
