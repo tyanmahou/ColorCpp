@@ -1,36 +1,38 @@
 ﻿export module ColorPlus2:CastRGBA;
 import :ColorCastTrait;
+import :Type;
 import :RGBA;
-import :RGB;
+import :RGBA32;
 import :Math;
 
 export namespace colorp2
 {
-    // RGBA <=> RGB
+    // RGBA <=> RGBA32
     template<>
-    struct ColorCastTraits<RGBA, RGB>
+    struct ColorCastTraits<RGBA, RGBA32>
     {
-        constexpr static RGBA Cast(const RGB& rgb)
+        constexpr static RGBA Cast(const RGBA32& rgba)
         {
             return
             {
-                .r = rgb.r,
-                .g = rgb.g,
-                .b = rgb.b,
-                .a = 1.0
+                .r = UInt8ToDouble(rgba.r),
+                .g = UInt8ToDouble(rgba.g),
+                .b = UInt8ToDouble(rgba.b),
+                .a = UInt8ToDouble(rgba.a),
             };
         }
     };
     template<>
-    struct ColorCastTraits<RGB, RGBA>
+    struct ColorCastTraits<RGBA32, RGBA>
     {
-        constexpr static RGB Cast(const RGBA& rgba)
+        constexpr static RGBA32 Cast(const RGBA& rgba)
         {
             return
             {
-                .r = rgba.r,
-                .g = rgba.g,
-                .b = rgba.b
+                .r = DoubleToUInt8(rgba.r),
+                .g = DoubleToUInt8(rgba.g),
+                .b = DoubleToUInt8(rgba.b),
+                .a = DoubleToUInt8(rgba.a),
             };
         }
     };
@@ -41,7 +43,7 @@ export namespace colorp2
     {
         constexpr static RGBA Cast(const From& from)
         {
-            return ColorCast<RGBA>(ColorCast<RGB>(from));
+            return ColorCast<RGBA>(ColorCast<RGBA32>(from));
         }
     };
 }

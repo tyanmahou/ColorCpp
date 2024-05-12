@@ -41,4 +41,13 @@ export namespace colorp2
 			return Hex{ std::string_view{hex, 8} };
 		}
 	};
+	// Hex <=> OTHER
+	template<class From>
+	struct ColorCastTraits<Hex, From>
+	{
+		constexpr static Hex Cast(const From& from)
+		{
+			return ColorCast<Hex>(ColorCast<RGBA32>(from));
+		}
+	};
 }
