@@ -29,6 +29,7 @@ export namespace colorp2
 
 	using XYZ50 = XYZBase<struct XYZ_D50>;
 	using XYZ65 = XYZBase<struct XYZ_D65>;
+	using XYZ = XYZ65;
 
 	template<class XYZ_>
 	inline constexpr XYZ_ WhitePoint{1, 1, 1};

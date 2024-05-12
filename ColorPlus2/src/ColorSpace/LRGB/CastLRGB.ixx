@@ -5,6 +5,12 @@ import :RGB;
 import :LRGB;
 export namespace colorp2
 {
+	template<>
+	struct ColorCastDependency<LRGB>
+	{
+		using depend_type = RGB;
+	};
+
 	// LRGB <=> RGB
 	template<>
 	struct ColorCastTraits<LRGB, RGB>
@@ -28,16 +34,6 @@ export namespace colorp2
 				LinearToSRGB(rgb.g),
 				LinearToSRGB(rgb.b)
 			};
-		}
-	};
-
-	// LRGB <=> OTHER
-	template<class From>
-	struct ColorCastTraits<LRGB, From>
-	{
-		constexpr static LRGB Cast(const From& from)
-		{
-			return ColorCast<LRGB>(ColorCast<RGB>(from));
 		}
 	};
 }

@@ -6,6 +6,12 @@ import :XYZ;
 
 export namespace colorp2
 {
+    template<class WhitePointTag>
+    struct ColorCastDependency<XYZBase<WhitePointTag>>
+    {
+        using depend_type = LRGB;
+    };
+
     // XYZ65 <=> LRGB
     template<>
     struct ColorCastTraits<XYZ65, LRGB>
@@ -57,16 +63,6 @@ export namespace colorp2
                 .g = -0.978795502912089 * xyz.x + 1.916254567259524 * xyz.y + 0.03344273116131949 * xyz.z,
                 .b = 0.07195537988411677 * xyz.x - 0.2289768264158322 * xyz.y + 1.405386058324125 * xyz.z
             };
-        }
-    };
-
-    // XYZ <=> OTHER
-    template<class WhitePointTag, class From>
-    struct ColorCastTraits<XYZBase<WhitePointTag>, From>
-    {
-        constexpr static XYZBase<WhitePointTag> Cast(const From& from)
-        {
-            return ColorCast<XYZBase<WhitePointTag>>(ColorCast<LRGB>(from));
         }
     };
 }

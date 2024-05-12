@@ -1,4 +1,5 @@
 ﻿export module ColorPlus2:ColorCastTrait;
+export import :ColorCastDependency;
 
 export namespace colorp2
 {
@@ -21,4 +22,23 @@ export namespace colorp2
 	{
 		return ColorCastTraits<To, From>::Cast(from);
 	}
+
+	template<class To, class From> requires DependOn<From, To>
+	struct ColorCastTraits<To, From>
+	{
+		using from_depend_type = typename ColorCastDependency<From>::depend_type;
+		static constexpr To Cast(const From& from)
+		{
+			return ColorCast<To>(ColorCast<from_depend_type>(from));
+		}
+	};
+	template<class To, class From> requires (!DependOn<From, To>)
+	struct ColorCastTraits<To, From>
+	{
+		using to_depend_type = typename ColorCastDependency<To>::depend_type;
+		static constexpr To Cast(const From& from)
+		{
+			return ColorCast<To>(ColorCast<to_depend_type>(from));
+		}
+	};
 }

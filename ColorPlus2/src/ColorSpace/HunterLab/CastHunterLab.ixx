@@ -7,6 +7,12 @@ import :Math;
 
 export namespace colorp2
 {
+	template<>
+	struct ColorCastDependency<HunterLab>
+	{
+		using depend_type = XYZ65;
+	};
+
 	// HunterLab <=> XYZ
 	template<class WhitePointTag>
 	struct ColorCastTraits<HunterLab, XYZBase<WhitePointTag>>
@@ -40,22 +46,4 @@ export namespace colorp2
 			};
 		}
 	};
-
-	// HunterLab <=> OTHER
-	template<class From>
-	struct ColorCastTraits<HunterLab, From>
-	{
-		constexpr static HunterLab Cast(const From& from)
-		{
-			return ColorCast<HunterLab>(ColorCast<XYZ65>(from));
-		}
-	};
-	//template<class To>
-	//struct ColorCastTraits<To, HunterLab>
-	//{
-	//	constexpr static To Cast(const HunterLab& lab)
-	//	{
-	//		return ColorCast<To>(ColorCast<XYZ>(lab));
-	//	}
-	//};
 }

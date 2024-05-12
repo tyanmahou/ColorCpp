@@ -10,6 +10,12 @@ import :Math;
 
 export namespace colorp2
 {
+	template<>
+	struct ColorCastDependency<OkLab>
+	{
+		using depend_type = LRGB;
+	};
+
 	// OkLab <=> XYZ65
 	template<>
 	struct ColorCastTraits<OkLab, XYZ65>
@@ -98,21 +104,4 @@ export namespace colorp2
 			};
 		}
 	};
-	// OkLab <=> OTHER
-	template<class From>
-	struct ColorCastTraits<OkLab, From>
-	{
-		constexpr static OkLab Cast(const From& from)
-		{
-			return ColorCast<OkLab>(ColorCast<LRGB>(from));
-		}
-	};
-	//template<class To>
-	//struct ColorCastTraits<To, OkLab>
-	//{
-	//	constexpr static To Cast(const OkLab& lab)
-	//	{
-	//		return ColorCast<To>(ColorCast<RGB>(lab));
-	//	}
-	//};
 }

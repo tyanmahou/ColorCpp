@@ -4,10 +4,7 @@ import :RGB;
 import :LCH;
 import :OkLCH;
 
-import :CastLCH;
-import :CastLab;
-import :CastOkLCH;
-import :CastOkLab;
+import :ColorCast;
 
 export namespace colorp2
 {

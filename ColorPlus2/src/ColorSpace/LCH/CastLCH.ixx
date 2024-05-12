@@ -6,15 +6,14 @@ import :LCH;
 import :Math;
 import <numbers>;
 
-import :RGB;
-import :LRGB;
-import :XYZ;
-import :CastLRGB;
-import :CastXYZ;
-import :CastLab;
-
 export namespace colorp2
 {
+	template<>
+	struct ColorCastDependency<LCH>
+	{
+		using depend_type = Lab;
+	};
+
 	// LCH <=> Lab
 	template<>
 	struct ColorCastTraits<LCH, Lab>
@@ -43,32 +42,6 @@ export namespace colorp2
 				.a = Math::Cos(h) * lch.c,
 				.b = Math::Sin(h) * lch.c,
 			};
-		}
-	};
-	// LCH <=> OTHER
-	template<class From>
-	struct ColorCastTraits<LCH, From>
-	{
-		constexpr static LCH Cast(const From& from)
-		{
-			return ColorCast<LCH>(ColorCast<Lab>(from));
-		}
-	};
-	//template<class To>
-	//struct ColorCastTraits<To, LCH>
-	//{
-	//	constexpr static To Cast(const LCH& lch)
-	//	{
-	//		return ColorCast<To>(ColorCast<Lab>(lch));
-	//	}
-	//};
-
-	template<>
-	struct ColorCastTraits<RGB, LCH>
-	{
-		constexpr static RGB Cast(const LCH& lch)
-		{
-			return ColorCast<RGB>(ColorCast<LRGB>(ColorCast<XYZ65>(ColorCast<Lab>(lch))));
 		}
 	};
 }

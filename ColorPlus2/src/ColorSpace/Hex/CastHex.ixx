@@ -6,6 +6,12 @@ import :Type;
 
 export namespace colorp2
 {
+	template<>
+	struct ColorCastDependency<Hex>
+	{
+		using depend_type = RGBA32;
+	};
+
 	// RGBA32 <=> Hex
 	template<>
 	struct ColorCastTraits<RGBA32, Hex>
@@ -39,15 +45,6 @@ export namespace colorp2
 				DecimalToHex(a & 0x0F)
 			};
 			return Hex{ std::string_view{hex, 8} };
-		}
-	};
-	// Hex <=> OTHER
-	template<class From>
-	struct ColorCastTraits<Hex, From>
-	{
-		constexpr static Hex Cast(const From& from)
-		{
-			return ColorCast<Hex>(ColorCast<RGBA32>(from));
 		}
 	};
 }

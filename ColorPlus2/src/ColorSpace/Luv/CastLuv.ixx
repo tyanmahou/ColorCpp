@@ -32,6 +32,12 @@ namespace colorp2
 }
 export namespace colorp2
 {
+	template<>
+	struct ColorCastDependency<Luv>
+	{
+		using depend_type = XYZ65;
+	};
+
 	// Luv <=> XYZ65
 	template<class WhitePointTag>
 	struct ColorCastTraits<Luv, XYZBase<WhitePointTag>>
@@ -69,22 +75,4 @@ export namespace colorp2
 			return XYZBase<WhitePointTag>{x, y, z};
 		}
 	};
-
-	// Luv <=> OTHER
-	template<class From>
-	struct ColorCastTraits<Luv, From>
-	{
-		constexpr static Luv Cast(const From& from)
-		{
-			return ColorCast<Luv>(ColorCast<XYZ65>(from));
-		}
-	};
-	//template<class To>
-	//struct ColorCastTraits<To, Luv>
-	//{
-	//	constexpr static To Cast(const Luv& luv)
-	//	{
-	//		return ColorCast<To>(ColorCast<XYZ>(luv));
-	//	}
-	//};
 }

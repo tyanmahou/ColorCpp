@@ -6,6 +6,12 @@ import :Math;
 
 export namespace colorp2
 {
+	template<>
+	struct ColorCastDependency<HSL>
+	{
+		using depend_type = RGB;
+	};
+
 	// HSL <=> RGB
 	template<>
 	struct ColorCastTraits<HSL, RGB>
@@ -84,16 +90,6 @@ export namespace colorp2
 			}
 			return min;
 
-		}
-	};
-
-	// HSL <=> OTHER
-	template<class From>
-	struct ColorCastTraits<HSL, From>
-	{
-		constexpr static HSL Cast(const From& from)
-		{
-			return ColorCast<HSL>(ColorCast<RGB>(from));
 		}
 	};
 }

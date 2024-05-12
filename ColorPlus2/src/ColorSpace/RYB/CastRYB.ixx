@@ -7,6 +7,12 @@ import :Math;
 
 export namespace colorp2
 {
+	template<>
+	struct ColorCastDependency<RYB>
+	{
+		using depend_type = RGB;
+	};
+
 	// RYB <=> RGB
 	template<>
 	struct ColorCastTraits<RYB, RGB>
@@ -73,16 +79,6 @@ export namespace colorp2
 				gRGB_ + Iw,
 				bRGB_ + Iw,
 			};
-		}
-	};
-
-	// RYB <=> OTHER
-	template<class From>
-	struct ColorCastTraits<RYB, From>
-	{
-		constexpr static RYB Cast(const From& from)
-		{
-			return ColorCast<RYB>(ColorCast<RGB>(from));
 		}
 	};
 }

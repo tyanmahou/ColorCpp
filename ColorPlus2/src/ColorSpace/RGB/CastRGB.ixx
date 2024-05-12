@@ -9,6 +9,11 @@ import :Type;
 
 export namespace colorp2
 {
+    template<>
+    struct ColorCastDependency<RGB>
+    {
+        using depend_type = RGBA;
+    };
     // RGB <=> RGBA
     template<>
     struct ColorCastTraits<RGB, RGBA>
@@ -93,16 +98,6 @@ export namespace colorp2
                 .g = DoubleToUInt8(rgb.g),
                 .b = DoubleToUInt8(rgb.b)
             };
-        }
-    };
-
-    // RGB <=> OTHER
-    template<class From>
-    struct ColorCastTraits<RGB, From>
-    {
-        constexpr static RGB Cast(const From& from)
-        {
-            return ColorCast<RGB>(ColorCast<RGBA>(from));
         }
     };
 }

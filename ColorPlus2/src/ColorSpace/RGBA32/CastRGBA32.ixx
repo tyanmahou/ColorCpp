@@ -4,4 +4,9 @@ import :RGBA32;
 
 export namespace colorp2
 {
+    template<>
+    struct ColorCastDependency<RGBA32>
+    {
+        using depend_type = void;
+    };
 }

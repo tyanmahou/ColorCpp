@@ -7,6 +7,12 @@ import <algorithm>;
 
 export namespace colorp2
 {
+	template<>
+	struct ColorCastDependency<HSV>
+	{
+		using depend_type = RGB;
+	};
+
 	// HSV <=> RGB
 	template<>
 	struct ColorCastTraits<HSV, RGB>
@@ -54,16 +60,6 @@ export namespace colorp2
 				.g = g,
 				.b = b
 			};
-		}
-	};
-
-	// HSV <=> OTHER
-	template<class From>
-	struct ColorCastTraits<HSV, From>
-	{
-		constexpr static HSV Cast(const From& from)
-		{
-			return ColorCast<HSV>(ColorCast<RGB>(from));
 		}
 	};
 }

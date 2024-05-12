@@ -6,13 +6,14 @@ import :OkLCH;
 import :Math;
 import <numbers>;
 
-import :RGB;
-import :LRGB;
-import :CastLRGB;
-import :CastOkLab;
-
 export namespace colorp2
 {
+	template<>
+	struct ColorCastDependency<OkLCH>
+	{
+		using depend_type = OkLab;
+	};
+
 	// OkLCH <=> OkLab
 	template<>
 	struct ColorCastTraits<OkLCH, OkLab>
@@ -41,32 +42,6 @@ export namespace colorp2
 				.a = Math::Cos(h) * lch.c,
 				.b = Math::Sin(h) * lch.c,
 			};
-		}
-	};
-	// OkLCH <=> OTHER
-	template<class From>
-	struct ColorCastTraits<OkLCH, From>
-	{
-		constexpr static OkLCH Cast(const From& from)
-		{
-			return ColorCast<OkLCH>(ColorCast<OkLab>(from));
-		}
-	};
-	//template<class To>
-	//struct ColorCastTraits<To, OkLCH>
-	//{
-	//	constexpr static To Cast(const OkLCH& lch)
-	//	{
-	//		return ColorCast<To>(ColorCast<OkLab>(lch));
-	//	}
-	//};
-
-	template<>
-	struct ColorCastTraits<RGB, OkLCH>
-	{
-		constexpr static RGB Cast(const OkLCH& lch)
-		{
-			return ColorCast<RGB>(ColorCast<LRGB>(ColorCast<OkLab>(lch)));
 		}
 	};
 }

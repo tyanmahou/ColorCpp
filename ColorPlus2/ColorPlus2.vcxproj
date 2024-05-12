@@ -149,6 +149,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\ColorCast\ColorCastDependency.ixx" />
     <ClCompile Include="src\ColorSpace\Hex\CastHex.ixx" />
     <ClCompile Include="src\ColorSpace\Hex\Hex.ixx" />
     <ClCompile Include="src\ColorSpace\HSL\CastHSL.ixx" />

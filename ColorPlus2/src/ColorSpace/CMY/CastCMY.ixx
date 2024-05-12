@@ -8,6 +8,12 @@ import :Math;
 
 export namespace colorp2
 {
+	template<>
+	struct ColorCastDependency<CMY>
+	{
+		using depend_type = RGB;
+	};
+
 	// CMY <=> RGB
 	template<>
 	struct ColorCastTraits<CMY, RGB>
@@ -33,22 +39,4 @@ export namespace colorp2
 			};
 		}
 	};
-
-	// CMY <=> OTHER
-	template<class From>
-	struct ColorCastTraits<CMY, From>
-	{
-		constexpr static CMY Cast(const From& from)
-		{
-			return ColorCast<CMY>(ColorCast<RGB>(from));
-		}
-	};
-	//template<class To>
-	//struct ColorCastTraits<To, CMY>
-	//{
-	//	constexpr static To Cast(const CMY& cmy)
-	//	{
-	//		return ColorCast<To>(ColorCast<RGB>(cmy));
-	//	}
-	//};
 }
