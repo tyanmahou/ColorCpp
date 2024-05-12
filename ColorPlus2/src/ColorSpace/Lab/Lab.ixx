@@ -1,6 +1,6 @@
 ﻿export module ColorPlus2:Lab;
 
-export namespace cp2
+export namespace colorp2
 {
 	/// <summary>
 	/// Lab色空間

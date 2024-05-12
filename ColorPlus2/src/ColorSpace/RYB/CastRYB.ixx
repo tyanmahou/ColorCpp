@@ -5,7 +5,7 @@ import :RGB;
 import :RYB;
 import :Math;
 
-export namespace cp2
+export namespace colorp2
 {
 	// RYB <=> RGB
 	template<>

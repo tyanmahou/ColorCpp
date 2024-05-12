@@ -5,7 +5,7 @@ import :XYZ;
 import :HunterLab;
 import :Math;
 
-export namespace cp2
+export namespace colorp2
 {
 	// HunterLab <=> XYZ
 	template<class WhitePointTag>

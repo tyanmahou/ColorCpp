@@ -13,7 +13,7 @@ import :CastLRGB;
 import :CastXYZ;
 import :CastLab;
 
-export namespace cp2
+export namespace colorp2
 {
 	// LCH <=> Lab
 	template<>

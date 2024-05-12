@@ -1,6 +1,6 @@
 ﻿export module ColorPlus2:OkLCH;
 
-export namespace cp2
+export namespace colorp2
 {
 	/// <summary>
 	/// Ok LCH色空間

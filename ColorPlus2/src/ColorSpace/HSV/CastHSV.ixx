@@ -5,7 +5,7 @@ import :HSV;
 import :Math;
 import <algorithm>;
 
-export namespace cp2
+export namespace colorp2
 {
 	// HSV <=> RGB
 	template<>

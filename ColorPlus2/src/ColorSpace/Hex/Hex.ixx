@@ -5,13 +5,13 @@ import <string_view>;
 
 namespace
 {
-	template<cp2::Character CharT>
+	template<colorp2::Character CharT>
 	inline constexpr char ToUpper(CharT c)
 	{
 		return c >= 'a' ? c - ('a' - 'A') : c;
 	}
 }
-export namespace cp2
+export namespace colorp2
 {
 	/// <summary>
 	/// 文字コード FFFFFFFF

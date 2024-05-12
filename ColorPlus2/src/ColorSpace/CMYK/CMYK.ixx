@@ -1,6 +1,6 @@
 ﻿export module ColorPlus2:CMYK;
 
-export namespace cp2
+export namespace colorp2
 {
     struct CMYK
     {

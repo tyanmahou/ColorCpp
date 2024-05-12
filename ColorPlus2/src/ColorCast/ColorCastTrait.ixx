@@ -1,6 +1,6 @@
 ﻿export module ColorPlus2:ColorCastTrait;
 
-export namespace cp2
+export namespace colorp2
 {
 	template<class To, class From>
 	struct ColorCastTraits

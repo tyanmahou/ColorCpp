@@ -11,7 +11,7 @@ import :LRGB;
 import :CastLRGB;
 import :CastOkLab;
 
-export namespace cp2
+export namespace colorp2
 {
 	// OkLCH <=> OkLab
 	template<>

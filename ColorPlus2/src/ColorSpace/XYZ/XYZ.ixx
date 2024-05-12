@@ -1,6 +1,6 @@
 ﻿export module ColorPlus2:XYZ;
 
-export namespace cp2
+export namespace colorp2
 {
 	/// <summary>
 	/// XYZ色空間

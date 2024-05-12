@@ -8,7 +8,7 @@ import :Lab;
 import :Math;
 import :Constants;
 
-export namespace cp2
+export namespace colorp2
 {
 	// Lab <=> XYZ
 	template<class WhitePointTag>

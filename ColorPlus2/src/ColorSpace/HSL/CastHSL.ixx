@@ -4,7 +4,7 @@ import :RGB;
 import :HSL;
 import :Math;
 
-export namespace cp2
+export namespace colorp2
 {
 	// HSL <=> RGB
 	template<>

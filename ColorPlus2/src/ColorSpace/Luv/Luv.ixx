@@ -1,6 +1,6 @@
 ﻿export module ColorPlus2:Luv;
 
-export namespace cp2
+export namespace colorp2
 {
 	/// <summary>
 	/// Luv色空間

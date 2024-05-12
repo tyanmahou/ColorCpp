@@ -1,6 +1,6 @@
 ﻿export module ColorPlus2:CastRGB;
 import :ColorCastTrait;
 
-export namespace cp2
+export namespace colorp2
 {
 }

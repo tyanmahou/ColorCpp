@@ -9,7 +9,7 @@ import :CastLab;
 import :CastOkLCH;
 import :CastOkLab;
 
-export namespace cp2
+export namespace colorp2
 {
     class Utility
     {

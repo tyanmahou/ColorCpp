@@ -1,6 +1,6 @@
 ﻿export module ColorPlus2:LCH;
 
-export namespace cp2
+export namespace colorp2
 {
 	/// <summary>
 	/// LCH色空間

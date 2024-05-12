@@ -1,7 +1,7 @@
 ﻿export module ColorPlus2:HSV;
 import :Math;
 
-export namespace cp2
+export namespace colorp2
 {
 	/// <summary>
 	/// HSV (円柱モデル)

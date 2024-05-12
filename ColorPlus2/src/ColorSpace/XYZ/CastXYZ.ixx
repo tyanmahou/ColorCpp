@@ -4,7 +4,7 @@ import :ColorCastTrait;
 import :LRGB;
 import :XYZ;
 
-export namespace cp2
+export namespace colorp2
 {
     // XYZ65 <=> LRGB
     template<>

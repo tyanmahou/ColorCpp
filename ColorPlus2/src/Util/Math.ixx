@@ -2,7 +2,7 @@
 import <algorithm>;
 import <cmath>;
 
-export namespace cp2
+export namespace colorp2
 {
 	class Math
 	{

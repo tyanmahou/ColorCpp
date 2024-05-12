@@ -1,6 +1,6 @@
 ﻿export module ColorPlus2:OkLab;
 
-export namespace cp2
+export namespace colorp2
 {
 	/// <summary>
 	/// Ok Lab色空間

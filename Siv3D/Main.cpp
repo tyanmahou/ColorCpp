@@ -1,7 +1,7 @@
 ﻿# include <Siv3D.hpp>
 import ColorPlus2;
 
-namespace cp2
+namespace colorp2
 {
 	template<class From>
 	struct ColorCastTraits<s3d::ColorF, From>
@@ -59,7 +59,7 @@ namespace cp2
 void Main()
 {
 	Scene::Resize(800, 600);
-	using namespace cp2;
+	using namespace colorp2;
 	Color base = Palette::Red;
 
 	while (System::Update())
@@ -72,13 +72,13 @@ void Main()
 		for (size_t i = 0; i < 8; ++i) {
 			LCH lch = ColorCast<LCH>(base);
 			lch.l = s3d::Math::Lerp(0.0, 100.0, s3d::Math::InvLerp(0, 7, i));
-			lch = cp2::Utility::ClampChroma(lch);
+			lch = colorp2::Utility::ClampChroma(lch);
 			Rect{ 100 * i, 100, 100, 100 }.draw(ColorCast<ColorF>(lch));
 		}
 		for (size_t i = 0; i < 8; ++i) {
 			OkLCH lch = ColorCast<OkLCH>(base);
 			lch.l = s3d::Math::Lerp(0.0, 1.0, s3d::Math::InvLerp(0, 7, i));
-			lch = cp2::Utility::ClampChroma(lch);
+			lch = colorp2::Utility::ClampChroma(lch);
 			Rect{ 100 * i, 200, 100, 100 }.draw(ColorCast<ColorF>(lch));
 		}
 	}

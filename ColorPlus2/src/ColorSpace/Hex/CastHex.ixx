@@ -4,7 +4,7 @@ import :RGBA32;
 import :Hex;
 import :Type;
 
-export namespace cp2
+export namespace colorp2
 {
 	// RGBA32 <=> Hex
 	template<>

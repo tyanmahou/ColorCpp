@@ -6,7 +6,7 @@ import :Luv;
 import :Math;
 import :Constants;
 
-namespace cp2
+namespace colorp2
 {
 	namespace
 	{
@@ -30,7 +30,7 @@ namespace cp2
 		}
 	}
 }
-export namespace cp2
+export namespace colorp2
 {
 	// Luv <=> XYZ65
 	template<class WhitePointTag>

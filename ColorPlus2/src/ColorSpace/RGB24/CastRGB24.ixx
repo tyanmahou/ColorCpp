@@ -6,7 +6,7 @@ import :RGBA;
 import :RGB;
 import :Math;
 
-export namespace cp2
+export namespace colorp2
 {
     // RGB24 <=> RGB
     template<>

@@ -8,7 +8,7 @@ import :XYZ;
 import :OkLab;
 import :Math;
 
-export namespace cp2
+export namespace colorp2
 {
 	// OkLab <=> XYZ65
 	template<>

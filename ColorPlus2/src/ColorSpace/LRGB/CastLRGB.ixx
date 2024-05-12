@@ -3,7 +3,7 @@ import :ColorCastTrait;
 
 import :RGB;
 import :LRGB;
-export namespace cp2
+export namespace colorp2
 {
 	// LRGB <=> RGB
 	template<>

@@ -1,6 +1,6 @@
 ﻿export module ColorPlus2:HunterLab;
 
-export namespace cp2
+export namespace colorp2
 {
 	/// <summary>
 	/// Hunter Lab色空間
