@@ -1,8 +1,8 @@
-﻿import ColorPlus2;
+﻿import ColorCpp;
 
 #include "catch.hpp"
 
-using namespace colorp2;
+using namespace colorcpp;
 
 TEST_CASE("Hex")
 {

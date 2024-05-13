@@ -143,7 +143,7 @@
     <None Include=".runsettings" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ColorPlus2\ColorPlus2.vcxproj">
+    <ProjectReference Include="..\ColorCpp\ColorCpp.vcxproj">
       <Project>{38486627-c05b-47ed-b0ea-4476cae12850}</Project>
     </ProjectReference>
   </ItemGroup>

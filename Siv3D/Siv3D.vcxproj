@@ -325,7 +325,7 @@
     <Xml Include="App\example\xml\test.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SivColorPlus2.hpp" />
+    <ClInclude Include="SivColorCpp.hpp" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -414,7 +414,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ColorPlus2\ColorPlus2.vcxproj">
+    <ProjectReference Include="..\ColorCpp\ColorCpp.vcxproj">
       <Project>{38486627-c05b-47ed-b0ea-4476cae12850}</Project>
     </ProjectReference>
   </ItemGroup>

@@ -411,7 +411,7 @@ gmon.out
 
 # Ignore resource files
 **/App/example
-**/App/engine
+# **/App/engine
 **/App/dll
 
 # Application
