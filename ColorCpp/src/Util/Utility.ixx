@@ -66,8 +66,7 @@ export namespace colorcpp
         }
         static constexpr OkLCH ClampChroma(const OkLCH& lch)
         {
-            if (Displayable(lch))
-            {
+            if (Displayable(lch)) {
                 return lch;
             }
             OkLCH clamped = lch;
