@@ -4,18 +4,7 @@ export import :ColorCastDependency;
 export namespace colorp2
 {
 	template<class To, class From>
-	struct ColorCastTraits
-	{
-		//static constexpr To Cast(const From& from);
-	};
-	template<class T>
-	struct ColorCastTraits<T, T>
-	{
-		static constexpr T Cast(const T& from)
-		{
-			return from;
-		}
-	};
+	struct ColorCastTraits;
 
 	template<class To, class From>
 	inline constexpr To ColorCast(const From& from)
@@ -23,22 +12,26 @@ export namespace colorp2
 		return ColorCastTraits<To, From>::Cast(from);
 	}
 
-	template<class To, class From> requires DependOn<From, To>
-	struct ColorCastTraits<To, From>
+	template<class To, class From>
+	struct ColorCastTraits
 	{
-		using from_depend_type = typename ColorCastDependency<From>::depend_type;
 		static constexpr To Cast(const From& from)
 		{
-			return ColorCast<To>(ColorCast<from_depend_type>(from));
+			if constexpr (DependOn<From, To>) {
+				using from_depend_type = typename ColorCastDependency<From>::depend_type;
+				return ColorCast<To>(ColorCast<from_depend_type>(from));
+			} else {
+				using to_depend_type = typename ColorCastDependency<To>::depend_type;
+				return ColorCast<To>(ColorCast<to_depend_type>(from));
+			}
 		}
 	};
-	template<class To, class From> requires (!DependOn<From, To>)
-	struct ColorCastTraits<To, From>
+	template<class T>
+	struct ColorCastTraits<T, T>
 	{
-		using to_depend_type = typename ColorCastDependency<To>::depend_type;
-		static constexpr To Cast(const From& from)
+		static constexpr T Cast(const T& from)
 		{
-			return ColorCast<To>(ColorCast<to_depend_type>(from));
+			return from;
 		}
 	};
 }
