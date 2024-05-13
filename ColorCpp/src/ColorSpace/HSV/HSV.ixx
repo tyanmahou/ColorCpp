@@ -1,5 +1,6 @@
 ﻿export module ColorCpp:HSV;
 import :Math;
+import :ColorUtil;
 
 export namespace colorcpp
 {
@@ -26,7 +27,7 @@ export namespace colorcpp
         constexpr HSV operator +(const HSV& other) const noexcept
         {
             return{
-                Math::RepeatHue360(h + other.h),
+                ColorUtil::RepeatHue360(h + other.h),
                 Math::Saturate(s + other.s),
                 Math::Saturate(v + other.v)
             };
@@ -39,7 +40,7 @@ export namespace colorcpp
         constexpr HSV operator -(const HSV& other) const noexcept
         {
             return{
-                Math::RepeatHue360(h - other.h),
+                ColorUtil::RepeatHue360(h - other.h),
                 Math::Saturate(s - other.s),
                 Math::Saturate(v - other.v)
             };

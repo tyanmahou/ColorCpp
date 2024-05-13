@@ -7,6 +7,7 @@ export import :CastRGBA32;
 export import :CastLRGB;
 export import :CastHSV;
 export import :CastHSL;
+export import :CastHWB;
 export import :CastRYB;
 export import :CastCMY;
 export import :CastCMYK;

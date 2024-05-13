@@ -3,6 +3,7 @@ import :ColorCastTrait;
 import :RGB;
 import :HSL;
 import :Math;
+import :ColorUtil;
 
 export namespace colorcpp
 {
@@ -36,7 +37,7 @@ export namespace colorcpp
                 } else if (cmax == b) {
                     h = (r - g) / delta + 4;
                 }
-                h = Math::RepeatHue360(h * 60);
+                h = ColorUtil::RepeatHue360(h * 60);
             }
             return HSL{
                 .h = h,
@@ -56,7 +57,7 @@ export namespace colorcpp
                 return RGB{ l, l, l };
             }
 
-            double h1 = h / 360.0;
+            double h1 = Math::Fraction(h / 360.0);
             double max = (l < 0.5) ? (l * (1 + s)) : (l + s - (s * l));
             double min = 2 * l - max;
 

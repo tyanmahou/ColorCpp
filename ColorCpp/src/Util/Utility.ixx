@@ -1,5 +1,6 @@
 ﻿export module ColorCpp:Utility;
 import :Math;
+import :ColorUtil;
 import :RGB;
 import :LCH;
 import :OkLCH;
@@ -95,7 +96,7 @@ export namespace colorcpp
 
         static constexpr inline double RepeatHue360(double h) noexcept
         {
-            return Math::Repeat(h, 360.0);
+            return ColorUtil::RepeatHue360(h);
         }
     };
 }

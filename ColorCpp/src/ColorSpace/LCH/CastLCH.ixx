@@ -4,6 +4,7 @@ import :ColorCastTrait;
 import :Lab;
 import :LCH;
 import :Math;
+import :ColorUtil;
 import <numbers>;
 
 export namespace colorcpp
@@ -23,7 +24,7 @@ export namespace colorcpp
             double l = lab.l;
             double c = Math::Sqrt(lab.a * lab.a + lab.b * lab.b);
             double h = Math::Atan2(lab.b, lab.a) * 180.0 / std::numbers::pi;
-            h = Math::RepeatHue360(h);
+            h = ColorUtil::RepeatHue360(h);
             return {
                 .l = l,
                 .c = c,

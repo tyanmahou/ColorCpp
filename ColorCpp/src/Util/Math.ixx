@@ -87,10 +87,5 @@ export namespace colorcpp
         {
             return (x - std::floor(x));
         }
-
-        [[nodiscard]] static constexpr inline double RepeatHue360(double h) noexcept
-        {
-            return Repeat(h, 360.0);
-        }
     };
 }
