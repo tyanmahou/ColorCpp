@@ -14,8 +14,8 @@ namespace colorcpp
         {
             return (4 * x) / (x + 15 * y + 3 * z);
         }
-        template<class WhitePointTag>
-        inline constexpr double CalcU(const XYZBase<WhitePointTag>& xyz)
+        template<class Illuminant>
+        inline constexpr double CalcU(const XYZ_<Illuminant>& xyz)
         {
             return CalcU(xyz.x, xyz.y, xyz.z);
         }
@@ -23,8 +23,8 @@ namespace colorcpp
         {
             return (9 * y) / (x + 15 * y + 3 * z);
         }
-        template<class WhitePointTag>
-        inline constexpr double CalcV(const XYZBase<WhitePointTag>& xyz)
+        template<class Illuminant>
+        inline constexpr double CalcV(const XYZ_<Illuminant>& xyz)
         {
             return CalcV(xyz.x, xyz.y, xyz.z);
         }
@@ -32,19 +32,19 @@ namespace colorcpp
 }
 export namespace colorcpp
 {
-    template<>
-    struct ColorCastDependency<Luv>
+    template<class Illuminant>
+    struct ColorCastDependency<Luv_<Illuminant>>
     {
-        using depend_type = XYZ65;
+        using depend_type = XYZ_<Illuminant>;
     };
 
     // Luv <=> XYZ65
-    template<class WhitePointTag>
-    struct ColorCastTraits<Luv, XYZBase<WhitePointTag>>
+    template<class Illuminant>
+    struct ColorCastTraits<Luv_<Illuminant>, XYZ_<Illuminant>>
     {
-        constexpr static Luv Cast(const XYZBase<WhitePointTag>& xyz)
+        constexpr static Luv_<Illuminant> Cast(const XYZ_<Illuminant>& xyz)
         {
-            const auto& w = WhitePoint<XYZBase<WhitePointTag>>;
+            const auto& w = WhitePoint<Illuminant>;
             auto&& [x, y, z] = xyz;
 
             const double ny = y / w.y;
@@ -52,15 +52,15 @@ export namespace colorcpp
             const double l = ny <= Epsilon ? Kappa * ny : 116.0 * Math::Cbrt(ny) - 16.0;
             const double u = 13 * l * (CalcU(xyz) - CalcU(w));
             const double v = 13 * l * (CalcV(xyz) - CalcV(w));
-            return Luv{ l, u, v };
+            return { l, u, v };
         }
     };
-    template<class WhitePointTag>
-    struct ColorCastTraits<XYZBase<WhitePointTag>, Luv>
+    template<class Illuminant>
+    struct ColorCastTraits<XYZ_<Illuminant>, Luv_<Illuminant>>
     {
-        constexpr static XYZBase<WhitePointTag> Cast(const Luv& luv)
+        constexpr static XYZ_<Illuminant> Cast(const Luv_<Illuminant>& luv)
         {
-            const auto& w = WhitePoint<XYZBase<WhitePointTag>>;
+            const auto& w = WhitePoint<Illuminant>;
             auto&& [l, u, v] = luv;
 
             const double up = u / (13 * l) + CalcU(w);
@@ -72,7 +72,7 @@ export namespace colorcpp
             const double y = w.y * (l <= 8 ? l / Kappa : ny);
             double x = (y * (9 * up)) / (4 * up);
             double z = (y * (12 - 3 * up - 20 * vp)) / (4 * vp);
-            return XYZBase<WhitePointTag>{x, y, z};
+            return {x, y, z};
         }
     };
 }

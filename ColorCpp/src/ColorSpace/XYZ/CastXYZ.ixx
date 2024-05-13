@@ -6,8 +6,8 @@ import :XYZ;
 
 export namespace colorcpp
 {
-    template<class WhitePointTag>
-    struct ColorCastDependency<XYZBase<WhitePointTag>>
+    template<class Illuminant>
+    struct ColorCastDependency<XYZ_<Illuminant>>
     {
         using depend_type = LRGB;
     };

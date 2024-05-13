@@ -5,45 +5,67 @@ import :XYZ;
 import :HunterLab;
 import :Math;
 
+namespace colorcpp
+{
+    namespace
+    {
+        inline constexpr double Ka(double xn, double yn)
+        {
+            return 17500.0 * (xn + yn) / 198.04;
+        }
+        inline constexpr double Kb(double yn, double zn)
+        {
+            return 7000.0 * (yn + zn) / 218.11;
+        }
+    }
+}
 export namespace colorcpp
 {
-    template<>
-    struct ColorCastDependency<HunterLab>
+    template<class Illuminant>
+    struct ColorCastDependency<HunterLab_<Illuminant>>
     {
-        using depend_type = XYZ65;
+        using depend_type = XYZ_<Illuminant>;
     };
 
     // HunterLab <=> XYZ
-    template<class WhitePointTag>
-    struct ColorCastTraits<HunterLab, XYZBase<WhitePointTag>>
+    template<class Illuminant>
+    struct ColorCastTraits<HunterLab_<Illuminant>, XYZ_<Illuminant>>
     {
-        constexpr static HunterLab Cast(const XYZBase<WhitePointTag>& xyz)
+        constexpr static HunterLab_<Illuminant> Cast(const XYZ_<Illuminant>& xyz)
         {
-            double x = 100.0 * xyz.x;
-            double y = 100.0 * xyz.y;
-            double z = 100.0 * xyz.z;
+            constexpr auto w = WhitePoint<Illuminant>;
+            constexpr auto ka = Ka(w.x, w.y);
+            constexpr auto kb = Kb(w.y, w.z);
 
-            return HunterLab{
-                .l = 10.0 * Math::Sqrt(y),
-                .a = (y != 0) ? (17.5 * (1.02 * x - y) / Math::Sqrt(y)) : 0,
-                .b = (y != 0) ? (7.0 * (y - 0.847 * z) / Math::Sqrt(y)) : 0
+            const auto [x, y,z] = xyz / w;
+
+            const auto sqrtY = Math::Sqrt(y);
+
+            return {
+                .l = 100.0 * sqrtY,
+                .a = (y != 0) ? ka * ((x - y) / sqrtY) : 0,
+                .b = (y != 0) ? kb * ((y - z) / sqrtY) : 0
             };
         }
     };
-    template<class WhitePointTag>
-    struct ColorCastTraits<XYZBase<WhitePointTag>, HunterLab>
+    template<class Illuminant>
+    struct ColorCastTraits<XYZ_<Illuminant>, HunterLab_<Illuminant>>
     {
-        constexpr static XYZBase<WhitePointTag> Cast(const HunterLab& lab)
+        constexpr static XYZ_<Illuminant> Cast(const HunterLab_<Illuminant>& lab)
         {
-            double x = (lab.a / 17.5) * (lab.l / 10.0);
-            double y = lab.l * lab.l / 100;
-            double z = lab.b / 7.0 * lab.l / 10.0;
+            constexpr auto w = WhitePoint<Illuminant>;
+            constexpr auto ka = Ka(w.x, w.y);
+            constexpr auto kb = Kb(w.y, w.z);
 
-            return XYZBase<WhitePointTag>{
-                .x = (x + y) / 100.02,
-                    .y = y / 100.0,
-                    .z = -(z - y) / 84.7
-            };
+            const auto& [l, a, b] = lab;
+
+            const double sqrtY = l / 100.0;
+            const double y = sqrtY * sqrtY;
+
+            const double x = sqrtY * a / ka + y;
+            const double z = y - sqrtY * b / kb;
+
+            return XYZ{ x, y, z } * w;
         }
     };
 }

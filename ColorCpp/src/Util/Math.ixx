@@ -47,6 +47,15 @@ export namespace colorcpp
         {
             return std::pow(x, y);
         }
+        [[nodiscard]] static constexpr inline double Pow2(double x) noexcept
+        {
+            return x * x;
+        }
+        [[nodiscard]] static constexpr inline double Pow3(double x) noexcept
+        {
+            return x * x * x;
+        }
+
         // TODO: C++26でconstexpr対応
         [[nodiscard]] static constexpr inline double Cbrt(auto x) noexcept
         {
