@@ -1,2 +1,2 @@
-# ColorPlus2
-C++ ColorSpace Library
+# ColorCpp
+C++20 ColorSpace Module
