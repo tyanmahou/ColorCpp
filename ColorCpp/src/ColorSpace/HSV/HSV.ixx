@@ -54,7 +54,15 @@ export namespace colorcpp
         friend constexpr bool operator==(const HSV_& a, const HSV_& b) = default;
     };
 
+    /// <summary>
+    /// HSV (円錐モデル)
+    /// </summary>
     using HSVCone = HSV_<struct Cone>;
+
+    /// <summary>
+    /// HSV (円柱モデル)
+    /// </summary>
     using HSVCylinder = HSV_<struct Cylinder>;
+
     using HSV = HSVCylinder;
 }

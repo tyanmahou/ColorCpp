@@ -7,7 +7,8 @@ export namespace colorcpp
     /// <summary>
     /// HSL (円柱モデル)
     /// </summary>
-    struct HSL
+    template<class Model>
+    struct HSL_
     {
         /// <summary>
         /// 色相 [0, 360)
@@ -24,7 +25,7 @@ export namespace colorcpp
         /// </summary>
         double l;
 
-        constexpr HSL operator +(const HSL& other) const noexcept
+        constexpr HSL_ operator +(const HSL_& other) const noexcept
         {
             return{
                 ColorUtil::RepeatHue360(h + other.h),
@@ -32,12 +33,12 @@ export namespace colorcpp
                 Math::Saturate(l + other.l)
             };
         }
-        constexpr HSL& operator +=(const HSL& other) noexcept
+        constexpr HSL_& operator +=(const HSL_& other) noexcept
         {
             *this = (*this) + other;
             return *this;
         }
-        constexpr HSL operator -(const HSL& other) const noexcept
+        constexpr HSL_ operator -(const HSL_& other) const noexcept
         {
             return{
                 ColorUtil::RepeatHue360(h - other.h),
@@ -45,16 +46,29 @@ export namespace colorcpp
                 Math::Saturate(l - other.l)
             };
         }
-        constexpr HSL& operator -=(const HSL& other) noexcept
+        constexpr HSL_& operator -=(const HSL_& other) noexcept
         {
             *this = (*this) - other;
             return *this;
         }
-        friend constexpr bool operator==(const HSL& a, const HSL& b) = default;
+        friend constexpr bool operator==(const HSL_& a, const HSL_& b) = default;
     };
+    /// <summary>
+    /// HSL (双円錐モデル)
+    /// </summary>
+    using HSLCone = HSL_<struct Cone>;
+
+    /// <summary>
+    /// HSV (円柱モデル)
+    /// </summary>
+    using HSLCylinder = HSL_<struct Cylinder>;
+
+    using HSL = HSLCylinder;
 
     /// <summary>
     /// HSB
     /// </summary>
+    using HSBCone = HSLCone;
+    using HSBCylinder = HSLCylinder;
     using HSB = HSL;
 }

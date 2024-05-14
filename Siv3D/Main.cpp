@@ -7,7 +7,7 @@ void Main()
 {
     Window::Resize(640, 640);
     using namespace colorcpp;
-    Color base{200, 0, 0,255};
+    Color base = Palette::Red;
 
     while (System::Update())
     {
@@ -21,14 +21,14 @@ void Main()
         //}
 
         for (size_t i = 0; i < 8; ++i) {
-            HSVCone hsv = ColorCast<HSVCone>(base);
-            hsv.s = s3d::Math::Lerp(0.0, 1.0, s3d::Math::InvLerp(0, 7, static_cast<double>(i)));
-            Rect{ 80 * i, 000, 80, 80 }.draw(ColorCast<ColorF>(hsv));
+            HSLCone hsl = ColorCast<HSLCone>(base);
+            hsl.s = s3d::Math::Lerp(0.0, 1.0, s3d::Math::InvLerp(0, 7, static_cast<double>(i)));
+            Rect{ 80 * i, 000, 80, 80 }.draw(ColorCast<ColorF>(hsl));
         }
         for (size_t i = 0; i < 8; ++i) {
-            HSVCylinder hsv = ColorCast<HSVCylinder>(base);
-            hsv.s = s3d::Math::Lerp(0.0, 1.0, s3d::Math::InvLerp(0, 7, static_cast<double>(i)));
-            Rect{ 80 * i, 80, 80, 80 }.draw(ColorCast<ColorF>(hsv));
+            HSLCylinder hsl = ColorCast<HSLCylinder>(base);
+            hsl.s = s3d::Math::Lerp(0.0, 1.0, s3d::Math::InvLerp(0, 7, static_cast<double>(i)));
+            Rect{ 80 * i, 80, 80, 80 }.draw(ColorCast<ColorF>(hsl));
         }
 
         //for (size_t i = 0; i < 8; ++i) {
