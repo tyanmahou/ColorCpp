@@ -4,7 +4,7 @@ import :RGB;
 import :HWB;
 import :HSV;
 import :Math;
-import <algorithm>;
+import :ColorUtil;
 
 export namespace colorcpp
 {
@@ -20,21 +20,10 @@ export namespace colorcpp
     {
         constexpr static HWB Cast(const RGB& rgb)
         {
-            auto [r, g, b] = rgb;
-            double k = 0;
-            if (g < b) {
-                std::swap(g, b);
-                k = -1;
-            }
-            if (r < g) {
-                std::swap(r, g);
-                k = -2.0 / 6 - k;
-            }
-            double max = r;
-            double min = Math::Min(g, b);
+            auto [hue, max, min] = ColorUtil::HueMaxMin(rgb);
             double c = max - min;
             return HWB{
-                .h = 360.0 * Math::Abs(k + (g - b) / (6 * c + 1e-20)),
+                .h = hue,
                 .w = min,
                 .b = 1.0 - max
             };

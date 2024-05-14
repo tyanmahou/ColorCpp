@@ -3,7 +3,7 @@ import :ColorCastTrait;
 import :RGB;
 import :HSV;
 import :Math;
-import <algorithm>;
+import :ColorUtil;
 
 export namespace colorcpp
 {
@@ -20,21 +20,12 @@ export namespace colorcpp
         constexpr static HSV Cast(const RGB& rgb)
         {
             // Fast HSV to RGB
-            auto [r, g, b] = rgb;
-            double k = 0;
-            if (g < b) {
-                std::swap(g, b);
-                k = -1;
-            }
-            if (r < g) {
-                std::swap(r, g);
-                k = -2.0 / 6 - k;
-            }
-            double c = r - Math::Min(g, b);
+            auto [hue, max, min] = ColorUtil::HueMaxMin(rgb);
+            double c = max - min;
             return HSV{
-                .h = 360.0 * Math::Abs(k + (g - b) / (6 * c + 1e-20)),
-                .s = c / (r + 1e-20),
-                .v = r
+                .h = hue,
+                .s = c / (max + 1e-20),
+                .v = max
             };
         }
     };

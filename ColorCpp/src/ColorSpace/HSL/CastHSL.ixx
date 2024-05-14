@@ -19,25 +19,16 @@ export namespace colorcpp
     {
         constexpr static HSL Cast(const RGB& rgb)
         {
-            const auto& [r, g, b] = rgb;
-            double cmax = Math::Max(r, g, b);
-            double cmin = Math::Min(r, g, b);
-            double delta = cmax - cmin;
+            auto [hue, max, min] = ColorUtil::HueMaxMin(rgb);
+            double c = max - min;
 
             double h = 0;
             double s = 0;
-            double l = (cmax + cmin) / 2.0;
-            if (delta != 0) {
-                s = (l < 0.5) ? delta / (cmax + cmin) : delta / (2.0 - cmax - cmin);
+            double l = (max + min) / 2.0;
 
-                if (cmax == r) {
-                    h = (g - b) / delta;
-                } else if (cmax == g) {
-                    h = (b - r) / delta + 2;
-                } else if (cmax == b) {
-                    h = (r - g) / delta + 4;
-                }
-                h = ColorUtil::RepeatHue360(h * 60);
+            if (c != 0) {
+                s = (l < 0.5) ? c / (max + min) : c / (2.0 - max - min);
+                h = hue;
             }
             return HSL{
                 .h = h,
