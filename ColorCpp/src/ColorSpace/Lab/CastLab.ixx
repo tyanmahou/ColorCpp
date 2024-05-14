@@ -1,8 +1,6 @@
 ﻿export module ColorCpp:CastLab;
 import :ColorCastTrait;
 
-import :CastXYZ;
-
 import :XYZ;
 import :Lab;
 import :Math;
@@ -38,7 +36,7 @@ export namespace colorcpp
         }
     };
     template<class Illuminant>
-    struct ColorCastTraits<XYZ_<Illuminant>, Lab>
+    struct ColorCastTraits<XYZ_<Illuminant>, Lab_<Illuminant>>
     {
         constexpr static XYZ_<Illuminant> Cast(const Lab_<Illuminant>& lab)
         {

@@ -156,5 +156,11 @@
     <ClCompile Include="src\ColorSpace\HWB\CastHWB.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\ColorSpace\XyY\XyY.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\XyY\CastXyY.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

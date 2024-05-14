@@ -190,6 +190,8 @@
     <ClCompile Include="src\ColorSpace\OkLCH\OkLCH.ixx" />
     <ClCompile Include="src\ColorSpace\RGB\RGB.ixx" />
     <ClCompile Include="src\ColorSpace\RYB\RYB.ixx" />
+    <ClCompile Include="src\ColorSpace\XyY\CastXyY.ixx" />
+    <ClCompile Include="src\ColorSpace\XyY\XyY.ixx" />
     <ClCompile Include="src\ColorSpace\XYZ\CastXYZ.ixx" />
     <ClCompile Include="src\ColorSpace\XYZ\XYZ.ixx" />
     <ClCompile Include="src\Util\ColorUtil.ixx" />

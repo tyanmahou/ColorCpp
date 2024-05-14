@@ -12,6 +12,7 @@ export import :CastRYB;
 export import :CastCMY;
 export import :CastCMYK;
 export import :CastXYZ;
+export import :CastXyY;
 export import :CastLab;
 export import :CastOkLab;
 export import :CastHunterLab;
