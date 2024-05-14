@@ -5,9 +5,10 @@ import :ColorUtil;
 export namespace colorcpp
 {
     /// <summary>
-    /// HSV (円柱モデル)
+    /// HSV
     /// </summary>
-    struct HSV
+    template<class Model>
+    struct HSV_
     {
         /// <summary>
         /// 色相 [0, 360)
@@ -24,7 +25,7 @@ export namespace colorcpp
         /// </summary>
         double v;
 
-        constexpr HSV operator +(const HSV& other) const noexcept
+        constexpr HSV_ operator +(const HSV_& other) const noexcept
         {
             return{
                 ColorUtil::RepeatHue360(h + other.h),
@@ -32,12 +33,12 @@ export namespace colorcpp
                 Math::Saturate(v + other.v)
             };
         }
-        constexpr HSV& operator +=(const HSV& other) noexcept
+        constexpr HSV_& operator +=(const HSV_& other) noexcept
         {
             *this = (*this) + other;
             return *this;
         }
-        constexpr HSV operator -(const HSV& other) const noexcept
+        constexpr HSV_ operator -(const HSV_& other) const noexcept
         {
             return{
                 ColorUtil::RepeatHue360(h - other.h),
@@ -45,11 +46,15 @@ export namespace colorcpp
                 Math::Saturate(v - other.v)
             };
         }
-        constexpr HSV& operator -=(const HSV& other) noexcept
+        constexpr HSV_& operator -=(const HSV_& other) noexcept
         {
             *this = (*this) - other;
             return *this;
         }
-        friend constexpr bool operator==(const HSV& a, const HSV& b) = default;
+        friend constexpr bool operator==(const HSV_& a, const HSV_& b) = default;
     };
+
+    using HSVCone = HSV_<struct Cone>;
+    using HSVCylinder = HSV_<struct Cylinder>;
+    using HSV = HSVCylinder;
 }
