@@ -43,16 +43,14 @@ export namespace colorcpp
             h /= 360.0;
             h = Math::Fraction(h);
 
-            double r = Math::Abs(h * 6 - 3) - 1;
-            double g = 2 - Math::Abs(h * 6 - 2);
-            double b = 2 - Math::Abs(h * 6 - 4);
+            auto [cfr, cfg, cfb] = ColorUtil::HueChromaFactor(h);
 
             double v = 1 - b_;
             double s = v == 0 ? 1 : 1 - w / v;
 
-            r = ((Math::Saturate(r) - 1) * s + 1) * v;
-            g = ((Math::Saturate(g) - 1) * s + 1) * v;
-            b = ((Math::Saturate(b) - 1) * s + 1) * v;
+            double r = ((cfr - 1) * s + 1) * v;
+            double g = ((cfg - 1) * s + 1) * v;
+            double b = ((cfb - 1) * s + 1) * v;
 
             return RGB{
                 .r = r,

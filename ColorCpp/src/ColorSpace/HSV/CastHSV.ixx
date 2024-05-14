@@ -35,16 +35,12 @@ export namespace colorcpp
         constexpr static RGB Cast(const HSV& hsv)
         {
             auto [h, s, v] = hsv;
-            h /= 360.0;
-            h = Math::Fraction(h);
 
-            double r = Math::Abs(h * 6 - 3) - 1;
-            double g = 2 - Math::Abs(h * 6 - 2);
-            double b = 2 - Math::Abs(h * 6 - 4);
+            auto [cfr, cfg, cfb] = ColorUtil::HueChromaFactor(h);
 
-            r = ((Math::Saturate(r) - 1) * s + 1) * v;
-            g = ((Math::Saturate(g) - 1) * s + 1) * v;
-            b = ((Math::Saturate(b) - 1) * s + 1) * v;
+            double r = ((cfr - 1) * s + 1) * v;
+            double g = ((cfg - 1) * s + 1) * v;
+            double b = ((cfb - 1) * s + 1) * v;
 
             return RGB{
                 .r = r,

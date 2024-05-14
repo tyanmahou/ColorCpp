@@ -37,5 +37,18 @@ export namespace colorcpp
                 min
             );
         }
+        [[nodiscard]] static constexpr inline std::tuple<double, double, double> HueChromaFactor(double h) noexcept
+        {
+            double h6 = 6.0 * Math::Fraction(h / 360.0);
+            double r = Math::Abs(h6 - 3) - 1;
+            double g = 2 - Math::Abs(h6 - 2);
+            double b = 2 - Math::Abs(h6 - 4);
+
+            return std::make_tuple(
+                Math::Saturate(r),
+                Math::Saturate(g),
+                Math::Saturate(b)
+            );
+        }
     };
 }
