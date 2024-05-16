@@ -78,6 +78,10 @@ export namespace colorcpp
         }
 
         // TODO: C++23でconstexpr対応
+        [[nodiscard]] static constexpr inline double Fmod(auto x, auto y) noexcept
+        {
+            return std::fmod(x, y);
+        }
         [[nodiscard]] static constexpr inline double Repeat(auto x, auto y) noexcept
         {
             return std::fmod(std::fmod(x, y) + y, y);

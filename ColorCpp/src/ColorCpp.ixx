@@ -7,6 +7,7 @@ export import :RGBA32;
 export import :LRGB;
 export import :HSV;
 export import :HSL;
+export import :HSI;
 export import :HWB;
 export import :RYB;
 export import :CMY;

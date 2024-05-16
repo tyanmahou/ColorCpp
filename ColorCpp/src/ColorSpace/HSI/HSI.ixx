@@ -1,14 +1,13 @@
-﻿export module ColorCpp:HSV;
+﻿export module ColorCpp:HSI;
 import :Math;
 import :ColorUtil;
 
 export namespace colorcpp
 {
     /// <summary>
-    /// HSV
+    /// HSI
     /// </summary>
-    template<class Model>
-    struct HSV_
+    struct HSI
     {
         /// <summary>
         /// Hue 色相 [0, 360)
@@ -21,48 +20,36 @@ export namespace colorcpp
         double s;
 
         /// <summary>
-        /// Value 明度 [0, 1]
+        /// Intensity 強度 [0, 1]
         /// </summary>
-        double v;
+        double i;
 
-        constexpr HSV_ operator +(const HSV_& other) const noexcept
+        constexpr HSI operator +(const HSI& other) const noexcept
         {
             return{
                 ColorUtil::RepeatHue360(h + other.h),
                 Math::Saturate(s + other.s),
-                Math::Saturate(v + other.v)
+                Math::Saturate(i + other.i)
             };
         }
-        constexpr HSV_& operator +=(const HSV_& other) noexcept
+        constexpr HSI& operator +=(const HSI& other) noexcept
         {
             *this = (*this) + other;
             return *this;
         }
-        constexpr HSV_ operator -(const HSV_& other) const noexcept
+        constexpr HSI operator -(const HSI& other) const noexcept
         {
             return{
                 ColorUtil::RepeatHue360(h - other.h),
                 Math::Saturate(s - other.s),
-                Math::Saturate(v - other.v)
+                Math::Saturate(i - other.i)
             };
         }
-        constexpr HSV_& operator -=(const HSV_& other) noexcept
+        constexpr HSI& operator -=(const HSI& other) noexcept
         {
             *this = (*this) - other;
             return *this;
         }
-        friend constexpr bool operator==(const HSV_& a, const HSV_& b) = default;
+        friend constexpr bool operator==(const HSI& a, const HSI& b) = default;
     };
-
-    /// <summary>
-    /// HSV (円錐モデル)
-    /// </summary>
-    using HSVCone = HSV_<struct Cone>;
-
-    /// <summary>
-    /// HSV (円柱モデル)
-    /// </summary>
-    using HSVCylinder = HSV_<struct Cylinder>;
-
-    using HSV = HSVCylinder;
 }

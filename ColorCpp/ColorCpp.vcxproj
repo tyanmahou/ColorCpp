@@ -153,11 +153,14 @@
     <ClCompile Include="src\ColorCast\ColorCastDependency.ixx" />
     <ClCompile Include="src\ColorSpace\Hex\CastHex.ixx" />
     <ClCompile Include="src\ColorSpace\Hex\Hex.ixx" />
+    <ClCompile Include="src\ColorSpace\HSI\CastHSI.ixx" />
+    <ClCompile Include="src\ColorSpace\HSI\HSI.ixx" />
     <ClCompile Include="src\ColorSpace\HSL\CastHSL.ixx" />
     <ClCompile Include="src\ColorSpace\HSL\HSL.ixx" />
     <ClCompile Include="src\ColorSpace\HSV\CastHSV.ixx" />
     <ClCompile Include="src\ColorSpace\HWB\CastHWB.ixx" />
     <ClCompile Include="src\ColorSpace\HWB\HWB.ixx" />
+    <ClCompile Include="src\ColorSpace\ITP\ITP.ixx" />
     <ClCompile Include="src\ColorSpace\LCH\CastLCH.ixx" />
     <ClCompile Include="src\ColorSpace\LRGB\CastLRGB.ixx" />
     <ClCompile Include="src\ColorSpace\LRGB\LRGB.ixx" />

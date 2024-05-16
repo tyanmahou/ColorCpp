@@ -11,17 +11,17 @@ export namespace colorcpp
     struct HSL_
     {
         /// <summary>
-        /// 色相 [0, 360)
+        /// Hue 色相 [0, 360)
         /// </summary>
         double h;
 
         /// <summary>
-        /// 彩度 [0, 1]
+        /// Saturation 彩度 [0, 1]
         /// </summary>
         double s;
 
         /// <summary>
-        /// 輝度 [0, 1]
+        /// Lightness 輝度 [0, 1]
         /// </summary>
         double l;
 

@@ -11,24 +11,14 @@ void Main()
 
     while (System::Update())
     {
-        //for (size_t i = 0; i < 8; ++i) {
-        //    for (size_t j = 0; j < 8; ++j) {
-        //        HWB hwb{0,0,0};
-        //        hwb.w = s3d::Math::Lerp(0.0, 1.0, s3d::Math::InvLerp(0, 7, static_cast<double>(j)));
-        //        hwb.b = s3d::Math::Lerp(0.0, 1.0, s3d::Math::InvLerp(0, 7, static_cast<double>(i)));
-        //        Rect{ 80 * i, 80 * j, 80, 80 }.draw(ColorCast<ColorF>(hwb));
-        //    }
-        //}
-
         for (size_t i = 0; i < 8; ++i) {
-            HSLCone hsl = ColorCast<HSLCone>(base);
-            hsl.s = s3d::Math::Lerp(0.0, 1.0, s3d::Math::InvLerp(0, 7, static_cast<double>(i)));
-            Rect{ 80 * i, 000, 80, 80 }.draw(ColorCast<ColorF>(hsl));
-        }
-        for (size_t i = 0; i < 8; ++i) {
-            HSLCylinder hsl = ColorCast<HSLCylinder>(base);
-            hsl.s = s3d::Math::Lerp(0.0, 1.0, s3d::Math::InvLerp(0, 7, static_cast<double>(i)));
-            Rect{ 80 * i, 80, 80, 80 }.draw(ColorCast<ColorF>(hsl));
+            for (size_t j = 0; j < 8; ++j) {
+                HSI hsi{0,0,0};
+                hsi.h = Utility::RepeatHue360(s3d::Scene::Time() * 60.0);
+                hsi.s = s3d::Math::Lerp(0.0, 1.0, s3d::Math::InvLerp(0, 7, static_cast<double>(j)));
+                hsi.i = s3d::Math::Lerp(0.0, 1.0, s3d::Math::InvLerp(0, 7, static_cast<double>(i)));
+                Rect{ 80 * i, 80 * j, 80, 80 }.draw(ColorCast<ColorF>(hsi));
+            }
         }
 
         //for (size_t i = 0; i < 8; ++i) {
