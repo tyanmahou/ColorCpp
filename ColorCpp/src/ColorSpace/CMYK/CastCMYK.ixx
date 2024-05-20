@@ -38,9 +38,9 @@ export namespace colorcpp
         {
             auto&& [c, m, y, k] = cmyk;
             return {
-                .c = c * (1 - k),
-                .m = m * (1 - k),
-                .y = y * (1 - k),
+                .c = c * (1 - k) + k,
+                .m = m * (1 - k) + k,
+                .y = y * (1 - k) + k,
             };
         }
     };

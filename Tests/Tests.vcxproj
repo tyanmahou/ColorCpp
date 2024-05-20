@@ -142,9 +142,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="tests\catch.hpp" />
+    <ClInclude Include="tests\TestUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tests\CMY.cpp" />
+    <ClCompile Include="tests\CMYK.cpp" />
     <ClCompile Include="tests\Hex.cpp" />
     <ClCompile Include="tests\tests.cpp" />
   </ItemGroup>

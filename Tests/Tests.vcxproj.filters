@@ -18,6 +18,9 @@
     <ClInclude Include="tests\catch.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="tests\TestUtil.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tests\Hex.cpp">
@@ -27,6 +30,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="tests\CMY.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\CMYK.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
