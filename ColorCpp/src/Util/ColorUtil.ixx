@@ -9,15 +9,15 @@ export namespace colorcpp
     class ColorUtil
     {
     public:
-        [[nodiscard]] static constexpr inline double RepeatHue360(double h) noexcept
+        [[nodiscard]] static constexpr double RepeatHue360(double h) noexcept
         {
             return Math::Repeat(h, 360.0);
         }
-        [[nodiscard]] static constexpr inline std::tuple<double, double, double> HueMaxMin(const RGB& rgb) noexcept
+        [[nodiscard]] static constexpr std::tuple<double, double, double> HueMaxMin(const RGB& rgb) noexcept
         {
             return HueMaxMin(rgb.r, rgb.g, rgb.b);
         }
-        [[nodiscard]] static constexpr inline std::tuple<double, double, double> HueMaxMin(double r, double g, double b) noexcept
+        [[nodiscard]] static constexpr std::tuple<double, double, double> HueMaxMin(double r, double g, double b) noexcept
         {
             double k = 0;
             if (g < b) {
@@ -37,7 +37,7 @@ export namespace colorcpp
                 min
             );
         }
-        [[nodiscard]] static constexpr inline RGB HueChromaFactor(double h) noexcept
+        [[nodiscard]] static constexpr RGB HueChromaFactor(double h) noexcept
         {
             double h6 = 6.0 * Math::Fraction(h / 360.0);
             double r = Math::Abs(h6 - 3) - 1;
@@ -49,6 +49,30 @@ export namespace colorcpp
                 Math::Saturate(g),
                 Math::Saturate(b)
             };
+        }
+        [[nodiscard]] static constexpr double LinearToSRGB(double v)
+        {
+            if (v <= 0.0031308) {
+                return 12.92 * v;
+            } else {
+                return 1.055 * Math::Pow(v, 1.0 / 2.4) - 0.055;
+            }
+        }
+        [[nodiscard]] static constexpr double SRGBToLinear(double v)
+        {
+            if (v <= 0.04045) {
+                return v / 12.92;
+            } else {
+                return Math::Pow((v + 0.055) / 1.055, 2.4);
+            }
+        }
+        [[nodiscard]] static constexpr double LinearToAdobeRGB(double v)
+        {
+            return Math::Pow(v, 1.0 / 2.19921875);
+        }
+        [[nodiscard]] static constexpr double AdobeRGBToLinear(double v)
+        {
+            return Math::Pow(v, 2.19921875);
         }
     };
 }

@@ -3,6 +3,8 @@ import :ColorCastTrait;
 
 import :RGB;
 import :LRGB;
+import :ColorUtil;
+
 export namespace colorcpp
 {
     template<>
@@ -18,9 +20,9 @@ export namespace colorcpp
         constexpr static LRGB Cast(const RGB& rgb)
         {
             return LRGB{
-                SRGBToLinear(rgb.r),
-                SRGBToLinear(rgb.g),
-                SRGBToLinear(rgb.b),
+                ColorUtil::SRGBToLinear(rgb.r),
+                ColorUtil::SRGBToLinear(rgb.g),
+                ColorUtil::SRGBToLinear(rgb.b),
             };
         }
     };
@@ -30,9 +32,9 @@ export namespace colorcpp
         constexpr static RGB Cast(const LRGB& rgb)
         {
             return RGB{
-                LinearToSRGB(rgb.r),
-                LinearToSRGB(rgb.g),
-                LinearToSRGB(rgb.b)
+                ColorUtil::LinearToSRGB(rgb.r),
+                ColorUtil::LinearToSRGB(rgb.g),
+                ColorUtil::LinearToSRGB(rgb.b)
             };
         }
     };
