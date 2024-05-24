@@ -148,6 +148,7 @@
     <ClCompile Include="tests\CMY.cpp" />
     <ClCompile Include="tests\CMYK.cpp" />
     <ClCompile Include="tests\Hex.cpp" />
+    <ClCompile Include="tests\HSL.cpp" />
     <ClCompile Include="tests\HSV.cpp" />
     <ClCompile Include="tests\RYB.cpp" />
     <ClCompile Include="tests\tests.cpp" />
