@@ -21,3 +21,4 @@ export import :CastLCH;
 export import :CastOkLCH;
 export import :CastLuv;
 export import :CastHex;
+export import :CastITP;

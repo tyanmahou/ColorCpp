@@ -20,6 +20,7 @@ export import :LCH;
 export import :OkLCH;
 export import :Luv;
 export import :Hex;
+export import :ITP;
 
 export import :ColorCast;
 
