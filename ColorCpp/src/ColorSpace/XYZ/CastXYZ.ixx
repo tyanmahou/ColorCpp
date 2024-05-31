@@ -43,7 +43,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<XYZ50, LRGB>
     {
-        constexpr static XYZ65 Cast(const LRGB& rgb)
+        constexpr static XYZ50 Cast(const LRGB& rgb)
         {
             const auto& [r, g, b] = rgb;
             return {
