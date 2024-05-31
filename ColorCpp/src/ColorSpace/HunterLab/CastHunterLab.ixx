@@ -65,7 +65,7 @@ export namespace colorcpp
             const double x = sqrtY * a / ka + y;
             const double z = y - sqrtY * b / kb;
 
-            return XYZ{ x, y, z } * w;
+            return XYZ_<Illuminant>{ x, y, z } * w;
         }
     };
 }
