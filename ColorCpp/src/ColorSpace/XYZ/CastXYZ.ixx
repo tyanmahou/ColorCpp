@@ -65,4 +65,30 @@ export namespace colorcpp
             };
         }
     };
+
+    // XYZ65 <=> XYZ50
+    template<>
+    struct ColorCastTraits<XYZ65, XYZ50>
+    {
+        constexpr static XYZ65 Cast(const XYZ50& xyz)
+        {
+            return {
+                .x = 0.955473421488075 * xyz.x - 0.02309845494876471 * xyz.y + 0.06325924320057072 * xyz.z,
+                .y = -0.0283697093338637 * xyz.x + 1.0099953980813041 * xyz.y + 0.021041441191917323 * xyz.z,
+                .z = 0.012314014864481998 * xyz.x - 0.020507649298898964 * xyz.y + 1.330365926242124 * xyz.z
+            };
+        }
+    };
+    template<>
+    struct ColorCastTraits<XYZ50, XYZ65>
+    {
+        constexpr static XYZ50 Cast(const XYZ65& xyz)
+        {
+            return {
+                .x = 1.0479297925449969 * xyz.x + 0.022946870601609652 * xyz.y - 0.05019226628920524 * xyz.z,
+                .y = 0.02962780877005599 * xyz.x + 0.9904344267538799 * xyz.y - 0.017073799063418826 * xyz.z,
+                .z = -0.009243040646204504 * xyz.x + 0.015055191490298152 * xyz.y + 0.7518742814281371 * xyz.z
+            };
+        }
+    };
 }

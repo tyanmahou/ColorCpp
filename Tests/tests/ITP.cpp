@@ -6,7 +6,7 @@ using namespace colorcpp;
 
 TEST_CASE("ITP")
 {
-    SECTION("RGB toITP to RGB")
+    SECTION("RGB to ITP to RGB")
     {
         constexpr RGB src{ 0.1, 0.2, 0.3 };
         const RGB dst = ColorCast<RGB>(ColorCast<ITP>(src));
