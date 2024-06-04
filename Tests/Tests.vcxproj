@@ -155,6 +155,7 @@
     <ClCompile Include="tests\HWB.cpp" />
     <ClCompile Include="tests\ITP.cpp" />
     <ClCompile Include="tests\Lab.cpp" />
+    <ClCompile Include="tests\LCH.cpp" />
     <ClCompile Include="tests\LRGB.cpp" />
     <ClCompile Include="tests\RYB.cpp" />
     <ClCompile Include="tests\tests.cpp" />
