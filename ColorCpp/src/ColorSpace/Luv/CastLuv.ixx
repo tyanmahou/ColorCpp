@@ -45,7 +45,7 @@ export namespace colorcpp
         constexpr static Luv_<Illuminant> Cast(const XYZ_<Illuminant>& xyz)
         {
             const auto& w = WhitePoint<Illuminant>;
-            auto&& [x, y, z] = xyz;
+            const auto& [x, y, z] = xyz;
 
             const double ny = y / w.y;
 
@@ -61,16 +61,16 @@ export namespace colorcpp
         constexpr static XYZ_<Illuminant> Cast(const Luv_<Illuminant>& luv)
         {
             const auto& w = WhitePoint<Illuminant>;
-            auto&& [l, u, v] = luv;
+            const auto& [l, u, v] = luv;
 
             const double up = u / (13 * l) + CalcU(w);
             const double vp = v / (13 * l) + CalcV(w);
 
             const double cbrty = ((l + 16) / 116);
-            const double ny = cbrty * cbrty * cbrty;
+            const double ny = Math::Pow3(cbrty);
 
             const double y = w.y * (l <= 8 ? l / Kappa : ny);
-            double x = (y * (9 * up)) / (4 * up);
+            double x = (y * (9 * up)) / (4 * vp);
             double z = (y * (12 - 3 * up - 20 * vp)) / (4 * vp);
             return {x, y, z};
         }
