@@ -6,10 +6,10 @@ using namespace colorcpp;
 
 TEST_CASE("XYZ")
 {
-    SECTION("RGB to XYZ to RGB")
+    SECTION("LRGB to XYZ to LRGB")
     {
-        constexpr RGB src{ 0.1, 0.2, 0.3 };
-        const RGB dst = ColorCast<RGB>(ColorCast<XYZ>(src));
+        constexpr LRGB src{ 0.1, 0.2, 0.3 };
+        const LRGB dst = ColorCast<LRGB>(ColorCast<XYZ>(src));
 
         REQUIRE(dst.r == 0.1_nearly);
         REQUIRE(dst.g == 0.2_nearly);
@@ -26,11 +26,11 @@ TEST_CASE("XYZ")
         REQUIRE(dst.z == 0.3_nearly);
     }
 
-    SECTION("D65 to D50 with RGB")
+    SECTION("D65 to D50 with LRGB")
     {
         constexpr XYZ65 src{ 0.1, 0.2, 0.3 };
         const XYZ50 dst = ColorCast<XYZ50>(src);
-        const XYZ50 dst2 = ColorCast<XYZ50>(ColorCast<RGB>(src));
+        const XYZ50 dst2 = ColorCast<XYZ50>(ColorCast<LRGB>(src));
 
         REQUIRE(dst.x == NearlyDouble{ dst2.x });
         REQUIRE(dst.y == NearlyDouble{ dst2.y });
