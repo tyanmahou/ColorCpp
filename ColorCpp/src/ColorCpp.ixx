@@ -13,6 +13,7 @@ export import :RYB;
 export import :CMY;
 export import :CMYK;
 export import :XYZ;
+export import :XyY;
 export import :Lab;
 export import :OkLab;
 export import :HunterLab;
