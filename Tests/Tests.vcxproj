@@ -162,6 +162,7 @@
     <ClCompile Include="tests\OkLCH.cpp" />
     <ClCompile Include="tests\RYB.cpp" />
     <ClCompile Include="tests\tests.cpp" />
+    <ClCompile Include="tests\XyY.cpp" />
     <ClCompile Include="tests\XYZ.cpp" />
   </ItemGroup>
   <ItemGroup>
