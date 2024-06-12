@@ -160,6 +160,7 @@
     <ClCompile Include="tests\Luv.cpp" />
     <ClCompile Include="tests\OkLab.cpp" />
     <ClCompile Include="tests\OkLCH.cpp" />
+    <ClCompile Include="tests\RGB.cpp" />
     <ClCompile Include="tests\RYB.cpp" />
     <ClCompile Include="tests\tests.cpp" />
     <ClCompile Include="tests\XyY.cpp" />
