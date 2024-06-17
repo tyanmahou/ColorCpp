@@ -2,6 +2,7 @@
 
 export import :CMY;
 export import :CMYK;
+export import :DisplayP3;
 export import :Hex;
 export import :HSI;
 export import :HSL;
