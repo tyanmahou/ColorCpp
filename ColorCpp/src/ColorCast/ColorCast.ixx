@@ -3,6 +3,7 @@ export import :ColorCastTrait;
 
 export import :CastCMY;
 export import :CastCMYK;
+export import :DisplayP3;
 export import :CastHex;
 export import :CastHSI;
 export import :CastHSL;

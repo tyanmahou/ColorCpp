@@ -171,5 +171,14 @@
     <ClCompile Include="src\ColorSpace\HSI\CastHSI.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\ColorSpace\ITP\CastITP.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\DisplayP3\CastDisplayP3.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\DisplayP3\DisplayP3.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
