@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClCompile Include="tests\CMY.cpp" />
     <ClCompile Include="tests\CMYK.cpp" />
+    <ClCompile Include="tests\DisplayP3.cpp" />
     <ClCompile Include="tests\Hex.cpp" />
     <ClCompile Include="tests\HSI.cpp" />
     <ClCompile Include="tests\HSL.cpp" />

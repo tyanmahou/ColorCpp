@@ -12,7 +12,7 @@ export namespace colorcpp
     };
     // DisplayP3 <=> XYZ65
     template<>
-    struct ColorCastTraits<XYZ65, DisplayP3>
+    struct ColorCastTraits<DisplayP3, XYZ65>
     {
         constexpr static DisplayP3 Cast(const XYZ65& xyz)
         {
@@ -26,7 +26,7 @@ export namespace colorcpp
         }
     };
     template<>
-    struct ColorCastTraits<DisplayP3, XYZ65>
+    struct ColorCastTraits<XYZ65, DisplayP3>
     {
         constexpr static XYZ65 Cast(const DisplayP3& p3)
         {
