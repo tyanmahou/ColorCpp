@@ -1,11 +1,11 @@
-﻿export module ColorCpp:RGB;
+﻿export module ColorCpp:A98;
 
 export namespace colorcpp
 {
     /// <summary>
-    /// sRGB
+    /// Adobe RGB 1998
     /// </summary>
-    struct RGB
+    struct A98
     {
         /// <summary>
         /// Red [0, 1]
@@ -22,33 +22,33 @@ export namespace colorcpp
         /// </summary>
         double b;
 
-        constexpr RGB operator +(const RGB& other) const noexcept
+        constexpr A98 operator +(const A98& other) const noexcept
         {
             return{ (r + other.r), (g + other.g), (b + other.b) };
         }
-        constexpr RGB& operator +=(const RGB& other) noexcept
+        constexpr A98& operator +=(const A98& other) noexcept
         {
             r += other.r;
             g += other.g;
             b += other.b;
             return *this;
         }
-        constexpr RGB operator -(const RGB& other) const noexcept
+        constexpr A98 operator -(const A98& other) const noexcept
         {
             return{ (r - other.r), (g - other.g), (b - other.b) };
         }
-        constexpr RGB& operator -=(const RGB& other) noexcept
+        constexpr A98& operator -=(const A98& other) noexcept
         {
             r -= other.r;
             g -= other.g;
             b -= other.b;
             return *this;
         }
-        constexpr RGB operator *(double s) const noexcept
+        constexpr A98 operator *(double s) const noexcept
         {
             return{ r * s, g * s, b * s };
         }
-        constexpr RGB& operator *=(double s) noexcept
+        constexpr A98& operator *=(double s) noexcept
         {
             r *= s;
             g *= s;
@@ -56,6 +56,6 @@ export namespace colorcpp
             return *this;
         }
 
-        friend constexpr bool operator==(const RGB& a, const RGB& b) = default;
+        friend constexpr bool operator==(const A98& a, const A98& b) = default;
     };
 }

@@ -1,6 +1,4 @@
 ﻿export module ColorCpp:DisplayP3;
-import :Type;
-import :Math;
 
 export namespace colorcpp
 {

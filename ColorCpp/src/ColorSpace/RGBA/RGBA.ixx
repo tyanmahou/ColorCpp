@@ -1,6 +1,4 @@
 ﻿export module ColorCpp:RGBA;
-import :Type;
-import :Math;
 
 export namespace colorcpp
 {
