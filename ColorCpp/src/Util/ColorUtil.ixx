@@ -66,13 +66,13 @@ export namespace colorcpp
                 return Math::Pow((v + 0.055) / 1.055, 2.4);
             }
         }
-        [[nodiscard]] static constexpr double LinearToAdobeRGB(double v)
+        [[nodiscard]] static constexpr double Linearize(double v, double gammaInv)
         {
-            return Math::Pow(v, 1.0 / 2.19921875);
+            return Math::Pow(v, gammaInv);
         }
-        [[nodiscard]] static constexpr double AdobeRGBToLinear(double v)
+        [[nodiscard]] static constexpr double Gamma(double v, double gamma)
         {
-            return Math::Pow(v, 2.19921875);
+            return Math::Pow(v, gamma);
         }
     };
 }
