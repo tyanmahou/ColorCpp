@@ -1,5 +1,6 @@
 ﻿export module ColorCpp;
 
+export import :A98;
 export import :CMY;
 export import :CMYK;
 export import :DisplayP3;

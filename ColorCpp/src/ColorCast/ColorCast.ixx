@@ -1,6 +1,7 @@
 ﻿export module ColorCpp:ColorCast;
 export import :ColorCastTrait;
 
+export import :CastA98;
 export import :CastCMY;
 export import :CastCMYK;
 export import :CastDisplayP3;
