@@ -66,13 +66,14 @@ export namespace colorcpp
                 return Math::Pow((v + 0.055) / 1.055, 2.4);
             }
         }
-        [[nodiscard]] static constexpr double Linearize(double v, double gammaInv)
-        {
-            return Math::Pow(v, gammaInv);
-        }
         [[nodiscard]] static constexpr double Gamma(double v, double gamma)
         {
-            return Math::Pow(v, gamma);
+            return Math::Pow(Math::Abs(v), gamma) * Math::Sign(v);
+        }
+
+        [[nodiscard]] static constexpr double Linearize(double v, double gamma)
+        {
+            return Gamma(v, 1.0 / gamma);
         }
     };
 }

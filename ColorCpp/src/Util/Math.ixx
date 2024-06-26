@@ -31,6 +31,10 @@ export namespace colorcpp
         {
             return Clamp(x, 0.0, 1.0);
         }
+        [[nodiscard]] static constexpr inline double Sign(double x) noexcept
+        {
+            return static_cast<double>((0.0 < x) - (x < 0.0));
+        }
         // TODO: C++23でconstexpr対応
         [[nodiscard]] static constexpr inline double Abs(auto x) noexcept
         {

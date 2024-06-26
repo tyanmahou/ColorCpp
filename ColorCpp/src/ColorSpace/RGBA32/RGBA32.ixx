@@ -1,4 +1,5 @@
 ﻿export module ColorCpp:RGBA32;
+import :Type;
 
 export namespace colorcpp
 {

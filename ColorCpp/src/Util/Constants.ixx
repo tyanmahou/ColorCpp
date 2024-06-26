@@ -6,5 +6,5 @@ export namespace colorcpp
     inline constexpr double Kappa = 903.296296296;
 
     inline constexpr double AdobeGammaInv = 2.19921875;
-    inline constexpr double AdobeGamma = 1 / AdobeGammaInv;
+    inline constexpr double AdobeGamma = 1.0 / AdobeGammaInv;
 }

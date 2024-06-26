@@ -1,4 +1,5 @@
 ﻿export module ColorCpp:RGB24;
+import :Type;
 
 export namespace colorcpp
 {
