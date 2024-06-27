@@ -145,6 +145,7 @@
     <ClInclude Include="tests\TestUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="tests\A98.cpp" />
     <ClCompile Include="tests\CMY.cpp" />
     <ClCompile Include="tests\CMYK.cpp" />
     <ClCompile Include="tests\DisplayP3.cpp" />
