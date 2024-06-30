@@ -17,6 +17,7 @@ export import :LRGB;
 export import :Luv;
 export import :OkLab;
 export import :OkLCH;
+export import :Prophoto;
 export import :RGB;
 export import :RGB24;
 export import :RGBA;
