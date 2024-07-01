@@ -18,6 +18,7 @@ export import :CastLRGB;
 export import :CastLuv;
 export import :CastOkLab;
 export import :CastOkLCH;
+export import :CastProphoto;
 export import :CastRGB;
 export import :CastRGB24;
 export import :CastRGBA;
