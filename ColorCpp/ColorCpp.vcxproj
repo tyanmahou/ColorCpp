@@ -171,6 +171,7 @@
     <ClCompile Include="src\ColorSpace\LRGB\LRGB.ixx" />
     <ClCompile Include="src\ColorSpace\Luv\CastLuv.ixx" />
     <ClCompile Include="src\ColorSpace\Luv\Luv.ixx" />
+    <ClCompile Include="src\ColorSpace\Prophoto\CastProphoto.ixx" />
     <ClCompile Include="src\ColorSpace\Prophoto\Prophoto.ixx" />
     <ClCompile Include="src\ColorSpace\RGB24\CastRGB24.ixx" />
     <ClCompile Include="src\ColorSpace\RGB24\RGB24.ixx" />
