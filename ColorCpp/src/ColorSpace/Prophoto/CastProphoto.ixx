@@ -31,9 +31,9 @@ export namespace colorcpp
         using depend_type = XYZ50;
     };
 
-    // A98 <=> XYZ
+    // Prophoto <=> XYZ
     template<>
-    struct ColorCastTraits<Prophoto, XYZ>
+    struct ColorCastTraits<Prophoto, XYZ50>
     {
         constexpr static Prophoto Cast(const XYZ50& xyz)
         {
