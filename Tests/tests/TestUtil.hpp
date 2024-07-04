@@ -6,7 +6,7 @@ struct NearlyDouble
 {
     inline static constexpr double Epsilon = 0.000001;
 
-    static constexpr bool Equals(double a, double b, double e = 0.000001)
+    static constexpr bool Equals(double a, double b, double e = Epsilon)
     {
         // return std::abs(a - b) <= e;
         return (a >= b ? a - b : b - a) <= e;
@@ -15,7 +15,7 @@ struct NearlyDouble
     double value;
     double e;
 
-    explicit constexpr NearlyDouble(double v_, double e_ = 0.000001)
+    explicit constexpr NearlyDouble(double v_, double e_ = Epsilon)
     {
         value = v_;
         e = e_;
