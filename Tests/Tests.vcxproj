@@ -163,6 +163,7 @@
     <ClCompile Include="tests\OkLab.cpp" />
     <ClCompile Include="tests\OkLCH.cpp" />
     <ClCompile Include="tests\Prophoto.cpp" />
+    <ClCompile Include="tests\Rec2020.cpp" />
     <ClCompile Include="tests\RGB.cpp" />
     <ClCompile Include="tests\RGB24.cpp" />
     <ClCompile Include="tests\RGBA.cpp" />
