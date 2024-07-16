@@ -14,4 +14,32 @@ TEST_CASE("Rec2020")
         REQUIRE(dst.y == 0.2_nearly);
         REQUIRE(dst.z == 0.3_nearly);
     }
+
+    SECTION("RGB to Rec2020")
+    {
+        {
+            constexpr RGB src{ 0.0, 0.0, 0.0 };
+            const auto dst = ColorCast<Rec2020>(src);
+
+            REQUIRE(dst.r == 0_nearly);
+            REQUIRE(dst.g == 0_nearly);
+            REQUIRE(dst.b == 0_nearly);
+        }
+        {
+            constexpr RGB src{ 1.0, 1.0, 1.0 };
+            const auto dst = ColorCast<Rec2020>(src);
+
+            REQUIRE(dst.r == 1_nearly);
+            REQUIRE(dst.g == 1_nearly);
+            REQUIRE(dst.b == 1_nearly);
+        }
+        {
+            constexpr RGB src{ 0.1, 0.5, 0.9 };
+            const auto dst = ColorCast<Rec2020>(src);
+
+            REQUIRE(dst.r == 0.309_nearly(0.01));
+            REQUIRE(dst.g == 0.441_nearly(0.01));
+            REQUIRE(dst.b == 0.851_nearly(0.01));
+        }
+    }
 }
