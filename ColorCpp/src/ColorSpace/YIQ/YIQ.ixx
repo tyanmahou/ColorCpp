@@ -2,6 +2,9 @@
 
 export namespace colorcpp
 {
+    /// <summary>
+    /// YIQ色空間
+    /// </summary>
     struct YIQ
     {
         /// <summary>
