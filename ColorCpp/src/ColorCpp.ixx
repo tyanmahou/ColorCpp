@@ -26,6 +26,7 @@ export import :RGBA32;
 export import :RYB;
 export import :XyY;
 export import :XYZ;
+export import :YIQ;
 
 export import :ColorCast;
 
