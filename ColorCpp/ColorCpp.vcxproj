@@ -206,6 +206,8 @@
     <ClCompile Include="src\ColorSpace\XyY\XyY.ixx" />
     <ClCompile Include="src\ColorSpace\XYZ\CastXYZ.ixx" />
     <ClCompile Include="src\ColorSpace\XYZ\XYZ.ixx" />
+    <ClCompile Include="src\ColorSpace\YIQ\CastYIQ.ixx" />
+    <ClCompile Include="src\ColorSpace\YIQ\YIQ.ixx" />
     <ClCompile Include="src\Util\ColorUtil.ixx" />
     <ClCompile Include="src\Util\Constants.ixx" />
     <ClCompile Include="src\Util\Utility.ixx" />
