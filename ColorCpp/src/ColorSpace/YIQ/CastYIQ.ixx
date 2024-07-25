@@ -33,7 +33,11 @@ export namespace colorcpp
         constexpr static RGB Cast(const YIQ& yiq)
         {
             auto&& [y, i, q] = yiq;
-            return {};
+            return {
+                .r = y + 0.95608445 * i + 0.6208885 * q,
+                .g = y - 0.27137664 * i - 0.6486059 * q,
+                .b = y - 1.10561724 * i + 1.70250126 * q,
+            };
         }
     };
 }
