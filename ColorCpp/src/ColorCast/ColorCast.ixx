@@ -27,3 +27,4 @@ export import :CastRGBA32;
 export import :CastRYB;
 export import :CastXyY;
 export import :CastXYZ;
+export import :CastYIQ;
