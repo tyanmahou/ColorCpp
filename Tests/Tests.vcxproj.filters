@@ -104,6 +104,9 @@
     <ClCompile Include="tests\Rec2020.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="tests\YIQ.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".runsettings" />

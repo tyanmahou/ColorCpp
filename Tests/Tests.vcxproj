@@ -172,6 +172,7 @@
     <ClCompile Include="tests\tests.cpp" />
     <ClCompile Include="tests\XyY.cpp" />
     <ClCompile Include="tests\XYZ.cpp" />
+    <ClCompile Include="tests\YIQ.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".runsettings" />
