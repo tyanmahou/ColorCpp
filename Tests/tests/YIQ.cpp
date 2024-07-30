@@ -25,5 +25,13 @@ TEST_CASE("YIQ")
             REQUIRE(dst.i == 0_nearly);
             REQUIRE(dst.q == 0_nearly);
         }
+        {
+            constexpr RGB src{ 1.0, 1.0, 1.0 };
+            const auto dst = ColorCast<YIQ>(src);
+
+            REQUIRE(dst.y == 1_nearly);
+            REQUIRE(dst.i == 0_nearly);
+            REQUIRE(dst.q == 0_nearly);
+        }
     }
 }
