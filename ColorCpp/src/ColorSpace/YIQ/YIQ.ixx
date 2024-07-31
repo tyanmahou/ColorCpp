@@ -8,17 +8,17 @@ export namespace colorcpp
     struct YIQ
     {
         /// <summary>
-        /// Y [0, 1]
+        /// Y
         /// </summary>
         double y;
 
         /// <summary>
-        /// I [0, 1]
+        /// I
         /// </summary>
         double i;
 
         /// <summary>
-        /// Q [0, 1]
+        /// Q
         /// </summary>
         double q;
 
