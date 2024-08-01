@@ -25,7 +25,14 @@ struct NearlyDouble
     {
         return NearlyDouble{ value, e_ };
     }
-
+    constexpr NearlyDouble operator+() const
+    {
+        return NearlyDouble{ value, e };
+    }
+    constexpr NearlyDouble operator-() const
+    {
+        return NearlyDouble{ -value, e };
+    }
     friend constexpr NearlyDouble operator +(const NearlyDouble& a, const NearlyDouble& b)
     {
         return NearlyDouble{ a.value + b.value, std::max(a.e, b.e)};
@@ -38,7 +45,6 @@ struct NearlyDouble
     {
         return NearlyDouble{ a + b.value, b.e };
     }
-
     friend constexpr NearlyDouble operator -(const NearlyDouble& a, const NearlyDouble& b)
     {
         return NearlyDouble{ a.value - b.value, std::max(a.e, b.e) };
