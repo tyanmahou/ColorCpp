@@ -151,6 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\ColorCast\ColorCastDependency.ixx" />
+    <ClCompile Include="src\ColorDiffrence\ColorDiffrence.ixx" />
     <ClCompile Include="src\ColorSpace\A98\A98.ixx" />
     <ClCompile Include="src\ColorSpace\A98\CastA98.ixx" />
     <ClCompile Include="src\ColorSpace\DisplayP3\CastDisplayP3.ixx" />
