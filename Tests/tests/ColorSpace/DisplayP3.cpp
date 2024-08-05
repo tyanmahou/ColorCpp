@@ -1,25 +1,25 @@
 ﻿import ColorCpp;
-#include "catch.hpp"
-#include "TestUtil.hpp"
+#include "../catch.hpp"
+#include "../TestUtil.hpp"
 using namespace colorcpp;
 
-TEST_CASE("Rec2020")
+TEST_CASE("DisplayP3")
 {
-    SECTION("XYZ65 to Rec2020 to XYZ65")
+    SECTION("XYZ65 to DisplayP3 to XYZ65")
     {
         constexpr XYZ65 src{ 0.1, 0.2, 0.3 };
-        const XYZ65 dst = ColorCast<XYZ65>(ColorCast<Rec2020>(src));
+        const XYZ65 dst = ColorCast<XYZ65>(ColorCast<DisplayP3>(src));
 
         REQUIRE(dst.x == 0.1_nearly);
         REQUIRE(dst.y == 0.2_nearly);
         REQUIRE(dst.z == 0.3_nearly);
     }
 
-    SECTION("RGB to Rec2020")
+    SECTION("RGB to DisplayP3")
     {
         {
             constexpr RGB src{ 0.0, 0.0, 0.0 };
-            const auto dst = ColorCast<Rec2020>(src);
+            const auto dst = ColorCast<DisplayP3>(src);
 
             REQUIRE(dst.r == 0_nearly);
             REQUIRE(dst.g == 0_nearly);
@@ -27,7 +27,7 @@ TEST_CASE("Rec2020")
         }
         {
             constexpr RGB src{ 1.0, 1.0, 1.0 };
-            const auto dst = ColorCast<Rec2020>(src);
+            const auto dst = ColorCast<DisplayP3>(src);
 
             REQUIRE(dst.r == 1_nearly);
             REQUIRE(dst.g == 1_nearly);
@@ -35,11 +35,11 @@ TEST_CASE("Rec2020")
         }
         {
             constexpr RGB src{ 0.1, 0.5, 0.9 };
-            const auto dst = ColorCast<Rec2020>(src);
+            const auto dst = ColorCast<DisplayP3>(src);
 
-            REQUIRE(dst.r == 0.309_nearly(0.01));
-            REQUIRE(dst.g == 0.441_nearly(0.01));
-            REQUIRE(dst.b == 0.851_nearly(0.01));
+            REQUIRE(dst.r == 0.046_nearly(0.01));
+            REQUIRE(dst.g == 0.207_nearly(0.01));
+            REQUIRE(dst.b == 0.732_nearly(0.01));
         }
     }
 }

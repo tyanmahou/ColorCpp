@@ -1,15 +1,15 @@
 ﻿import ColorCpp;
 
-#include "catch.hpp"
-#include "TestUtil.hpp"
+#include "../catch.hpp"
+#include "../TestUtil.hpp"
 using namespace colorcpp;
 
-TEST_CASE("ITP")
+TEST_CASE("LRGB")
 {
-    SECTION("RGB to ITP to RGB")
+    SECTION("RGB to LRGB to RGB")
     {
         constexpr RGB src{ 0.1, 0.2, 0.3 };
-        const RGB dst = ColorCast<RGB>(ColorCast<ITP>(src));
+        const RGB dst = ColorCast<RGB>(ColorCast<LRGB>(src));
 
         REQUIRE(dst.r == 0.1_nearly);
         REQUIRE(dst.g == 0.2_nearly);

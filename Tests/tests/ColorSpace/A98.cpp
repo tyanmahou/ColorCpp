@@ -1,25 +1,25 @@
 ﻿import ColorCpp;
-#include "catch.hpp"
-#include "TestUtil.hpp"
+#include "../catch.hpp"
+#include "../TestUtil.hpp"
 using namespace colorcpp;
 
-TEST_CASE("Prophoto")
+TEST_CASE("A98")
 {
-    SECTION("XYZ50 to Prophoto to XYZ50")
+    SECTION("XYZ65 to A98 to XYZ65")
     {
-        constexpr XYZ50 src{ 0.1, 0.2, 0.3 };
-        const XYZ50 dst = ColorCast<XYZ50>(ColorCast<Prophoto>(src));
+        constexpr XYZ65 src{ 0.1, 0.2, 0.3 };
+        const XYZ65 dst = ColorCast<XYZ65>(ColorCast<A98>(src));
 
         REQUIRE(dst.x == 0.1_nearly);
         REQUIRE(dst.y == 0.2_nearly);
         REQUIRE(dst.z == 0.3_nearly);
     }
 
-    SECTION("RGB to Prophoto")
+    SECTION("RGB to A98")
     {
         {
             constexpr RGB src{ 0.0, 0.0, 0.0 };
-            const auto dst = ColorCast<Prophoto>(src);
+            const auto dst = ColorCast<A98>(src);
 
             REQUIRE(dst.r == 0_nearly);
             REQUIRE(dst.g == 0_nearly);
@@ -27,7 +27,7 @@ TEST_CASE("Prophoto")
         }
         {
             constexpr RGB src{ 1.0, 1.0, 1.0 };
-            const auto dst = ColorCast<Prophoto>(src);
+            const auto dst = ColorCast<A98>(src);
 
             REQUIRE(dst.r == 1_nearly);
             REQUIRE(dst.g == 1_nearly);
@@ -35,11 +35,11 @@ TEST_CASE("Prophoto")
         }
         {
             constexpr RGB src{ 0.1, 0.5, 0.9 };
-            const auto dst = ColorCast<Prophoto>(src);
+            const auto dst = ColorCast<A98>(src);
 
-            REQUIRE(dst.r == 0.393_nearly(0.01));
-            REQUIRE(dst.g == 0.420_nearly(0.01));
-            REQUIRE(dst.b == 0.824_nearly(0.01));
+            REQUIRE(dst.r == 0.294_nearly(0.01));
+            REQUIRE(dst.g == 0.496_nearly(0.01));
+            REQUIRE(dst.b == 0.884_nearly(0.01));
         }
     }
 }

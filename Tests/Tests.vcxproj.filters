@@ -23,88 +23,88 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="tests\Hex.cpp">
+    <ClCompile Include="tests\ColorSpace\Hex.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="tests\tests.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\CMY.cpp">
+    <ClCompile Include="tests\ColorSpace\CMY.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\CMYK.cpp">
+    <ClCompile Include="tests\ColorSpace\CMYK.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\RYB.cpp">
+    <ClCompile Include="tests\ColorSpace\RYB.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\HSV.cpp">
+    <ClCompile Include="tests\ColorSpace\HSV.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\HSL.cpp">
+    <ClCompile Include="tests\ColorSpace\HSL.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\HSI.cpp">
+    <ClCompile Include="tests\ColorSpace\HSI.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\HWB.cpp">
+    <ClCompile Include="tests\ColorSpace\HWB.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\LRGB.cpp">
+    <ClCompile Include="tests\ColorSpace\LRGB.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\HunterLab.cpp">
+    <ClCompile Include="tests\ColorSpace\HunterLab.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\ITP.cpp">
+    <ClCompile Include="tests\ColorSpace\ITP.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\XYZ.cpp">
+    <ClCompile Include="tests\ColorSpace\XYZ.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\Lab.cpp">
+    <ClCompile Include="tests\ColorSpace\Lab.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\LCH.cpp">
+    <ClCompile Include="tests\ColorSpace\LCH.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\Luv.cpp">
+    <ClCompile Include="tests\ColorSpace\Luv.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\OkLab.cpp">
+    <ClCompile Include="tests\ColorSpace\OkLab.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\OkLCH.cpp">
+    <ClCompile Include="tests\ColorSpace\OkLCH.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\XyY.cpp">
+    <ClCompile Include="tests\ColorSpace\XyY.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\RGB.cpp">
+    <ClCompile Include="tests\ColorSpace\RGB.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\RGB24.cpp">
+    <ClCompile Include="tests\ColorSpace\RGB24.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\RGBA.cpp">
+    <ClCompile Include="tests\ColorSpace\RGBA.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\RGBA32.cpp">
+    <ClCompile Include="tests\ColorSpace\RGBA32.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\DisplayP3.cpp">
+    <ClCompile Include="tests\ColorSpace\DisplayP3.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\A98.cpp">
+    <ClCompile Include="tests\ColorSpace\A98.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\Prophoto.cpp">
+    <ClCompile Include="tests\ColorSpace\Prophoto.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\Rec2020.cpp">
+    <ClCompile Include="tests\ColorSpace\Rec2020.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="tests\YIQ.cpp">
+    <ClCompile Include="tests\ColorSpace\YIQ.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,6 +1,6 @@
 ﻿import ColorCpp;
 
-#include "catch.hpp"
+#include "../catch.hpp"
 
 using namespace colorcpp;
 
