@@ -151,9 +151,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\ColorCast\ColorCastDependency.ixx" />
-    <ClCompile Include="src\ColorDiffrence\ColorDiffrence.ixx" />
+    <ClCompile Include="src\ColorDiff\ColorDiffTraits.ixx" />
+    <ClCompile Include="src\ColorDiff\ColorDiff.ixx" />
+    <ClCompile Include="src\ColorDiff\Euclidean\Euclidean.ixx" />
     <ClCompile Include="src\ColorSpace\A98\A98.ixx" />
     <ClCompile Include="src\ColorSpace\A98\CastA98.ixx" />
+    <ClCompile Include="src\ColorSpace\ColorSpace.ixx" />
     <ClCompile Include="src\ColorSpace\DisplayP3\CastDisplayP3.ixx" />
     <ClCompile Include="src\ColorSpace\DisplayP3\DisplayP3.ixx" />
     <ClCompile Include="src\ColorSpace\Hex\CastHex.ixx" />
@@ -187,6 +190,7 @@
     <ClCompile Include="src\ColorSpace\CMYK\CMYK.ixx" />
     <ClCompile Include="src\ColorSpace\CMY\CastCMY.ixx" />
     <ClCompile Include="src\ColorSpace\RGB\CastRGB.ixx" />
+    <ClCompile Include="src\ColorSpace\RGB\DiffRGB.ixx" />
     <ClCompile Include="src\ColorSpace\RYB\CastRYB.ixx" />
     <ClCompile Include="src\ColorCpp.ixx" />
     <ClCompile Include="src\ColorCast\ColorCast.ixx" />
