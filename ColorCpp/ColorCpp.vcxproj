@@ -156,6 +156,7 @@
     <ClCompile Include="src\ColorDiff\Euclidean\Euclidean.ixx" />
     <ClCompile Include="src\ColorSpace\A98\A98.ixx" />
     <ClCompile Include="src\ColorSpace\A98\CastA98.ixx" />
+    <ClCompile Include="src\ColorSpace\A98\DiffA98.ixx" />
     <ClCompile Include="src\ColorSpace\ColorSpace.ixx" />
     <ClCompile Include="src\ColorSpace\DisplayP3\CastDisplayP3.ixx" />
     <ClCompile Include="src\ColorSpace\DisplayP3\DisplayP3.ixx" />
@@ -215,6 +216,7 @@
     <ClCompile Include="src\ColorSpace\YIQ\YIQ.ixx" />
     <ClCompile Include="src\Util\ColorUtil.ixx" />
     <ClCompile Include="src\Util\Constants.ixx" />
+    <ClCompile Include="src\Internal\InternalUtil.ixx" />
     <ClCompile Include="src\Util\Utility.ixx" />
     <ClCompile Include="src\Util\Math.ixx" />
     <ClCompile Include="src\Util\Type.ixx" />
