@@ -1,7 +1,7 @@
 ﻿export module ColorCpp:DiffA98;
 import :ColorDiffTrait;
 import :A98;
-import :Math;
+import :InternalUtil;
 
 export namespace colorcpp
 {
@@ -10,12 +10,7 @@ export namespace colorcpp
     {
         constexpr static double Diff(const A98& a, const A98& b)
         {
-            const A98 diff = a - b;
-            return Math::Sqrt(
-                diff.r * diff.r +
-                diff.g * diff.g +
-                diff.b * diff.b
-            );
+            return InternalUtil::Diff(a, b);
         }
     };
 }
