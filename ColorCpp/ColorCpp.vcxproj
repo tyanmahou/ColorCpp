@@ -177,6 +177,7 @@
     <ClCompile Include="src\ColorSpace\Luv\CastLuv.ixx" />
     <ClCompile Include="src\ColorSpace\Luv\Luv.ixx" />
     <ClCompile Include="src\ColorSpace\Prophoto\CastProphoto.ixx" />
+    <ClCompile Include="src\ColorSpace\Prophoto\DiffProphoto.ixx" />
     <ClCompile Include="src\ColorSpace\Prophoto\Prophoto.ixx" />
     <ClCompile Include="src\ColorSpace\Rec2020\CastRec2020.ixx" />
     <ClCompile Include="src\ColorSpace\Rec2020\Rec2020.ixx" />
