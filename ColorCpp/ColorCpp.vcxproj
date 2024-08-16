@@ -180,6 +180,7 @@
     <ClCompile Include="src\ColorSpace\Prophoto\DiffProphoto.ixx" />
     <ClCompile Include="src\ColorSpace\Prophoto\Prophoto.ixx" />
     <ClCompile Include="src\ColorSpace\Rec2020\CastRec2020.ixx" />
+    <ClCompile Include="src\ColorSpace\Rec2020\DiffRec2020.ixx" />
     <ClCompile Include="src\ColorSpace\Rec2020\Rec2020.ixx" />
     <ClCompile Include="src\ColorSpace\RGB24\CastRGB24.ixx" />
     <ClCompile Include="src\ColorSpace\RGB24\RGB24.ixx" />
