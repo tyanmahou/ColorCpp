@@ -159,6 +159,7 @@
     <ClCompile Include="src\ColorSpace\A98\DiffA98.ixx" />
     <ClCompile Include="src\ColorSpace\ColorSpace.ixx" />
     <ClCompile Include="src\ColorSpace\DisplayP3\CastDisplayP3.ixx" />
+    <ClCompile Include="src\ColorSpace\DisplayP3\DiffDisplayP3.ixx" />
     <ClCompile Include="src\ColorSpace\DisplayP3\DisplayP3.ixx" />
     <ClCompile Include="src\ColorSpace\Hex\CastHex.ixx" />
     <ClCompile Include="src\ColorSpace\Hex\Hex.ixx" />
@@ -213,6 +214,7 @@
     <ClCompile Include="src\ColorSpace\XyY\CastXyY.ixx" />
     <ClCompile Include="src\ColorSpace\XyY\XyY.ixx" />
     <ClCompile Include="src\ColorSpace\XYZ\CastXYZ.ixx" />
+    <ClCompile Include="src\ColorSpace\XYZ\DiffXYZ.ixx" />
     <ClCompile Include="src\ColorSpace\XYZ\XYZ.ixx" />
     <ClCompile Include="src\ColorSpace\YIQ\CastYIQ.ixx" />
     <ClCompile Include="src\ColorSpace\YIQ\YIQ.ixx" />
