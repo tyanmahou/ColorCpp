@@ -7,7 +7,7 @@ namespace colorcpp
     {
     public:
         template<class RGBType>
-        constexpr static double Diff(const RGBType& a, const RGBType& b)
+        constexpr static double DiffRGB(const RGBType& a, const RGBType& b)
         {
             const RGBType diff = a - b;
             return Math::Sqrt(

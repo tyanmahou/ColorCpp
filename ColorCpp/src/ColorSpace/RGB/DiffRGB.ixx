@@ -10,7 +10,7 @@ export namespace colorcpp
     {
         constexpr static double Diff(const RGB& a, const RGB& b)
         {
-            return InternalUtil::Diff(a, b);
+            return InternalUtil::DiffRGB(a, b);
         }
     };
 }
