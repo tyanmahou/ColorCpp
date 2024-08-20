@@ -12,6 +12,29 @@ export namespace colorcpp
         double a;
         double b;
 
+        constexpr Lab_ operator +(const Lab_& other) const noexcept
+        {
+            return { (l + other.l), (a + other.a), (b + other.b) };
+        }
+        constexpr Lab_& operator +=(const Lab_& other) noexcept
+        {
+            l += other.l;
+            a += other.a;
+            b += other.b;
+            return *this;
+        }
+        constexpr Lab_ operator -(const Lab_& other) const noexcept
+        {
+            return{ (x - other.x), (y - other.y), (z - other.z) };
+        }
+        constexpr Lab_& operator -=(const Lab_& other) noexcept
+        {
+            l -= other.l;
+            a -= other.a;
+            b -= other.b;
+            return *this;
+        }
+
         friend constexpr bool operator==(const Lab_& a, const Lab_& b) = default;
     };
 
