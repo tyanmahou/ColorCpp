@@ -16,5 +16,16 @@ namespace colorcpp
                 diff.b * diff.b
             );
         }
+
+        template<class LabType>
+        constexpr static double DiffLab(const LabType& a, const LabType& b)
+        {
+            const LabType diff = a - b;
+            return Math::Sqrt(
+                diff.l * diff.l +
+                diff.a * diff.a +
+                diff.b * diff.b
+            );
+        }
     };
 }
