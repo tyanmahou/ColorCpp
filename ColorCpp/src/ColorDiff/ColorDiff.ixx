@@ -2,8 +2,14 @@
 export import :ColorDiffTrait;
 export import :ColorDiff.Euclidean;
 
+export import :DiffA98;
+export import :DiffDisplayP3;
+export import :DiffProphoto;
+export import :DiffRec2020;
 
 export import :DiffRGB;
+export import :DiffXyY;
+export import :DiffXYZ;
 import :RGB;
 
 export namespace colorcpp

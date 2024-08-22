@@ -25,7 +25,7 @@ export namespace colorcpp
         }
         constexpr Lab_ operator -(const Lab_& other) const noexcept
         {
-            return{ (x - other.x), (y - other.y), (z - other.z) };
+            return{ (l - other.l), (a - other.a), (b - other.b) };
         }
         constexpr Lab_& operator -=(const Lab_& other) noexcept
         {

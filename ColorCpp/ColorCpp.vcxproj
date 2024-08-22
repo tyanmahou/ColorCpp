@@ -212,6 +212,7 @@
     <ClCompile Include="src\ColorSpace\RGB\RGB.ixx" />
     <ClCompile Include="src\ColorSpace\RYB\RYB.ixx" />
     <ClCompile Include="src\ColorSpace\XyY\CastXyY.ixx" />
+    <ClCompile Include="src\ColorSpace\XyY\DiffXyY.ixx" />
     <ClCompile Include="src\ColorSpace\XyY\XyY.ixx" />
     <ClCompile Include="src\ColorSpace\XYZ\CastXYZ.ixx" />
     <ClCompile Include="src\ColorSpace\XYZ\DiffXYZ.ixx" />
