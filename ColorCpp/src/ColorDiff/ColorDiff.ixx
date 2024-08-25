@@ -10,6 +10,7 @@ export import :DiffRec2020;
 export import :DiffRGB;
 export import :DiffXyY;
 export import :DiffXYZ;
+export import :DiffYIQ;
 import :RGB;
 
 export namespace colorcpp
