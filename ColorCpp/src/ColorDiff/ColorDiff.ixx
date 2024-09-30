@@ -8,6 +8,9 @@ export import :DiffProphoto;
 export import :DiffRec2020;
 
 export import :DiffRGB;
+export import :DiffRGB24;
+export import :DiffRGBA;
+export import :DiffRGBA32;
 export import :DiffRYB;
 export import :DiffXyY;
 export import :DiffXYZ;
