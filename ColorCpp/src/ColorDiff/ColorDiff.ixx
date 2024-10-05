@@ -4,6 +4,7 @@ export import :ColorDiff.Euclidean;
 
 export import :DiffA98;
 export import :DiffDisplayP3;
+export import :DiffHex;
 export import :DiffProphoto;
 export import :DiffRec2020;
 

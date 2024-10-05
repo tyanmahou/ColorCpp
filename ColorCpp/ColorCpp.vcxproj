@@ -162,6 +162,7 @@
     <ClCompile Include="src\ColorSpace\DisplayP3\DiffDisplayP3.ixx" />
     <ClCompile Include="src\ColorSpace\DisplayP3\DisplayP3.ixx" />
     <ClCompile Include="src\ColorSpace\Hex\CastHex.ixx" />
+    <ClCompile Include="src\ColorSpace\Hex\DiffHex.ixx" />
     <ClCompile Include="src\ColorSpace\Hex\Hex.ixx" />
     <ClCompile Include="src\ColorSpace\HSI\CastHSI.ixx" />
     <ClCompile Include="src\ColorSpace\HSI\HSI.ixx" />
@@ -184,10 +185,13 @@
     <ClCompile Include="src\ColorSpace\Rec2020\DiffRec2020.ixx" />
     <ClCompile Include="src\ColorSpace\Rec2020\Rec2020.ixx" />
     <ClCompile Include="src\ColorSpace\RGB24\CastRGB24.ixx" />
+    <ClCompile Include="src\ColorSpace\RGB24\DiffRGB24.ixx" />
     <ClCompile Include="src\ColorSpace\RGB24\RGB24.ixx" />
     <ClCompile Include="src\ColorSpace\RGBA32\CastRGBA32.ixx" />
+    <ClCompile Include="src\ColorSpace\RGBA32\DiffRGBA32.ixx" />
     <ClCompile Include="src\ColorSpace\RGBA32\RGBA32.ixx" />
     <ClCompile Include="src\ColorSpace\RGBA\CastRGBA.ixx" />
+    <ClCompile Include="src\ColorSpace\RGBA\DiffRGBA.ixx" />
     <ClCompile Include="src\ColorSpace\RGBA\RGBA.ixx" />
     <ClCompile Include="src\ColorCast\ColorCastTrait.ixx" />
     <ClCompile Include="src\ColorSpace\CMYK\CastCMYK.ixx" />
@@ -210,7 +214,7 @@
     <ClCompile Include="src\ColorSpace\OkLCH\CastOkLCH.ixx" />
     <ClCompile Include="src\ColorSpace\OkLCH\OkLCH.ixx" />
     <ClCompile Include="src\ColorSpace\RGB\RGB.ixx" />
-    <ClCompile Include="src\ColorSpace\RYB\DiffRGB.ixx" />
+    <ClCompile Include="src\ColorSpace\RYB\DiffRYB.ixx" />
     <ClCompile Include="src\ColorSpace\RYB\RYB.ixx" />
     <ClCompile Include="src\ColorSpace\XyY\CastXyY.ixx" />
     <ClCompile Include="src\ColorSpace\XyY\DiffXyY.ixx" />

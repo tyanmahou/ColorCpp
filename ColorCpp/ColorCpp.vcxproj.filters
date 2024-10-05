@@ -243,7 +243,19 @@
     <ClCompile Include="src\ColorSpace\YIQ\DiffYIQ.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColorSpace\RYB\DiffRGB.ixx">
+    <ClCompile Include="src\ColorSpace\RYB\DiffRYB.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\RGBA32\DiffRGBA32.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\RGBA\DiffRGBA.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\RGB24\DiffRGB24.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\Hex\DiffHex.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
