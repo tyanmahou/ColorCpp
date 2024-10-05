@@ -42,4 +42,12 @@ TEST_CASE("YIQ")
             REQUIRE(dst.q == 0.039_nearly(0.01));
         }
     }
+    SECTION("YIQ Diff")
+    {
+        constexpr YIQ a{ 1.0, 0.0, 1.0 };
+        constexpr YIQ b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<YIQ>(a, b);
+        REQUIRE(diff == 1.7320504_nearly);
+    }
 }

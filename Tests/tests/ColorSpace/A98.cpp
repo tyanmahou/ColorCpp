@@ -42,4 +42,12 @@ TEST_CASE("A98")
             REQUIRE(dst.b == 0.884_nearly(0.01));
         }
     }
+    SECTION("A98 Diff")
+    {
+        constexpr A98 a{ 1.0, 0.0, 1.0 };
+        constexpr A98 b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<A98>(a, b);
+        REQUIRE(diff == 1.7320504_nearly);
+    }
 }

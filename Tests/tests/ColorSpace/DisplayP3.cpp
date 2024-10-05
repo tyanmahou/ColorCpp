@@ -42,4 +42,12 @@ TEST_CASE("DisplayP3")
             REQUIRE(dst.b == 0.732_nearly(0.01));
         }
     }
+    SECTION("DisplayP3 Diff")
+    {
+        constexpr DisplayP3 a{ 1.0, 0.0, 1.0 };
+        constexpr DisplayP3 b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<DisplayP3>(a, b);
+        REQUIRE(diff == 1.7320504_nearly);
+    }
 }

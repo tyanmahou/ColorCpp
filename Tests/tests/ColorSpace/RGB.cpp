@@ -63,7 +63,7 @@ TEST_CASE("RGB")
         constexpr RGB a{ 1.0, 0.0, 1.0 };
         constexpr RGB b{ 0, 1.0, 0 };
 
-        const double diff = ColorDiff::Euclidean(a, b);
+        const double diff = ColorDiff::Euclidean<RGB>(a, b);
         REQUIRE(diff == 1.7320504_nearly);
     }
 }

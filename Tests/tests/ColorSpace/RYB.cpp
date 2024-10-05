@@ -72,4 +72,12 @@ TEST_CASE("RYB")
             REQUIRE(rgb.b == 1.0_nearly);
         }
     }
+    SECTION("RYB Diff")
+    {
+        constexpr RYB a{ 1.0, 0.0, 1.0 };
+        constexpr RYB b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<RYB>(a, b);
+        REQUIRE(diff == 1.7320504_nearly);
+    }
 }

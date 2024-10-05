@@ -9,21 +9,21 @@ export namespace colorcpp
     {
     public:
         template<class T>
-        static constexpr double Diff(const T& a, const Type& b)
+        constexpr double operator()(const T& a, const Type& b) const
         {
             return ColorDiffTrait<Type>::Diff(ColorCast<Type>(a), b);
         }
         template<class U>
-        static constexpr double Diff(const Type& a, const U& b)
+        constexpr double operator()(const Type& a, const U& b) const
         {
             return ColorDiffTrait<Type>::Diff(a, ColorCast<Type>(b));
         }
         template<class T, class U>
-        static constexpr double Diff(const T& a, const U& b)
+        constexpr double operator()(const T& a, const U& b) const
         {
             return ColorDiffTrait<Type>::Diff(ColorCast<Type>(a), ColorCast<Type>(b));
         }
-        static constexpr double Diff(const Type& a, const Type& b)
+        constexpr double operator()(const Type& a, const Type& b) const
         {
             return ColorDiffTrait<Type>::Diff(a, b);
         }

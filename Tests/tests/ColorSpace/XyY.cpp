@@ -24,4 +24,12 @@ TEST_CASE("XyY")
         REQUIRE(dst.y == 0.2_nearly);
         REQUIRE(dst.z == 0.3_nearly);
     }
+    SECTION("XyY Diff")
+    {
+        constexpr XyY a{ 1.0, 0.0, 1.0 };
+        constexpr XyY b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<XyY>(a, b);
+        REQUIRE(diff == 1.7320504_nearly);
+    }
 }

@@ -42,4 +42,12 @@ TEST_CASE("Rec2020")
             REQUIRE(dst.b == 0.851_nearly(0.01));
         }
     }
+    SECTION("Rec2020 Diff")
+    {
+        constexpr Rec2020 a{ 1.0, 0.0, 1.0 };
+        constexpr Rec2020 b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<Rec2020>(a, b);
+        REQUIRE(diff == 1.7320504_nearly);
+    }
 }
