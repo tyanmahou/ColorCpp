@@ -23,4 +23,12 @@ TEST_CASE("CMY")
         REQUIRE(cmy.m == 0.5_nearly);
         REQUIRE(cmy.y == 0.7_nearly);
     }
+    SECTION("CMY Diff")
+    {
+        constexpr CMY a{ 1.0, 0.0, 1.0 };
+        constexpr CMY b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<CMY>(a, b);
+        REQUIRE(diff == 1.7320504_nearly);
+    }
 }
