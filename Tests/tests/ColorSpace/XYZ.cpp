@@ -36,12 +36,20 @@ TEST_CASE("XYZ")
         REQUIRE(dst.y == NearlyDouble{ dst2.y });
         REQUIRE(dst.z == NearlyDouble{ dst2.z });
     }
-    SECTION("XyY Diff")
+    SECTION("XYZ50 Diff")
     {
-        constexpr XYZ a{ 1.0, 0.0, 1.0 };
-        constexpr XYZ b{ 0, 1.0, 0 };
+        constexpr XYZ50 a{ 1.0, 0.0, 1.0 };
+        constexpr XYZ50 b{ 0, 1.0, 0 };
 
-        const double diff = ColorDiff::Euclidean<XYZ>(a, b);
+        const double diff = ColorDiff::Euclidean<XYZ50>(a, b);
+        REQUIRE(diff == 1.7320504_nearly);
+    }
+    SECTION("XYZ65 Diff")
+    {
+        constexpr XYZ65 a{ 1.0, 0.0, 1.0 };
+        constexpr XYZ65 b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<XYZ65>(a, b);
         REQUIRE(diff == 1.7320504_nearly);
     }
 }

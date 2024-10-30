@@ -24,12 +24,20 @@ TEST_CASE("XyY")
         REQUIRE(dst.y == 0.2_nearly);
         REQUIRE(dst.z == 0.3_nearly);
     }
-    SECTION("XyY Diff")
+    SECTION("XyY50 Diff")
     {
-        constexpr XyY a{ 1.0, 0.0, 1.0 };
-        constexpr XyY b{ 0, 1.0, 0 };
+        constexpr XyY50 a{ 1.0, 0.0, 1.0 };
+        constexpr XyY50 b{ 0, 1.0, 0 };
 
-        const double diff = ColorDiff::Euclidean<XyY>(a, b);
+        const double diff = ColorDiff::Euclidean<XyY50>(a, b);
+        REQUIRE(diff == 1.7320504_nearly);
+    }
+    SECTION("XyY65 Diff")
+    {
+        constexpr XyY65 a{ 1.0, 0.0, 1.0 };
+        constexpr XyY65 b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<XyY65>(a, b);
         REQUIRE(diff == 1.7320504_nearly);
     }
 }
