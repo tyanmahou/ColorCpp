@@ -25,4 +25,12 @@ TEST_CASE("OkLab")
         REQUIRE(dst.g == 0.2_nearly);
         REQUIRE(dst.b == 0.3_nearly);
     }
+    SECTION("OkLab Diff")
+    {
+        constexpr OkLab a{ 1.0, 0.0, 1.0 };
+        constexpr OkLab b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<OkLab>(a, b);
+        REQUIRE(diff == 1.7320504_nearly);
+    }
 }

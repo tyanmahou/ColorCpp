@@ -25,4 +25,20 @@ TEST_CASE("HunterLab")
         REQUIRE(dst.y == 0.2_nearly);
         REQUIRE(dst.z == 0.3_nearly);
     }
+    SECTION("HunterLab50 Diff")
+    {
+        constexpr HunterLab50 a{ 1.0, 0.0, 1.0 };
+        constexpr HunterLab50 b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<HunterLab50>(a, b);
+        REQUIRE(diff == 1.7320504_nearly);
+    }
+    SECTION("HunterLab65 Diff")
+    {
+        constexpr HunterLab65 a{ 1.0, 0.0, 1.0 };
+        constexpr HunterLab65 b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<HunterLab65>(a, b);
+        REQUIRE(diff == 1.7320504_nearly);
+    }
 }

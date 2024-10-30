@@ -12,6 +12,29 @@ export namespace colorcpp
         double a;
         double b;
 
+        constexpr HunterLab_ operator +(const HunterLab_& other) const noexcept
+        {
+            return { (l + other.l), (a + other.a), (b + other.b) };
+        }
+        constexpr HunterLab_& operator +=(const HunterLab_& other) noexcept
+        {
+            l += other.l;
+            a += other.a;
+            b += other.b;
+            return *this;
+        }
+        constexpr HunterLab_ operator -(const HunterLab_& other) const noexcept
+        {
+            return{ (l - other.l), (a - other.a), (b - other.b) };
+        }
+        constexpr HunterLab_& operator -=(const HunterLab_& other) noexcept
+        {
+            l -= other.l;
+            a -= other.a;
+            b -= other.b;
+            return *this;
+        }
+
         friend constexpr bool operator==(const HunterLab_& a, const HunterLab_& b) = default;
     };
 

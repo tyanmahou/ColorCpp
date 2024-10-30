@@ -291,5 +291,14 @@
     <ClCompile Include="src\ColorSpace\Luv\DiffLuv.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\ColorSpace\OkLab\DiffOkLab.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\Lab\DiffLab.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\HunterLab\DiffHunterLab.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

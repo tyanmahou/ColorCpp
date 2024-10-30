@@ -25,4 +25,20 @@ TEST_CASE("Lab")
         REQUIRE(dst.g == 0.2_nearly);
         REQUIRE(dst.b == 0.3_nearly);
     }
+    SECTION("Lab50 Diff")
+    {
+        constexpr Lab50 a{ 1.0, 0.0, 1.0 };
+        constexpr Lab50 b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<Lab50>(a, b);
+        REQUIRE(diff == 1.7320504_nearly);
+    }
+    SECTION("Lab65 Diff")
+    {
+        constexpr Lab65 a{ 1.0, 0.0, 1.0 };
+        constexpr Lab65 b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<Lab65>(a, b);
+        REQUIRE(diff == 1.7320504_nearly);
+    }
 }
