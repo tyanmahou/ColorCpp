@@ -41,4 +41,11 @@ TEST_CASE("RGB24")
         REQUIRE(rgba32.b == 51);
         REQUIRE(rgba32.a == 255);
     }
+    SECTION("RGB24 Diff")
+    {
+        constexpr RGB24 a{ 255, 0, 255 };
+        constexpr RGB24 b{ 0, 255, 0 };
+        const double diff = ColorDiff::Euclidean<RGB24>(a, b);
+        REQUIRE(diff == 255 * 1.7320504_nearly(0.001));
+    }
 }
