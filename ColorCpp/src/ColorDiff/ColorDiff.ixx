@@ -10,6 +10,7 @@ export import :DiffHex;
 export import :DiffHSI;
 export import :DiffHSL;
 export import :DiffHSV;
+export import :DiffHWB;
 export import :DiffITP;
 export import :DiffLRGB;
 export import :DiffProphoto;

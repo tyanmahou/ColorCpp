@@ -68,4 +68,21 @@ TEST_CASE("HWB")
             REQUIRE(rgb.b == 0.5_nearly);
         }
     }
+    SECTION("HWB Diff")
+    {
+        {
+            constexpr HWB a{ 360.0, 0.0, 1.0 };
+            constexpr HWB b{ 0, 1.0, 0 };
+
+            const double diff = ColorDiff::Euclidean<HWB>(a, b);
+            REQUIRE(diff == 1.4142135624_nearly);
+        }
+        {
+            constexpr HWB a{ 2.0, 0.0, 1.0 };
+            constexpr HWB b{ 0, 1.0, 0 };
+
+            const double diff = ColorDiff::Euclidean<HWB>(a, b);
+            REQUIRE(diff == 2.449489_nearly);
+        }
+    }
 }

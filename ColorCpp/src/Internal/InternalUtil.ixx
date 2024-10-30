@@ -24,7 +24,6 @@ namespace colorcpp
             const double dH = Math::Sin((((bh - ah + 360) / 2) * std::numbers::pi) / 180);
             return 2 * Math::Sqrt(a.c * b.c) * dH;
         }
-        template<class HS>
         constexpr static double DiffHue(double a, double b)
         {
             const double ah = ColorUtil::RepeatHue360(a);
