@@ -1,7 +1,7 @@
 ﻿import ColorCpp;
 
 #include "../catch.hpp"
-
+#include "../TestUtil.hpp"
 using namespace colorcpp;
 
 TEST_CASE("Hex")
@@ -59,5 +59,20 @@ TEST_CASE("Hex")
         Hex hex = ColorCast<Hex>(rgba);
         REQUIRE(hex == "123AB4CD");
     }
+    SECTION("Hex Diff")
+    {
+        constexpr Hex a{ "FF00FF00" };
+        constexpr Hex b{ "00FF00FF" };
 
+        const double diff = ColorDiff::Euclidean<Hex>(a, b);
+        REQUIRE(diff == 255 * 2.0_nearly);
+    }
+    SECTION("Hex Diff2")
+    {
+        constexpr Hex a{ "FF00FF" };
+        constexpr Hex b{ "00FF00" };
+
+        const double diff = ColorDiff::Euclidean<Hex>(a, b);
+        REQUIRE(diff == 255 * 1.7320504_nearly(0.001));
+    }
 }

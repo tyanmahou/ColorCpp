@@ -2,6 +2,7 @@
 import :ColorDiffTrait;
 import :RGBA32;
 import :Math;
+import :Type;
 
 export namespace colorcpp
 {
@@ -10,12 +11,15 @@ export namespace colorcpp
     {
         constexpr static double Diff(const RGBA32& a, const RGBA32& b)
         {
-            const RGBA32 diff = a - b;
+            const int32 _r = static_cast<int32>(a.r) - static_cast<int32>(b.r);
+            const int32 _g = static_cast<int32>(a.g) - static_cast<int32>(b.g);
+            const int32 _b = static_cast<int32>(a.b) - static_cast<int32>(b.b);
+            const int32 _a = static_cast<int32>(a.a) - static_cast<int32>(b.a);
             return Math::Sqrt(
-                diff.r * diff.r +
-                diff.g * diff.g +
-                diff.b * diff.b +
-                diff.a * diff.a
+                _r * _r
+                + _g * _g
+                + _b * _b
+                + _a * _a
             );
         }
     };
