@@ -177,6 +177,7 @@
     <ClCompile Include="src\ColorSpace\HWB\CastHWB.ixx" />
     <ClCompile Include="src\ColorSpace\HWB\HWB.ixx" />
     <ClCompile Include="src\ColorSpace\ITP\CastITP.ixx" />
+    <ClCompile Include="src\ColorSpace\ITP\DiffITP.ixx" />
     <ClCompile Include="src\ColorSpace\ITP\ITP.ixx" />
     <ClCompile Include="src\ColorSpace\LCH\CastLCH.ixx" />
     <ClCompile Include="src\ColorSpace\LRGB\CastLRGB.ixx" />

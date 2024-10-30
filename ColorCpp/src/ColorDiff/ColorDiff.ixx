@@ -10,6 +10,7 @@ export import :DiffHex;
 export import :DiffHSI;
 export import :DiffHSL;
 export import :DiffHSV;
+export import :DiffITP;
 export import :DiffProphoto;
 export import :DiffRec2020;
 

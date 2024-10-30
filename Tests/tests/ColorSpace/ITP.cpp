@@ -15,4 +15,12 @@ TEST_CASE("ITP")
         REQUIRE(dst.g == 0.2_nearly);
         REQUIRE(dst.b == 0.3_nearly);
     }
+    SECTION("ITP Diff")
+    {
+        constexpr ITP a{ 1.0, 0.0, 1.0 };
+        constexpr ITP b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<ITP>(a, b);
+        REQUIRE(diff == 1.7320504_nearly);
+    }
 }
