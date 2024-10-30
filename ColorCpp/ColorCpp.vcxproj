@@ -181,6 +181,7 @@
     <ClCompile Include="src\ColorSpace\ITP\ITP.ixx" />
     <ClCompile Include="src\ColorSpace\LCH\CastLCH.ixx" />
     <ClCompile Include="src\ColorSpace\LRGB\CastLRGB.ixx" />
+    <ClCompile Include="src\ColorSpace\LRGB\DiffLRGB.ixx" />
     <ClCompile Include="src\ColorSpace\LRGB\LRGB.ixx" />
     <ClCompile Include="src\ColorSpace\Luv\CastLuv.ixx" />
     <ClCompile Include="src\ColorSpace\Luv\Luv.ixx" />

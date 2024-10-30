@@ -15,4 +15,12 @@ TEST_CASE("LRGB")
         REQUIRE(dst.g == 0.2_nearly);
         REQUIRE(dst.b == 0.3_nearly);
     }
+    SECTION("LRGB Diff")
+    {
+        constexpr LRGB a{ 1.0, 0.0, 1.0 };
+        constexpr LRGB b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<LRGB>(a, b);
+        REQUIRE(diff == 1.7320504_nearly);
+    }
 }

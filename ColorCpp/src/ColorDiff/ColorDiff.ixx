@@ -11,9 +11,9 @@ export import :DiffHSI;
 export import :DiffHSL;
 export import :DiffHSV;
 export import :DiffITP;
+export import :DiffLRGB;
 export import :DiffProphoto;
 export import :DiffRec2020;
-
 export import :DiffRGB;
 export import :DiffRGB24;
 export import :DiffRGBA;
