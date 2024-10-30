@@ -173,6 +173,7 @@
     <ClCompile Include="src\ColorSpace\HSL\DiffHSL.ixx" />
     <ClCompile Include="src\ColorSpace\HSL\HSL.ixx" />
     <ClCompile Include="src\ColorSpace\HSV\CastHSV.ixx" />
+    <ClCompile Include="src\ColorSpace\HSV\DiffHSV.ixx" />
     <ClCompile Include="src\ColorSpace\HWB\CastHWB.ixx" />
     <ClCompile Include="src\ColorSpace\HWB\HWB.ixx" />
     <ClCompile Include="src\ColorSpace\ITP\CastITP.ixx" />

@@ -40,4 +40,20 @@ TEST_CASE("HSV")
         REQUIRE(rgb.g == 0.5_nearly(0.01));
         REQUIRE(rgb.b == 0.25_nearly(0.01));
     }
+    SECTION("HSV Cylinder Diff")
+    {
+        constexpr HSVCylinder a{ 360.0, 0.0, 1.0 };
+        constexpr HSVCylinder b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<HSVCylinder>(a, b);
+        REQUIRE(diff == 1.4142135624_nearly);
+    }
+    SECTION("HSV Cone Diff")
+    {
+        constexpr HSVCone a{ 360.0, 0.0, 1.0 };
+        constexpr HSVCone b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<HSVCone>(a, b);
+        REQUIRE(diff == 1.4142135624_nearly);
+    }
 }

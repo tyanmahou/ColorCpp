@@ -270,5 +270,8 @@
     <ClCompile Include="src\ColorSpace\HSL\DiffHSL.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\ColorSpace\HSV\DiffHSV.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
