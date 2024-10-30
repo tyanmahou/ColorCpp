@@ -12,6 +12,29 @@ export namespace colorcpp
         double u;
         double v;
 
+        constexpr Luv_ operator +(const Luv_& other) const noexcept
+        {
+            return { (l + other.l), (u + other.u), (v + other.v) };
+        }
+        constexpr Luv_& operator +=(const Luv_& other) noexcept
+        {
+            l += other.l;
+            u += other.u;
+            v += other.v;
+            return *this;
+        }
+        constexpr Luv_ operator -(const Luv_& other) const noexcept
+        {
+            return{ (l - other.l), (u - other.u), (v - other.v) };
+        }
+        constexpr Luv_& operator -=(const Luv_& other) noexcept
+        {
+            l -= other.l;
+            u -= other.u;
+            v -= other.v;
+            return *this;
+        }
+
         friend constexpr bool operator==(const Luv_& a, const Luv_& b) = default;
     };
 

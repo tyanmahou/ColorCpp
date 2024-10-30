@@ -14,6 +14,7 @@ export import :DiffHWB;
 export import :DiffITP;
 export import :DiffLCH;
 export import :DiffLRGB;
+export import :DiffLuv;
 export import :DiffOkLCH;
 export import :DiffProphoto;
 export import :DiffRec2020;
