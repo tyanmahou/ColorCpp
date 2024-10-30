@@ -25,4 +25,20 @@ TEST_CASE("LCH")
         REQUIRE(dst.a == 0.2_nearly);
         REQUIRE(dst.b == 0.3_nearly);
     }
+    SECTION("LCH50 Diff")
+    {
+        constexpr LCH50 a{ 1.0, 0.0, 360.0 };
+        constexpr LCH50 b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<LCH50>(a, b);
+        REQUIRE(diff == 1.4142135624_nearly);
+    }
+    SECTION("LCH65 Diff")
+    {
+        constexpr LCH65 a{ 1.0, 0.0, 360.0 };
+        constexpr LCH65 b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<LCH65>(a, b);
+        REQUIRE(diff == 1.4142135624_nearly);
+    }
 }

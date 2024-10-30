@@ -282,5 +282,11 @@
     <ClCompile Include="src\ColorSpace\HWB\DiffHWB.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\ColorSpace\OkLCH\DiffOKLCH.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace\LCH\DiffLCH.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

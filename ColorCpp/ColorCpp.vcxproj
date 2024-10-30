@@ -181,11 +181,13 @@
     <ClCompile Include="src\ColorSpace\ITP\DiffITP.ixx" />
     <ClCompile Include="src\ColorSpace\ITP\ITP.ixx" />
     <ClCompile Include="src\ColorSpace\LCH\CastLCH.ixx" />
+    <ClCompile Include="src\ColorSpace\LCH\DiffLCH.ixx" />
     <ClCompile Include="src\ColorSpace\LRGB\CastLRGB.ixx" />
     <ClCompile Include="src\ColorSpace\LRGB\DiffLRGB.ixx" />
     <ClCompile Include="src\ColorSpace\LRGB\LRGB.ixx" />
     <ClCompile Include="src\ColorSpace\Luv\CastLuv.ixx" />
     <ClCompile Include="src\ColorSpace\Luv\Luv.ixx" />
+    <ClCompile Include="src\ColorSpace\OkLCH\DiffOKLCH.ixx" />
     <ClCompile Include="src\ColorSpace\Prophoto\CastProphoto.ixx" />
     <ClCompile Include="src\ColorSpace\Prophoto\DiffProphoto.ixx" />
     <ClCompile Include="src\ColorSpace\Prophoto\Prophoto.ixx" />

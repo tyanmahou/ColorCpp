@@ -15,4 +15,12 @@ TEST_CASE("OkLCH")
         REQUIRE(dst.a == 0.2_nearly);
         REQUIRE(dst.b == 0.3_nearly);
     }
+    SECTION("OkLCH Diff")
+    {
+        constexpr OkLCH a{ 1.0, 0.0, 360.0 };
+        constexpr OkLCH b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<OkLCH>(a, b);
+        REQUIRE(diff == 1.4142135624_nearly);
+    }
 }

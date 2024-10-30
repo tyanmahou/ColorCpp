@@ -55,5 +55,17 @@ namespace colorcpp
                 diff.b * diff.b
             );
         }
+        template<class LCHType>
+        constexpr static double DiffLCH(const LCHType& a, const LCHType& b)
+        {
+            const double l = a.l - b.l;
+            const double c = a.c - b.c;
+            const double h = DiffHueChroma(a, b);
+            return Math::Sqrt(
+                l * l
+                + c * c
+                + h * h
+            );
+        }
     };
 }
