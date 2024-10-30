@@ -157,6 +157,7 @@
     <ClCompile Include="src\ColorSpace\A98\A98.ixx" />
     <ClCompile Include="src\ColorSpace\A98\CastA98.ixx" />
     <ClCompile Include="src\ColorSpace\A98\DiffA98.ixx" />
+    <ClCompile Include="src\ColorSpace\CMYK\DiffCMYK.ixx" />
     <ClCompile Include="src\ColorSpace\CMY\DiffCMY.ixx" />
     <ClCompile Include="src\ColorSpace\ColorSpace.ixx" />
     <ClCompile Include="src\ColorSpace\DisplayP3\CastDisplayP3.ixx" />

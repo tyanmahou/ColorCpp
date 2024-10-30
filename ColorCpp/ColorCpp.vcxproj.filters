@@ -261,5 +261,8 @@
     <ClCompile Include="src\ColorSpace\CMY\DiffCMY.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\ColorSpace\CMYK\DiffCMYK.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

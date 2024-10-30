@@ -45,4 +45,12 @@ TEST_CASE("CMYK")
         REQUIRE(cmyk.m == 0.2 / 0.7_nearly);
         REQUIRE(cmyk.y == 0_nearly);
     }
+    SECTION("CMYK Diff")
+    {
+        constexpr CMYK a{ 1.0, 0.0, 1.0, 0 };
+        constexpr CMYK b{ 0, 1.0, 0, 1.0 };
+
+        const double diff = ColorDiff::Euclidean<CMYK>(a, b);
+        REQUIRE(diff == 2.0_nearly);
+    }
 }

@@ -4,6 +4,7 @@ export import :ColorDiff.Euclidean;
 
 export import :DiffA98;
 export import :DiffCMY;
+export import :DiffCMYK;
 export import :DiffDisplayP3;
 export import :DiffHex;
 export import :DiffProphoto;
