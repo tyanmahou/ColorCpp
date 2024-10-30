@@ -41,4 +41,20 @@ TEST_CASE("HSL")
         REQUIRE(rgb.g == 0.5_nearly(0.01));
         REQUIRE(rgb.b == 0.25_nearly(0.01));
     }
+    SECTION("HSL Cylinder Diff")
+    {
+        constexpr HSLCylinder a{ 360.0, 0.0, 1.0 };
+        constexpr HSLCylinder b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<HSLCylinder>(a, b);
+        REQUIRE(diff == 1.4142135624_nearly);
+    }
+    SECTION("HSL Cone Diff")
+    {
+        constexpr HSLCone a{ 360.0, 0.0, 1.0 };
+        constexpr HSLCone b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<HSLCone>(a, b);
+        REQUIRE(diff == 1.4142135624_nearly);
+    }
 }
