@@ -23,4 +23,12 @@ TEST_CASE("HSI")
         REQUIRE(rgb.g == 0.5_nearly(0.01));
         REQUIRE(rgb.b == 0.25_nearly(0.01));
     }
+    SECTION("HSI Diff")
+    {
+        constexpr HSI a{ 360.0, 0.0, 1.0 };
+        constexpr HSI b{ 0, 1.0, 0 };
+
+        const double diff = ColorDiff::Euclidean<HSI>(a, b);
+        REQUIRE(diff == 1.4142135624_nearly);
+    }
 }

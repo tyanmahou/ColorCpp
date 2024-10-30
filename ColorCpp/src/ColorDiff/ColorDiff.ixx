@@ -7,6 +7,7 @@ export import :DiffCMY;
 export import :DiffCMYK;
 export import :DiffDisplayP3;
 export import :DiffHex;
+export import :DiffHSI;
 export import :DiffProphoto;
 export import :DiffRec2020;
 

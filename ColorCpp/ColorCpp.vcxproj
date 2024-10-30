@@ -167,6 +167,7 @@
     <ClCompile Include="src\ColorSpace\Hex\DiffHex.ixx" />
     <ClCompile Include="src\ColorSpace\Hex\Hex.ixx" />
     <ClCompile Include="src\ColorSpace\HSI\CastHSI.ixx" />
+    <ClCompile Include="src\ColorSpace\HSI\DiffHSI.ixx" />
     <ClCompile Include="src\ColorSpace\HSI\HSI.ixx" />
     <ClCompile Include="src\ColorSpace\HSL\CastHSL.ixx" />
     <ClCompile Include="src\ColorSpace\HSL\HSL.ixx" />

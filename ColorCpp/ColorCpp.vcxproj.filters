@@ -264,5 +264,8 @@
     <ClCompile Include="src\ColorSpace\CMYK\DiffCMYK.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\ColorSpace\HSI\DiffHSI.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
