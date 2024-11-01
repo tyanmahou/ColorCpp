@@ -57,7 +57,17 @@ export namespace colorcpp
             b *= s;
             return *this;
         }
-
+        [[nodiscard]] constexpr LRGB operator *(const LRGB& other) const noexcept
+        {
+            return { r * other.r, g * other.g, b * other.b };
+        }
+        constexpr LRGB& operator *=(const LRGB& other) noexcept
+        {
+            r *= other.r;
+            g *= other.g;
+            b *= other.b;
+            return *this;
+        }
         [[nodiscard]] friend constexpr bool operator==(const LRGB& a, const LRGB& b) = default;
     };
 }

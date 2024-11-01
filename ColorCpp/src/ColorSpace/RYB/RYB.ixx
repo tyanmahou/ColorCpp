@@ -52,7 +52,17 @@ export namespace colorcpp
             b *= s;
             return *this;
         }
-
+        [[nodiscard]] constexpr RYB operator *(const RYB& other) const noexcept
+        {
+            return { r * other.r, y * other.y, b * other.b };
+        }
+        constexpr RYB& operator *=(const RYB& other) noexcept
+        {
+            r *= other.r;
+            y *= other.y;
+            b *= other.b;
+            return *this;
+        }
         [[nodiscard]] friend constexpr bool operator==(const RYB& a, const RYB& b) = default;
     };
 }

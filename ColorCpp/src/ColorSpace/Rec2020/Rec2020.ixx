@@ -55,7 +55,17 @@ export namespace colorcpp
             b *= s;
             return *this;
         }
-
+        [[nodiscard]] constexpr Rec2020 operator *(const Rec2020& other) const noexcept
+        {
+            return { r * other.r, g * other.g, b * other.b };
+        }
+        constexpr Rec2020& operator *=(const Rec2020& other) noexcept
+        {
+            r *= other.r;
+            g *= other.g;
+            b *= other.b;
+            return *this;
+        }
         [[nodiscard]] friend constexpr bool operator==(const Rec2020& a, const Rec2020& b) = default;
     };
 }

@@ -55,7 +55,17 @@ export namespace colorcpp
             b *= s;
             return *this;
         }
-
+        [[nodiscard]] constexpr Prophoto operator *(const Prophoto& other) const noexcept
+        {
+            return { r * other.r, g * other.g, b * other.b };
+        }
+        constexpr Prophoto& operator *=(const Prophoto& other) noexcept
+        {
+            r *= other.r;
+            g *= other.g;
+            b *= other.b;
+            return *this;
+        }
         [[nodiscard]] friend constexpr bool operator==(const Prophoto& a, const Prophoto& b) = default;
     };
 }

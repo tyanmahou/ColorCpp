@@ -55,7 +55,17 @@ export namespace colorcpp
             b *= s;
             return *this;
         }
-
+        [[nodiscard]] constexpr DisplayP3 operator *(const DisplayP3& other) const noexcept
+        {
+            return { r * other.r, g * other.g, b * other.b };
+        }
+        constexpr DisplayP3& operator *=(const DisplayP3& other) noexcept
+        {
+            r *= other.r;
+            g *= other.g;
+            b *= other.b;
+            return *this;
+        }
         [[nodiscard]] friend constexpr bool operator==(const DisplayP3& a, const DisplayP3& b) = default;
     };
 }

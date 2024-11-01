@@ -64,6 +64,19 @@ export namespace colorcpp
             return *this;
         }
 
+        [[nodiscard]] constexpr RGBA operator *(const RGBA& other) const noexcept
+        {
+            return { r * other.r, g * other.g, b * other.b, a * other.a };
+        }
+        constexpr RGBA& operator *=(const RGBA& other) noexcept
+        {
+            r *= other.r;
+            g *= other.g;
+            b *= other.b;
+            a *= other.a;
+            return *this;
+        }
+
         [[nodiscard]] friend constexpr bool operator==(const RGBA& a, const RGBA& b) = default;
     };
 }
