@@ -150,9 +150,6 @@
     <ClCompile Include="src\ColorSpace\HWB\HWB.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\Util\ColorUtil.ixx">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="src\ColorSpace\HWB\CastHWB.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>

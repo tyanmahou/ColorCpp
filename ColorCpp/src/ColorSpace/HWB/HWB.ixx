@@ -1,6 +1,6 @@
 ﻿export module ColorCpp:HWB;
 import :Math;
-import :ColorUtil;
+import :InternalUtil;
 
 export namespace colorcpp
 {
@@ -27,7 +27,7 @@ export namespace colorcpp
         constexpr HWB operator +(const HWB& other) const noexcept
         {
             return{
-                ColorUtil::RepeatHue360(h + other.h),
+                InternalUtil::RepeatHue360(h + other.h),
                 Math::Saturate(w + other.w),
                 Math::Saturate(b + other.b)
             };
@@ -40,7 +40,7 @@ export namespace colorcpp
         constexpr HWB operator -(const HWB& other) const noexcept
         {
             return{
-                ColorUtil::RepeatHue360(h - other.h),
+                InternalUtil::RepeatHue360(h - other.h),
                 Math::Saturate(w - other.w),
                 Math::Saturate(b - other.b)
             };

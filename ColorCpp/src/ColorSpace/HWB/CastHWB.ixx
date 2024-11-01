@@ -4,7 +4,7 @@ import :RGB;
 import :HWB;
 import :HSV;
 import :Math;
-import :ColorUtil;
+import :InternalUtil;
 
 export namespace colorcpp
 {
@@ -20,7 +20,7 @@ export namespace colorcpp
     {
         constexpr static HWB Cast(const RGB& rgb)
         {
-            auto [hue, max, min] = ColorUtil::HueMaxMin(rgb);
+            auto [hue, max, min] = InternalUtil::HueMaxMin(rgb);
             double c = max - min;
             return HWB{
                 .h = hue,
@@ -43,7 +43,7 @@ export namespace colorcpp
             h /= 360.0;
             h = Math::Fraction(h);
 
-            auto [cfr, cfg, cfb] = ColorUtil::HueChromaFactor(h);
+            auto [cfr, cfg, cfb] = InternalUtil::HueChromaFactor(h);
 
             double v = 1 - b_;
             double s = v == 0 ? 1 : 1 - w / v;

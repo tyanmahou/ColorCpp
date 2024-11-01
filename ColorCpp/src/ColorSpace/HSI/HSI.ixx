@@ -1,6 +1,6 @@
 ﻿export module ColorCpp:HSI;
 import :Math;
-import :ColorUtil;
+import :InternalUtil;
 
 export namespace colorcpp
 {
@@ -27,7 +27,7 @@ export namespace colorcpp
         constexpr HSI operator +(const HSI& other) const noexcept
         {
             return{
-                ColorUtil::RepeatHue360(h + other.h),
+                InternalUtil::RepeatHue360(h + other.h),
                 Math::Saturate(s + other.s),
                 Math::Saturate(i + other.i)
             };
@@ -40,7 +40,7 @@ export namespace colorcpp
         constexpr HSI operator -(const HSI& other) const noexcept
         {
             return{
-                ColorUtil::RepeatHue360(h - other.h),
+                InternalUtil::RepeatHue360(h - other.h),
                 Math::Saturate(s - other.s),
                 Math::Saturate(i - other.i)
             };

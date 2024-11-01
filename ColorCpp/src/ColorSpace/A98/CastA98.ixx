@@ -4,7 +4,7 @@ import :ColorCastTrait;
 import :A98;
 import :XYZ;
 import :Constants;
-import :ColorUtil;
+import :InternalUtil;
 
 export namespace colorcpp
 {
@@ -25,9 +25,9 @@ export namespace colorcpp
             double g = -0.9692436362808798 * x + 1.8759675015077206 * y + 0.0415550574071756 * z;
             double b = 0.0134442806320312 * x - 0.1183623922310184 * y + 1.0151749943912058 * z;
             return {
-                .r = ColorUtil::Gamma(r, AdobeGamma),
-                .g = ColorUtil::Gamma(g, AdobeGamma),
-                .b = ColorUtil::Gamma(b, AdobeGamma),
+                .r = InternalUtil::Gamma(r, AdobeGamma),
+                .g = InternalUtil::Gamma(g, AdobeGamma),
+                .b = InternalUtil::Gamma(b, AdobeGamma),
             };
         }
     };
@@ -36,9 +36,9 @@ export namespace colorcpp
     {
         constexpr static XYZ Cast(const A98& rgb)
         {
-            double r = ColorUtil::Gamma(rgb.r, AdobeGammaInv);
-            double g = ColorUtil::Gamma(rgb.g, AdobeGammaInv);
-            double b = ColorUtil::Gamma(rgb.b, AdobeGammaInv);
+            double r = InternalUtil::Gamma(rgb.r, AdobeGammaInv);
+            double g = InternalUtil::Gamma(rgb.g, AdobeGammaInv);
+            double b = InternalUtil::Gamma(rgb.b, AdobeGammaInv);
             return {
                 .x = 0.5766690429101305 * r + 0.1855582379065463 * g + 0.1882286462349947 * b,
                 .y = 0.297344975250536 * r + 0.6273635662554661 * g + 0.0752914584939979 * b,

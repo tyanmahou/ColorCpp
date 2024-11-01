@@ -1,33 +1,34 @@
 ﻿export module ColorCpp:InternalUtil;
-import :ColorUtil;
 import :Math;
+import :RGB;
 import <numbers>;
+import <tuple>;
 
-namespace colorcpp
+export namespace colorcpp
 {
     class InternalUtil
     {
     public:
         template<class HS>
-        constexpr static double DiffHueSaturation(const HS& a, const HS& b)
+        [[nodiscard]] constexpr static double DiffHueSaturation(const HS& a, const HS& b)
         {
-            const double ah = ColorUtil::RepeatHue360(a.h);
-            const double bh = ColorUtil::RepeatHue360(b.h);
+            const double ah = RepeatHue360(a.h);
+            const double bh = RepeatHue360(b.h);
             const double dH = Math::Sin((((bh - ah + 360) / 2) * std::numbers::pi) / 180);
             return 2 * Math::Sqrt(a.s * b.s) * dH;
         }
         template<class HC>
-        constexpr static double DiffHueChroma(const HC& a, const HC& b)
+        [[nodiscard]] constexpr static double DiffHueChroma(const HC& a, const HC& b)
         {
-            const double ah = ColorUtil::RepeatHue360(a.h);
-            const double bh = ColorUtil::RepeatHue360(b.h);
+            const double ah = RepeatHue360(a.h);
+            const double bh = RepeatHue360(b.h);
             const double dH = Math::Sin((((bh - ah + 360) / 2) * std::numbers::pi) / 180);
             return 2 * Math::Sqrt(a.c * b.c) * dH;
         }
-        constexpr static double DiffHue(double a, double b)
+        [[nodiscard]] constexpr static double DiffHue(double a, double b)
         {
-            const double ah = ColorUtil::RepeatHue360(a);
-            const double bh = ColorUtil::RepeatHue360(b);
+            const double ah = RepeatHue360(a);
+            const double bh = RepeatHue360(b);
             if (Math::Abs(bh - ah) > 180) {
                 return ah - (bh - 360 * Math::Sign(bh - ah));
             } else {
@@ -35,7 +36,7 @@ namespace colorcpp
             }
         }
         template<class RGBType>
-        constexpr static double DiffRGB(const RGBType& a, const RGBType& b)
+        [[nodiscard]] constexpr static double DiffRGB(const RGBType& a, const RGBType& b)
         {
             const RGBType diff = a - b;
             return Math::Sqrt(
@@ -46,7 +47,7 @@ namespace colorcpp
         }
 
         template<class LabType>
-        constexpr static double DiffLab(const LabType& a, const LabType& b)
+        [[nodiscard]] constexpr static double DiffLab(const LabType& a, const LabType& b)
         {
             const LabType diff = a - b;
             return Math::Sqrt(
@@ -56,7 +57,7 @@ namespace colorcpp
             );
         }
         template<class LCHType>
-        constexpr static double DiffLCH(const LCHType& a, const LCHType& b)
+        [[nodiscard]] constexpr static double DiffLCH(const LCHType& a, const LCHType& b)
         {
             const double l = a.l - b.l;
             const double c = a.c - b.c;
@@ -66,6 +67,73 @@ namespace colorcpp
                 + c * c
                 + h * h
             );
+        }
+
+        [[nodiscard]] static constexpr double RepeatHue360(double h) noexcept
+        {
+            return Math::Repeat(h, 360.0);
+        }
+        [[nodiscard]] static constexpr std::tuple<double, double, double> HueMaxMin(const RGB& rgb) noexcept
+        {
+            return HueMaxMin(rgb.r, rgb.g, rgb.b);
+        }
+        [[nodiscard]] static constexpr std::tuple<double, double, double> HueMaxMin(double r, double g, double b) noexcept
+        {
+            double k = 0;
+            if (g < b) {
+                std::swap(g, b);
+                k = -1;
+            }
+            if (r < g) {
+                std::swap(r, g);
+                k = -2.0 / 6 - k;
+            }
+            double max = r;
+            double min = Math::Min(g, b);
+            double c = max - min;
+            return std::make_tuple(
+                360.0 * Math::Abs(k + (g - b) / (6 * c + 1e-20)),
+                max,
+                min
+            );
+        }
+        [[nodiscard]] static constexpr RGB HueChromaFactor(double h) noexcept
+        {
+            double h6 = 6.0 * Math::Fraction(h / 360.0);
+            double r = Math::Abs(h6 - 3) - 1;
+            double g = 2 - Math::Abs(h6 - 2);
+            double b = 2 - Math::Abs(h6 - 4);
+
+            return RGB{
+                Math::Saturate(r),
+                Math::Saturate(g),
+                Math::Saturate(b)
+            };
+        }
+        [[nodiscard]] static constexpr double LinearToSRGB(double v)
+        {
+            if (v <= 0.0031308) {
+                return 12.92 * v;
+            } else {
+                return 1.055 * Math::Pow(v, 1.0 / 2.4) - 0.055;
+            }
+        }
+        [[nodiscard]] static constexpr double SRGBToLinear(double v)
+        {
+            if (v <= 0.04045) {
+                return v / 12.92;
+            } else {
+                return Math::Pow((v + 0.055) / 1.055, 2.4);
+            }
+        }
+        [[nodiscard]] static constexpr double Gamma(double v, double gamma)
+        {
+            return Math::Pow(Math::Abs(v), gamma) * Math::Sign(v);
+        }
+
+        [[nodiscard]] static constexpr double Linearize(double v, double gamma)
+        {
+            return Gamma(v, 1.0 / gamma);
         }
     };
 }

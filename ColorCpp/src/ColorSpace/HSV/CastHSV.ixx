@@ -3,7 +3,7 @@ import :ColorCastTrait;
 import :RGB;
 import :HSV;
 import :Math;
-import :ColorUtil;
+import :InternalUtil;
 
 export namespace colorcpp
 {
@@ -20,7 +20,7 @@ export namespace colorcpp
         constexpr static HSV Cast(const RGB& rgb)
         {
             // Fast HSV to RGB
-            auto [hue, max, min] = ColorUtil::HueMaxMin(rgb);
+            auto [hue, max, min] = InternalUtil::HueMaxMin(rgb);
             double c = max - min;
             return HSV{
                 .h = hue,
@@ -36,7 +36,7 @@ export namespace colorcpp
         {
             auto [h, s, v] = hsv;
 
-            auto [cfr, cfg, cfb] = ColorUtil::HueChromaFactor(h);
+            auto [cfr, cfg, cfb] = InternalUtil::HueChromaFactor(h);
 
             double r = ((cfr - 1) * s + 1) * v;
             double g = ((cfg - 1) * s + 1) * v;
@@ -57,7 +57,7 @@ export namespace colorcpp
         constexpr static HSVCone Cast(const RGB& rgb)
         {
             // Fast HSV to RGB
-            auto [hue, max, min] = ColorUtil::HueMaxMin(rgb);
+            auto [hue, max, min] = InternalUtil::HueMaxMin(rgb);
             return HSVCone{
                 .h = hue,
                 .s = max - min,
@@ -72,7 +72,7 @@ export namespace colorcpp
         {
             auto [h, s, v] = hsv;
 
-            auto [cfr, cfg, cfb] = ColorUtil::HueChromaFactor(h);
+            auto [cfr, cfg, cfb] = InternalUtil::HueChromaFactor(h);
 
             double c = s;
 

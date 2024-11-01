@@ -3,7 +3,7 @@ import :ColorCastTrait;
 import :RGB;
 import :HSL;
 import :Math;
-import :ColorUtil;
+import :InternalUtil;
 
 namespace
 {
@@ -41,7 +41,7 @@ export namespace colorcpp
     {
         constexpr static HSL Cast(const RGB& rgb)
         {
-            auto [hue, max, min] = ColorUtil::HueMaxMin(rgb);
+            auto [hue, max, min] = InternalUtil::HueMaxMin(rgb);
             double c = max - min;
             double s = 0;
             double l = (max + min) / 2.0;
@@ -89,7 +89,7 @@ export namespace colorcpp
     {
         constexpr static HSLCone Cast(const RGB& rgb)
         {
-            auto [hue, max, min] = ColorUtil::HueMaxMin(rgb);
+            auto [hue, max, min] = InternalUtil::HueMaxMin(rgb);
             return HSLCone{
                 .h = hue,
                 .s = max - min,

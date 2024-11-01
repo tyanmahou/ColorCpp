@@ -3,7 +3,7 @@ import :ColorCastTrait;
 import :RGB;
 import :HSI;
 import :Math;
-import :ColorUtil;
+import :InternalUtil;
 
 export namespace colorcpp
 {
@@ -19,7 +19,7 @@ export namespace colorcpp
     {
         constexpr static HSI Cast(const RGB& rgb)
         {
-            auto [hue, max, min] = ColorUtil::HueMaxMin(rgb);
+            auto [hue, max, min] = InternalUtil::HueMaxMin(rgb);
             double i = (rgb.r + rgb.g + rgb.b) / 3.0;
             return HSI{
                 .h = hue,
@@ -36,7 +36,7 @@ export namespace colorcpp
             auto [h, s, i] = hsi;
 
             double min = i * (1 - s);
-            auto [cfr, cfg, cfb] = ColorUtil::HueChromaFactor(h);
+            auto [cfr, cfg, cfb] = InternalUtil::HueChromaFactor(h);
             double z = 1 - Math::Abs(Math::Fmod(6.0 * Math::Fraction(h / 360.0), 2.0) - 1);
             double c = (3 * i * s) / (1 + z);
             double r = c * cfr + min;
