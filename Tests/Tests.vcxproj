@@ -146,6 +146,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tests\ColorDiff\CIE76.cpp" />
+    <ClCompile Include="tests\ColorDiff\CIE94.cpp" />
+    <ClCompile Include="tests\ColorDiff\Euclidean.cpp" />
     <ClCompile Include="tests\ColorSpace\A98.cpp" />
     <ClCompile Include="tests\ColorSpace\CMY.cpp" />
     <ClCompile Include="tests\ColorSpace\CMYK.cpp" />

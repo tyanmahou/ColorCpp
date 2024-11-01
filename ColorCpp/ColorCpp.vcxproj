@@ -152,6 +152,7 @@
   <ItemGroup>
     <ClCompile Include="src\ColorCast\ColorCastDependency.ixx" />
     <ClCompile Include="src\ColorDiff\CIE76\CIE76.ixx" />
+    <ClCompile Include="src\ColorDiff\CIE94\CIE94.ixx" />
     <ClCompile Include="src\ColorDiff\ColorDiffTraits.ixx" />
     <ClCompile Include="src\ColorDiff\ColorDiff.ixx" />
     <ClCompile Include="src\ColorDiff\Euclidean\Euclidean.ixx" />

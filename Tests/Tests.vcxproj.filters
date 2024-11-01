@@ -110,6 +110,12 @@
     <ClCompile Include="tests\ColorDiff\CIE76.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="tests\ColorDiff\Euclidean.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\ColorDiff\CIE94.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".runsettings" />

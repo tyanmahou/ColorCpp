@@ -3,7 +3,6 @@
 #include "../catch.hpp"
 #include "../TestUtil.hpp"
 using namespace colorcpp;
-#include <iostream>
 
 TEST_CASE("CIE76")
 {
