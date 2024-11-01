@@ -38,12 +38,20 @@ export namespace colorcpp
     struct ColorDiff
     {
     public:
-        template<class Type>
-        inline static constexpr EuclideanDiff<Type> Euclidean{};
-        inline static constexpr CIE76Diff CIE76{};
-
-        inline static constexpr CIE94Diff CIE94{};
-        inline static constexpr CIE94Diff CIE94GraphicArts{ 1 , 0.045, 0.015 };
-        inline static constexpr CIE94Diff CIE94Textiles{ 2 , 0.048, 0.014 };
+        template<class Type = RGB, class T, class U>
+        static constexpr double Euclidean(const T& a, const U& b)
+        {
+            return EuclideanDiff<Type>{}(a, b);
+        }
+        template<class T, class U>
+        static constexpr double CIE76(const T& a, const U& b)
+        {
+            return CIE76Diff{}(a, b);
+        }
+        template<class Application = GraphicArts, class T, class U>
+        static constexpr double CIE94(const T& a, const U& b)
+        {
+            return CIE94Diff<Application>{}(a, b);
+        }
     };
 }
