@@ -1,6 +1,7 @@
 ﻿export module ColorCpp:Math;
 import <algorithm>;
 import <cmath>;
+import <numbers>;
 
 export namespace colorcpp
 {
@@ -59,7 +60,10 @@ export namespace colorcpp
         {
             return x * x * x;
         }
-
+        [[nodiscard]] static constexpr inline double Pow4(double x) noexcept
+        {
+            return x * x * x * x;
+        }
         // TODO: C++26でconstexpr対応
         [[nodiscard]] static constexpr inline double Cbrt(auto x) noexcept
         {
@@ -74,6 +78,10 @@ export namespace colorcpp
         [[nodiscard]] static constexpr inline double Cos(auto x) noexcept
         {
             return std::cos(x);
+        }
+        [[nodiscard]] static constexpr inline double CosDeg(double x) noexcept
+        {
+            return Cos(x * std::numbers::pi / 180.0);
         }
         // TODO: C++26でconstexpr対応
         [[nodiscard]] static constexpr inline double Atan2(auto y, auto x) noexcept

@@ -306,5 +306,8 @@
     <ClCompile Include="src\ColorDiff\CIE94\CIE94.ixx">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\ColorDiff\CMC\CMC.ixx">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

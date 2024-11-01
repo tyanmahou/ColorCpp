@@ -5,32 +5,15 @@ import :Math;
 
 export namespace colorcpp
 {
-    struct GraphicArts;
-    struct Textiles;
-
-    template<class Application>
-    struct CIE94Kuppa
-    {
-        double kL;
-        double k1;
-        double k2;
-    };
-
-    template<class Application>
-    inline constexpr CIE94Kuppa<Application> CIE94Kuppa_v{ 1 , 0.045, 0.015 };
-    template<>
-    inline constexpr CIE94Kuppa<GraphicArts> CIE94Kuppa_v<GraphicArts>{ 1 , 0.045, 0.015 };
-    template<>
-    inline constexpr CIE94Kuppa<Textiles> CIE94Kuppa_v<Textiles>{ 2, 0.048, 0.014 };
-
-    template<class Application>
     struct CIE94Diff
     {
+        double kL = 1;
+        double k1 = 0.045;
+        double k2 = 0.015;
     public:
         template<class T, class U>
         constexpr double operator()(const T& a, const U& b) const
         {
-            const auto [kL, k1, k2] = CIE94Kuppa_v<Application>;
             const Lab65 labA = ColorCast<Lab65>(a);
             const Lab65 labB = ColorCast<Lab65>(b);
 
@@ -57,4 +40,7 @@ export namespace colorcpp
             );
         }
     };
+
+    inline constexpr CIE94Diff CIE94Diff_GraphicArts{ 1, 0.045, 0.015 };
+    inline constexpr CIE94Diff CIE94Diff_Textiles{ 2, 0.048, 0.014 };
 }

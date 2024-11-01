@@ -3,6 +3,7 @@ export import :ColorDiffTrait;
 export import :ColorDiff.Euclidean;
 export import :ColorDiff.CIE76;
 export import :ColorDiff.CIE94;
+export import :ColorDiff.CMC;
 
 export import :DiffA98;
 export import :DiffCMY;
@@ -48,10 +49,47 @@ export namespace colorcpp
         {
             return CIE76Diff{}(a, b);
         }
-        template<class Application = GraphicArts, class T, class U>
+        template<class T,  class U>
         static constexpr double CIE94(const T& a, const U& b)
         {
-            return CIE94Diff<Application>{}(a, b);
+            return CIE94Diff{}(a, b);
+        }
+        template<
+            double kL,
+            double k1,
+            double k2,
+            class T,
+            class U
+        >
+        static constexpr double CIE94(const T& a, const U& b)
+        {
+            return CIE94Diff{ kL, k1, k2 }(a, b);
+        }
+        template<class T, class U>
+        static constexpr double CIE94_GraphicArts(const T& a, const U& b)
+        {
+            return CIE94Diff_GraphicArts(a, b);
+        }
+        template<class T, class U>
+        static constexpr double CIE94_Textiles(const T& a, const U& b)
+        {
+            return CIE94Diff_Textiles(a, b);
+        }
+
+        template<class T, class U>
+        static constexpr double CMC(const T& a, const U& b)
+        {
+            return CMCDiff{}(a, b);
+        }
+        template<
+            double l,
+            double c,
+            class T,
+            class U
+        >
+        static constexpr double CMC(const T& a, const U& b)
+        {
+            return CMCDiff{l, c}(a, b);
         }
     };
 }
