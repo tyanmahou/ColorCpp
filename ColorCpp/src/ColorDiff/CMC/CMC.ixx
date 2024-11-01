@@ -13,7 +13,7 @@ export namespace colorcpp
         double c = 1;
     public:
         template<class T, class U>
-        constexpr double operator()(const T& a, const U& b) const
+        [[nodiscard]] constexpr double operator()(const T& a, const U& b) const
         {
             const auto[l1, a1, b1] = ColorCast<Lab65>(a);
             const auto[l2, a2, b2] = ColorCast<Lab65>(b);

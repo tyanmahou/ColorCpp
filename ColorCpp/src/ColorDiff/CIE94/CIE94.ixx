@@ -12,7 +12,7 @@ export namespace colorcpp
         double k2 = 0.015;
     public:
         template<class T, class U>
-        constexpr double operator()(const T& a, const U& b) const
+        [[nodiscard]] constexpr double operator()(const T& a, const U& b) const
         {
             const Lab65 labA = ColorCast<Lab65>(a);
             const Lab65 labB = ColorCast<Lab65>(b);

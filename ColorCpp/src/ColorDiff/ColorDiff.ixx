@@ -40,17 +40,17 @@ export namespace colorcpp
     {
     public:
         template<class Type = RGB, class T, class U>
-        static constexpr double Euclidean(const T& a, const U& b)
+        [[nodiscard]] static constexpr double Euclidean(const T& a, const U& b)
         {
             return EuclideanDiff<Type>{}(a, b);
         }
         template<class T, class U>
-        static constexpr double CIE76(const T& a, const U& b)
+        [[nodiscard]] static constexpr double CIE76(const T& a, const U& b)
         {
             return CIE76Diff{}(a, b);
         }
         template<class T,  class U>
-        static constexpr double CIE94(const T& a, const U& b)
+        [[nodiscard]] static constexpr double CIE94(const T& a, const U& b)
         {
             return CIE94Diff{}(a, b);
         }
@@ -61,23 +61,23 @@ export namespace colorcpp
             class T,
             class U
         >
-        static constexpr double CIE94(const T& a, const U& b)
+        [[nodiscard]] static constexpr double CIE94(const T& a, const U& b)
         {
             return CIE94Diff{ kL, k1, k2 }(a, b);
         }
         template<class T, class U>
-        static constexpr double CIE94_GraphicArts(const T& a, const U& b)
+        [[nodiscard]] static constexpr double CIE94_GraphicArts(const T& a, const U& b)
         {
             return CIE94Diff_GraphicArts(a, b);
         }
         template<class T, class U>
-        static constexpr double CIE94_Textiles(const T& a, const U& b)
+        [[nodiscard]] static constexpr double CIE94_Textiles(const T& a, const U& b)
         {
             return CIE94Diff_Textiles(a, b);
         }
 
         template<class T, class U>
-        static constexpr double CMC(const T& a, const U& b)
+        [[nodiscard]] static constexpr double CMC(const T& a, const U& b)
         {
             return CMCDiff{}(a, b);
         }
@@ -87,7 +87,7 @@ export namespace colorcpp
             class T,
             class U
         >
-        static constexpr double CMC(const T& a, const U& b)
+        [[nodiscard]] static constexpr double CMC(const T& a, const U& b)
         {
             return CMCDiff{l, c}(a, b);
         }

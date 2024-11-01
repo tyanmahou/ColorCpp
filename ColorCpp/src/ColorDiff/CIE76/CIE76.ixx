@@ -8,7 +8,7 @@ export namespace colorcpp
     {
     public:
         template<class T, class U>
-        constexpr double operator()(const T& a, const U& b) const
+        [[nodiscard]] constexpr double operator()(const T& a, const U& b) const
         {
             return EuclideanDiff<Lab65>{}(a, b);
         }

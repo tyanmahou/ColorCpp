@@ -7,7 +7,7 @@ export namespace colorcpp
     struct ColorCastTraits;
 
     template<class To, class From>
-    inline constexpr To ColorCast(const From& from)
+    [[nodiscard]] inline constexpr To ColorCast(const From& from)
     {
         return ColorCastTraits<To, From>::Cast(from);
     }
@@ -15,7 +15,7 @@ export namespace colorcpp
     template<class To, class From>
     struct ColorCastTraits
     {
-        static constexpr To Cast(const From& from)
+        [[nodiscard]] static constexpr To Cast(const From& from)
         {
             if constexpr (DependOn<From, To>) {
                 using from_depend_type = typename ColorCastDependency<From>::depend_type;
@@ -29,7 +29,7 @@ export namespace colorcpp
     template<class T>
     struct ColorCastTraits<T, T>
     {
-        static constexpr T Cast(const T& from)
+        [[nodiscard]] static constexpr T Cast(const T& from)
         {
             return from;
         }
