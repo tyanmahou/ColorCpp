@@ -242,11 +242,11 @@
     <ClCompile Include="src\ColorSpace\YIQ\CastYIQ.ixx" />
     <ClCompile Include="src\ColorSpace\YIQ\DiffYIQ.ixx" />
     <ClCompile Include="src\ColorSpace\YIQ\YIQ.ixx" />
-    <ClCompile Include="src\Util\Constants.ixx" />
+    <ClCompile Include="src\Internal\Constants.ixx" />
     <ClCompile Include="src\Internal\InternalUtil.ixx" />
     <ClCompile Include="src\Util\Utility.ixx" />
-    <ClCompile Include="src\Util\Math.ixx" />
-    <ClCompile Include="src\Util\Type.ixx" />
+    <ClCompile Include="src\Internal\Math.ixx" />
+    <ClCompile Include="src\Internal\Type.ixx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

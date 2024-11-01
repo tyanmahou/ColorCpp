@@ -5,7 +5,7 @@ import :RGB;
 import :RGBA;
 import :RGB24;
 import :RGBA32;
-import :Type;
+import :InternalUtil;
 
 export namespace colorcpp
 {
@@ -51,9 +51,9 @@ export namespace colorcpp
         {
             return
             {
-                .r = UInt8ToDouble(rgba.r),
-                .g = UInt8ToDouble(rgba.g),
-                .b = UInt8ToDouble(rgba.b)
+                .r = InternalUtil::UInt8ToDouble(rgba.r),
+                .g = InternalUtil::UInt8ToDouble(rgba.g),
+                .b = InternalUtil::UInt8ToDouble(rgba.b)
             };
         }
     };
@@ -65,9 +65,9 @@ export namespace colorcpp
         {
             return
             {
-                .r = DoubleToUInt8(rgb.r),
-                .g = DoubleToUInt8(rgb.g),
-                .b = DoubleToUInt8(rgb.b),
+                .r = InternalUtil::DoubleToUInt8(rgb.r),
+                .g = InternalUtil::DoubleToUInt8(rgb.g),
+                .b = InternalUtil::DoubleToUInt8(rgb.b),
                 .a = 255,
             };
         }
@@ -81,9 +81,9 @@ export namespace colorcpp
         {
             return
             {
-                .r = UInt8ToDouble(rgb.r),
-                .g = UInt8ToDouble(rgb.g),
-                .b = UInt8ToDouble(rgb.b)
+                .r = InternalUtil::UInt8ToDouble(rgb.r),
+                .g = InternalUtil::UInt8ToDouble(rgb.g),
+                .b = InternalUtil::UInt8ToDouble(rgb.b)
             };
         }
     };
@@ -94,9 +94,9 @@ export namespace colorcpp
         {
             return
             {
-                .r = DoubleToUInt8(rgb.r),
-                .g = DoubleToUInt8(rgb.g),
-                .b = DoubleToUInt8(rgb.b)
+                .r = InternalUtil::DoubleToUInt8(rgb.r),
+                .g = InternalUtil::DoubleToUInt8(rgb.g),
+                .b = InternalUtil::DoubleToUInt8(rgb.b)
             };
         }
     };

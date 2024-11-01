@@ -5,7 +5,7 @@ import :RGBA32;
 import :RGB24;
 import :RGBA;
 import :RGB;
-import :Math;
+import :InternalUtil;
 
 export namespace colorcpp
 {
@@ -52,9 +52,9 @@ export namespace colorcpp
         {
             return
             {
-                .r = DoubleToUInt8(rgba.r),
-                .g = DoubleToUInt8(rgba.g),
-                .b = DoubleToUInt8(rgba.b)
+                .r = InternalUtil::DoubleToUInt8(rgba.r),
+                .g = InternalUtil::DoubleToUInt8(rgba.g),
+                .b = InternalUtil::DoubleToUInt8(rgba.b)
             };
         }
     };
@@ -65,9 +65,9 @@ export namespace colorcpp
         {
             return
             {
-                .r = UInt8ToDouble(rgb.r),
-                .g = UInt8ToDouble(rgb.g),
-                .b = UInt8ToDouble(rgb.b),
+                .r = InternalUtil::UInt8ToDouble(rgb.r),
+                .g = InternalUtil::UInt8ToDouble(rgb.g),
+                .b = InternalUtil::UInt8ToDouble(rgb.b),
                 .a = 1.0
             };
         }

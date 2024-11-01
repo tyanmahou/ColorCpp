@@ -1,6 +1,6 @@
 ﻿export module ColorCpp:CastRGBA;
 import :ColorCastTrait;
-import :Type;
+import :InternalUtil;
 import :RGBA;
 import :RGBA32;
 import :Math;
@@ -21,10 +21,10 @@ export namespace colorcpp
         {
             return
             {
-                .r = UInt8ToDouble(rgba.r),
-                .g = UInt8ToDouble(rgba.g),
-                .b = UInt8ToDouble(rgba.b),
-                .a = UInt8ToDouble(rgba.a),
+                .r = InternalUtil::UInt8ToDouble(rgba.r),
+                .g = InternalUtil::UInt8ToDouble(rgba.g),
+                .b = InternalUtil::UInt8ToDouble(rgba.b),
+                .a = InternalUtil::UInt8ToDouble(rgba.a),
             };
         }
     };
@@ -35,10 +35,10 @@ export namespace colorcpp
         {
             return
             {
-                .r = DoubleToUInt8(rgba.r),
-                .g = DoubleToUInt8(rgba.g),
-                .b = DoubleToUInt8(rgba.b),
-                .a = DoubleToUInt8(rgba.a),
+                .r = InternalUtil::DoubleToUInt8(rgba.r),
+                .g = InternalUtil::DoubleToUInt8(rgba.g),
+                .b = InternalUtil::DoubleToUInt8(rgba.b),
+                .a = InternalUtil::DoubleToUInt8(rgba.a),
             };
         }
     };
