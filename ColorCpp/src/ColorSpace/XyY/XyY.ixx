@@ -24,7 +24,7 @@ export namespace colorcpp
         /// </summary>
         double y2;
 
-        constexpr XyY_ operator +(const XyY_& other) const noexcept
+        [[nodiscard]] constexpr XyY_ operator +(const XyY_& other) const noexcept
         {
             return { (x + other.x), (y1 + other.y1), (y2 + other.y2) };
         }
@@ -35,7 +35,7 @@ export namespace colorcpp
             y2 += other.y2;
             return *this;
         }
-        constexpr XyY_ operator -(const XyY_& other) const noexcept
+        [[nodiscard]] constexpr XyY_ operator -(const XyY_& other) const noexcept
         {
             return{ (x - other.x), (y1 - other.y1), (y2 - other.y2) };
         }
@@ -46,7 +46,7 @@ export namespace colorcpp
             y2 -= other.y2;
             return *this;
         }
-        constexpr XyY_ operator *(double s) const noexcept
+        [[nodiscard]] constexpr XyY_ operator *(double s) const noexcept
         {
             return{ x * s, y1 * s, y2 * s };
         }
@@ -57,7 +57,7 @@ export namespace colorcpp
             y2 *= s;
             return *this;
         }
-        constexpr XyY_ operator *(const XyY_& other) const noexcept
+        [[nodiscard]] constexpr XyY_ operator *(const XyY_& other) const noexcept
         {
             return{ x * other.x, y1 * other.y, y2 * other.y2 };
         }
@@ -68,7 +68,7 @@ export namespace colorcpp
             y2 *= other.y2;
             return *this;
         }
-        constexpr XyY_ operator /(double s) const noexcept
+        [[nodiscard]] constexpr XyY_ operator /(double s) const noexcept
         {
             return{ x / s, y1 / s, y2 / s };
         }
@@ -79,7 +79,7 @@ export namespace colorcpp
             y2 /= s;
             return *this;
         }
-        constexpr XyY_ operator /(const XyY_& other) const noexcept
+        [[nodiscard]] constexpr XyY_ operator /(const XyY_& other) const noexcept
         {
             return{ x / other.x, y1 / other.y1, y2 / other.y2 };
         }
@@ -90,7 +90,7 @@ export namespace colorcpp
             y2 /= other.y2;
             return *this;
         }
-        friend constexpr bool operator==(const XyY_& a, const XyY_& b) = default;
+        [[nodiscard]] friend constexpr bool operator==(const XyY_& a, const XyY_& b) = default;
     };
 
     using XyY50 = XyY_<struct D50>;

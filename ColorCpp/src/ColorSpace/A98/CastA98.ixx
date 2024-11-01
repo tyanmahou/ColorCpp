@@ -34,7 +34,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<XYZ, A98>
     {
-        constexpr static XYZ Cast(const A98& rgb)
+        [[nodiscard]] constexpr static XYZ Cast(const A98& rgb)
         {
             double r = InternalUtil::Gamma(rgb.r, AdobeGammaInv);
             double g = InternalUtil::Gamma(rgb.g, AdobeGammaInv);

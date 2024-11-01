@@ -17,7 +17,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<RYB, RGB>
     {
-        constexpr static RYB Cast(const RGB& rgb)
+        [[nodiscard]] constexpr static RYB Cast(const RGB& rgb)
         {
             auto&& [R, G, B] = rgb;
             const double Iw = Math::Min(R, G, B);
@@ -51,7 +51,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<RGB, RYB>
     {
-        constexpr static RGB Cast(const RYB& ryb)
+        [[nodiscard]] constexpr static RGB Cast(const RYB& ryb)
         {
             auto&& [R, Y, B] = ryb;
             const double Ib = Math::Min(R, Y, B);

@@ -18,7 +18,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<CMYK, CMY>
     {
-        constexpr static CMYK Cast(const CMY& cmy)
+        [[nodiscard]] constexpr static CMYK Cast(const CMY& cmy)
         {
             auto&& [c, m, y] = cmy;
             double k = Math::Min(c, m, y);
@@ -34,7 +34,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<CMY, CMYK>
     {
-        constexpr static CMY Cast(const CMYK& cmyk)
+        [[nodiscard]] constexpr static CMY Cast(const CMYK& cmyk)
         {
             auto&& [c, m, y, k] = cmyk;
             return {
@@ -48,7 +48,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<CMYK, RGB>
     {
-        constexpr static CMYK Cast(const RGB& rgb)
+        [[nodiscard]] constexpr static CMYK Cast(const RGB& rgb)
         {
             auto&& [r, g, b] = rgb;
             double k = Math::Min(1 - r, 1 - g, 1 - b);
@@ -64,7 +64,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<RGB, CMYK>
     {
-        constexpr static RGB Cast(const CMYK& cmyk)
+        [[nodiscard]] constexpr static RGB Cast(const CMYK& cmyk)
         {
             auto&& [c, m, y, k] = cmyk;
             return {

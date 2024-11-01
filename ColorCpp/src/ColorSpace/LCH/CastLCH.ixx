@@ -19,7 +19,7 @@ export namespace colorcpp
     template<class Illuminant>
     struct ColorCastTraits<LCH_<Illuminant>, Lab_<Illuminant>>
     {
-        constexpr static LCH_<Illuminant> Cast(const Lab_<Illuminant>& lab)
+        [[nodiscard]] constexpr static LCH_<Illuminant> Cast(const Lab_<Illuminant>& lab)
         {
             double l = lab.l;
             double c = Math::Sqrt(lab.a * lab.a + lab.b * lab.b);
@@ -35,7 +35,7 @@ export namespace colorcpp
     template<class Illuminant>
     struct ColorCastTraits<Lab_<Illuminant>, LCH_<Illuminant>>
     {
-        constexpr static Lab_<Illuminant> Cast(const LCH_<Illuminant>& lch)
+        [[nodiscard]] constexpr static Lab_<Illuminant> Cast(const LCH_<Illuminant>& lch)
         {
             double h = lch.h * std::numbers::pi / 180.0;
             return {

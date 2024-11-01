@@ -7,7 +7,7 @@ import :InternalUtil;
 
 namespace
 {
-    constexpr inline double HueToRGB(double min, double max, double h)
+    [[nodiscard]] constexpr inline double HueToRGB(double min, double max, double h)
     {
         if (h < 0) {
             h += 1;
@@ -39,7 +39,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<HSL, RGB>
     {
-        constexpr static HSL Cast(const RGB& rgb)
+        [[nodiscard]] constexpr static HSL Cast(const RGB& rgb)
         {
             auto [hue, max, min] = InternalUtil::HueMaxMin(rgb);
             double c = max - min;
@@ -59,7 +59,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<RGB, HSL>
     {
-        constexpr static RGB Cast(const HSL& hsl)
+        [[nodiscard]] constexpr static RGB Cast(const HSL& hsl)
         {
             const auto& [h, s, l] = hsl;
 
@@ -87,7 +87,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<HSLCone, RGB>
     {
-        constexpr static HSLCone Cast(const RGB& rgb)
+        [[nodiscard]] constexpr static HSLCone Cast(const RGB& rgb)
         {
             auto [hue, max, min] = InternalUtil::HueMaxMin(rgb);
             return HSLCone{
@@ -100,7 +100,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<RGB, HSLCone>
     {
-        constexpr static RGB Cast(const HSLCone& hsl)
+        [[nodiscard]] constexpr static RGB Cast(const HSLCone& hsl)
         {
             const auto& [h, s, l] = hsl;
 

@@ -25,7 +25,7 @@ export namespace colorcpp
         /// </summary>
         double v;
 
-        constexpr HSV_ operator +(const HSV_& other) const noexcept
+        [[nodiscard]] constexpr HSV_ operator +(const HSV_& other) const noexcept
         {
             return{
                 InternalUtil::RepeatHue360(h + other.h),
@@ -38,7 +38,7 @@ export namespace colorcpp
             *this = (*this) + other;
             return *this;
         }
-        constexpr HSV_ operator -(const HSV_& other) const noexcept
+        [[nodiscard]] constexpr HSV_ operator -(const HSV_& other) const noexcept
         {
             return{
                 InternalUtil::RepeatHue360(h - other.h),
@@ -49,6 +49,17 @@ export namespace colorcpp
         constexpr HSV_& operator -=(const HSV_& other) noexcept
         {
             *this = (*this) - other;
+            return *this;
+        }
+        [[nodiscard]] constexpr HSV_ operator *(double _s) const noexcept
+        {
+            return{ InternalUtil::RepeatHue360(h * _s), s * _s, v * _s };
+        }
+        constexpr HSV_& operator *=(double _s) noexcept
+        {
+            h = InternalUtil::RepeatHue360(h * _s);
+            s *= _s;
+            v *= _s;
             return *this;
         }
         friend constexpr bool operator==(const HSV_& a, const HSV_& b) = default;

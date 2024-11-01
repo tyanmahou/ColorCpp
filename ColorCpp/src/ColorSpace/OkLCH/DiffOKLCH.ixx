@@ -8,7 +8,7 @@ export namespace colorcpp
     template<>
     struct ColorDiffTrait<OkLCH>
     {
-        constexpr static double Diff(const OkLCH& a, const OkLCH& b)
+        [[nodiscard]] constexpr static double Diff(const OkLCH& a, const OkLCH& b)
         {
             return InternalUtil::DiffLCH(a, b);
         }

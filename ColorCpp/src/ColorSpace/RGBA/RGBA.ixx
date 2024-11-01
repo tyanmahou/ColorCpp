@@ -27,7 +27,7 @@ export namespace colorcpp
         /// </summary>
         double a;
 
-        constexpr RGBA operator +(const RGBA& other) const noexcept
+        [[nodiscard]] constexpr RGBA operator +(const RGBA& other) const noexcept
         {
             return{ (r + other.r), (g + other.g), (b + other.b) , (a + other.a) };
         }
@@ -39,7 +39,7 @@ export namespace colorcpp
             a += other.a;
             return *this;
         }
-        constexpr RGBA operator -(const RGBA& other) const noexcept
+        [[nodiscard]] constexpr RGBA operator -(const RGBA& other) const noexcept
         {
             return{ (r - other.r), (g - other.g), (b - other.b), (a - other.a) };
         }
@@ -51,7 +51,7 @@ export namespace colorcpp
             a -= other.a;
             return *this;
         }
-        constexpr RGBA operator *(double s) const noexcept
+        [[nodiscard]] constexpr RGBA operator *(double s) const noexcept
         {
             return { r * s, g * s, b * s, a * s };
         }
@@ -64,6 +64,6 @@ export namespace colorcpp
             return *this;
         }
 
-        friend constexpr bool operator==(const RGBA& a, const RGBA& b) = default;
+        [[nodiscard]] friend constexpr bool operator==(const RGBA& a, const RGBA& b) = default;
     };
 }

@@ -25,7 +25,7 @@ export namespace colorcpp
         /// </summary>
         double l;
 
-        constexpr HSL_ operator +(const HSL_& other) const noexcept
+        [[nodiscard]] constexpr HSL_ operator +(const HSL_& other) const noexcept
         {
             return{
                 InternalUtil::RepeatHue360(h + other.h),
@@ -38,7 +38,7 @@ export namespace colorcpp
             *this = (*this) + other;
             return *this;
         }
-        constexpr HSL_ operator -(const HSL_& other) const noexcept
+        [[nodiscard]] constexpr HSL_ operator -(const HSL_& other) const noexcept
         {
             return{
                 InternalUtil::RepeatHue360(h - other.h),
@@ -51,7 +51,18 @@ export namespace colorcpp
             *this = (*this) - other;
             return *this;
         }
-        friend constexpr bool operator==(const HSL_& a, const HSL_& b) = default;
+        [[nodiscard]] constexpr HSL_ operator *(double _s) const noexcept
+        {
+            return{ InternalUtil::RepeatHue360(h * _s), s * _s, l * _s };
+        }
+        constexpr HSL_& operator *=(double _s) noexcept
+        {
+            h = InternalUtil::RepeatHue360(h * _s);
+            s *= _s;
+            l *= _s;
+            return *this;
+        }
+        [[nodiscard]] friend constexpr bool operator==(const HSL_& a, const HSL_& b) = default;
     };
     /// <summary>
     /// HSL (双円錐モデル)

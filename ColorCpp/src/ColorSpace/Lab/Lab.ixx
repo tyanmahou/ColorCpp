@@ -12,7 +12,7 @@ export namespace colorcpp
         double a;
         double b;
 
-        constexpr Lab_ operator +(const Lab_& other) const noexcept
+        [[nodiscard]] constexpr Lab_ operator +(const Lab_& other) const noexcept
         {
             return { (l + other.l), (a + other.a), (b + other.b) };
         }
@@ -23,7 +23,7 @@ export namespace colorcpp
             b += other.b;
             return *this;
         }
-        constexpr Lab_ operator -(const Lab_& other) const noexcept
+        [[nodiscard]] constexpr Lab_ operator -(const Lab_& other) const noexcept
         {
             return{ (l - other.l), (a - other.a), (b - other.b) };
         }
@@ -34,8 +34,18 @@ export namespace colorcpp
             b -= other.b;
             return *this;
         }
-
-        friend constexpr bool operator==(const Lab_& a, const Lab_& b) = default;
+        [[nodiscard]] constexpr Lab_ operator *(double s) const noexcept
+        {
+            return{ l * s, a * s, b * s };
+        }
+        constexpr Lab_& operator *=(double s) noexcept
+        {
+            l *= s;
+            a *= s;
+            b *= s;
+            return *this;
+        }
+        [[nodiscard]] friend constexpr bool operator==(const Lab_& a, const Lab_& b) = default;
     };
 
     using Lab50 = Lab_<struct D50>;

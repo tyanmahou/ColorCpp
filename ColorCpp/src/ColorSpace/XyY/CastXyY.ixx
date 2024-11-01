@@ -16,7 +16,7 @@ export namespace colorcpp
     template<class Illuminant>
     struct ColorCastTraits<XyY_<Illuminant>, XYZ_<Illuminant>>
     {
-        constexpr static XyY_<Illuminant> Cast(const XYZ_<Illuminant>& xyz)
+        [[nodiscard]] constexpr static XyY_<Illuminant> Cast(const XYZ_<Illuminant>& xyz)
         {
             const auto& [x, y, z] = xyz;
             const double sum = x + y + z;
@@ -31,7 +31,7 @@ export namespace colorcpp
     template<class Illuminant>
     struct ColorCastTraits<XYZ_<Illuminant>, XyY_<Illuminant>>
     {
-        constexpr static XYZ_<Illuminant> Cast(const XyY_<Illuminant>& xyY)
+        [[nodiscard]] constexpr static XYZ_<Illuminant> Cast(const XyY_<Illuminant>& xyY)
         {
             const auto& [x, y, Y] = xyY;
 

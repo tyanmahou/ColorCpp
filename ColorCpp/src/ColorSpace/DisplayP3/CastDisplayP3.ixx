@@ -14,7 +14,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<DisplayP3, XYZ65>
     {
-        constexpr static DisplayP3 Cast(const XYZ65& xyz)
+        [[nodiscard]] constexpr static DisplayP3 Cast(const XYZ65& xyz)
         {
             const auto& [x, y, z] = xyz;
             return
@@ -28,7 +28,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<XYZ65, DisplayP3>
     {
-        constexpr static XYZ65 Cast(const DisplayP3& p3)
+        [[nodiscard]] constexpr static XYZ65 Cast(const DisplayP3& p3)
         {
             const auto& [r, g, b] = p3;
             return

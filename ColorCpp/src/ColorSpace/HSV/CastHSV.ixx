@@ -17,7 +17,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<HSV, RGB>
     {
-        constexpr static HSV Cast(const RGB& rgb)
+        [[nodiscard]] constexpr static HSV Cast(const RGB& rgb)
         {
             // Fast HSV to RGB
             auto [hue, max, min] = InternalUtil::HueMaxMin(rgb);
@@ -32,7 +32,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<RGB, HSV>
     {
-        constexpr static RGB Cast(const HSV& hsv)
+        [[nodiscard]] constexpr static RGB Cast(const HSV& hsv)
         {
             auto [h, s, v] = hsv;
 
@@ -54,7 +54,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<HSVCone, RGB>
     {
-        constexpr static HSVCone Cast(const RGB& rgb)
+        [[nodiscard]] constexpr static HSVCone Cast(const RGB& rgb)
         {
             // Fast HSV to RGB
             auto [hue, max, min] = InternalUtil::HueMaxMin(rgb);
@@ -68,7 +68,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<RGB, HSVCone>
     {
-        constexpr static RGB Cast(const HSVCone& hsv)
+        [[nodiscard]] constexpr static RGB Cast(const HSVCone& hsv)
         {
             auto [h, s, v] = hsv;
 

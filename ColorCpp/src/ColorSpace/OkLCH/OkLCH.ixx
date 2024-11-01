@@ -1,4 +1,5 @@
 ﻿export module ColorCpp:OkLCH;
+import :InternalUtil;
 
 export namespace colorcpp
 {
@@ -22,6 +23,40 @@ export namespace colorcpp
         /// </summary>
         double h;
 
-        friend constexpr bool operator==(const OkLCH& a, const OkLCH& b) = default;
+        [[nodiscard]] constexpr OkLCH operator +(const OkLCH& other) const noexcept
+        {
+            return { (l + other.l), (c + other.c), InternalUtil::RepeatHue360(h + other.h) };
+        }
+        constexpr OkLCH& operator +=(const OkLCH& other) noexcept
+        {
+            l += other.l;
+            c += other.c;
+            h = InternalUtil::RepeatHue360(h + other.h);
+            return *this;
+        }
+        [[nodiscard]] constexpr OkLCH operator -(const OkLCH& other) const noexcept
+        {
+            return{ (l - other.l), (c - other.c), InternalUtil::RepeatHue360(h - other.h) };
+        }
+        constexpr OkLCH& operator -=(const OkLCH& other) noexcept
+        {
+            l -= other.l;
+            c -= other.c;
+            h = InternalUtil::RepeatHue360(h - other.h);
+            return *this;
+        }
+        [[nodiscard]] constexpr OkLCH operator *(double s) const noexcept
+        {
+            return{ l * s, c * s, InternalUtil::RepeatHue360(h * s) };
+        }
+        constexpr OkLCH& operator *=(double s) noexcept
+        {
+            l *= s;
+            c *= s;
+            h = InternalUtil::RepeatHue360(h * s);
+            return *this;
+        }
+
+        [[nodiscard]] friend constexpr bool operator==(const OkLCH& a, const OkLCH& b) = default;
     };
 }

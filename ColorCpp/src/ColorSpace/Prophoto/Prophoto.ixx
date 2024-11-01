@@ -22,7 +22,7 @@ export namespace colorcpp
         /// </summary>
         double b;
 
-        constexpr Prophoto operator +(const Prophoto& other) const noexcept
+        [[nodiscard]] constexpr Prophoto operator +(const Prophoto& other) const noexcept
         {
             return{ (r + other.r), (g + other.g), (b + other.b) };
         }
@@ -33,7 +33,7 @@ export namespace colorcpp
             b += other.b;
             return *this;
         }
-        constexpr Prophoto operator -(const Prophoto& other) const noexcept
+        [[nodiscard]] constexpr Prophoto operator -(const Prophoto& other) const noexcept
         {
             return{ (r - other.r), (g - other.g), (b - other.b) };
         }
@@ -44,7 +44,7 @@ export namespace colorcpp
             b -= other.b;
             return *this;
         }
-        constexpr Prophoto operator *(double s) const noexcept
+        [[nodiscard]] constexpr Prophoto operator *(double s) const noexcept
         {
             return{ r * s, g * s, b * s };
         }
@@ -56,6 +56,6 @@ export namespace colorcpp
             return *this;
         }
 
-        friend constexpr bool operator==(const Prophoto& a, const Prophoto& b) = default;
+        [[nodiscard]] friend constexpr bool operator==(const Prophoto& a, const Prophoto& b) = default;
     };
 }

@@ -24,7 +24,7 @@ export namespace colorcpp
         /// </summary>
         double z;
 
-        constexpr XYZ_ operator +(const XYZ_& other) const noexcept
+        [[nodiscard]] constexpr XYZ_ operator +(const XYZ_& other) const noexcept
         {
             return { (x + other.x), (y + other.y), (z + other.z) };
         }
@@ -35,7 +35,7 @@ export namespace colorcpp
             z += other.z;
             return *this;
         }
-        constexpr XYZ_ operator -(const XYZ_& other) const noexcept
+        [[nodiscard]] constexpr XYZ_ operator -(const XYZ_& other) const noexcept
         {
             return{ (x - other.x), (y - other.y), (z - other.z) };
         }
@@ -46,7 +46,7 @@ export namespace colorcpp
             z -= other.z;
             return *this;
         }
-        constexpr XYZ_ operator *(double s) const noexcept
+        [[nodiscard]] constexpr XYZ_ operator *(double s) const noexcept
         {
             return{ x * s, y * s, z * s };
         }
@@ -57,7 +57,7 @@ export namespace colorcpp
             z *= s;
             return *this;
         }
-        constexpr XYZ_ operator *(const XYZ_& other) const noexcept
+        [[nodiscard]] constexpr XYZ_ operator *(const XYZ_& other) const noexcept
         {
             return{ x * other.x, y * other.y, z * other.z };
         }
@@ -68,7 +68,7 @@ export namespace colorcpp
             z *= other.z;
             return *this;
         }
-        constexpr XYZ_ operator /(double s) const noexcept
+        [[nodiscard]] constexpr XYZ_ operator /(double s) const noexcept
         {
             return{ x / s, y / s, z / s };
         }
@@ -79,7 +79,7 @@ export namespace colorcpp
             z /= s;
             return *this;
         }
-        constexpr XYZ_ operator /(const XYZ_& other) const noexcept
+        [[nodiscard]] constexpr XYZ_ operator /(const XYZ_& other) const noexcept
         {
             return{ x / other.x, y / other.y, z / other.z };
         }
@@ -90,7 +90,7 @@ export namespace colorcpp
             z /= other.z;
             return *this;
         }
-        friend constexpr bool operator==(const XYZ_& a, const XYZ_& b) = default;
+        [[nodiscard]] friend constexpr bool operator==(const XYZ_& a, const XYZ_& b) = default;
     };
 
     using XYZ50 = XYZ_<struct D50>;

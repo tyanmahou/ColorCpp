@@ -18,7 +18,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<HWB, RGB>
     {
-        constexpr static HWB Cast(const RGB& rgb)
+        [[nodiscard]] constexpr static HWB Cast(const RGB& rgb)
         {
             auto [hue, max, min] = InternalUtil::HueMaxMin(rgb);
             double c = max - min;
@@ -32,7 +32,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<RGB, HWB>
     {
-        constexpr static RGB Cast(const HWB& hwb)
+        [[nodiscard]] constexpr static RGB Cast(const HWB& hwb)
         {
             auto [h, w, b_] = hwb;
             if (w + b_ > 1) {
@@ -64,7 +64,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<HWB, HSV>
     {
-        constexpr static HWB Cast(const HSV& hsv)
+        [[nodiscard]] constexpr static HWB Cast(const HSV& hsv)
         {
             auto&& [h, s, v] = hsv;
             const double b = 1 - v;
@@ -75,7 +75,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<HSV, HWB>
     {
-        constexpr static HSV Cast(const HWB& hwb)
+        [[nodiscard]] constexpr static HSV Cast(const HWB& hwb)
         {
             auto [h, w, b] = hwb;
             if (w + b > 1) {

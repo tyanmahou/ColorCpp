@@ -15,12 +15,12 @@ namespace
     inline constexpr double m2 = 78.84375;
 
     // PQカーブの適用 EOTF-1
-    inline constexpr double PQ(double value)
+    [[nodiscard]] inline constexpr double PQ(double value)
     {
         double c = Math::Pow(value, m1);
         return Math::Pow((c1 + c2 * c) / (1 + c3 * c), m2);
     }
-    inline constexpr double PQInv(double value)
+    [[nodiscard]] inline constexpr double PQInv(double value)
     {
         double c = Math::Pow(value, 1 / m2);
         return Math::Pow((c - c1) / (c2 - c3 * c), 1 / m1);
@@ -38,7 +38,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<ITP, LRGB>
     {
-        constexpr static ITP Cast(const LRGB& rgb)
+        [[nodiscard]] constexpr static ITP Cast(const LRGB& rgb)
         {
             const auto& [r, g, b] = rgb;
             const double l = (1688 * r + 2146 * g + 262 * b) / 4096.0;
@@ -58,7 +58,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<LRGB, ITP>
     {
-        constexpr static LRGB Cast(const ITP& itp)
+        [[nodiscard]] constexpr static LRGB Cast(const ITP& itp)
         {
             const auto& [i, t, p] = itp;
 

@@ -8,7 +8,7 @@ export namespace colorcpp
     template<>
     struct ColorDiffTrait<RGBA>
     {
-        constexpr static double Diff(const RGBA& a, const RGBA& b)
+        [[nodiscard]] constexpr static double Diff(const RGBA& a, const RGBA& b)
         {
             const RGBA diff = a - b;
             return Math::Sqrt(

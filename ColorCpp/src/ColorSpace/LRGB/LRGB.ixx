@@ -24,7 +24,7 @@ export namespace colorcpp
         /// </summary>
         double b;
 
-        constexpr LRGB operator +(const LRGB& other) const noexcept
+        [[nodiscard]] constexpr LRGB operator +(const LRGB& other) const noexcept
         {
             return{ (r + other.r), (g + other.g), (b + other.b) };
         }
@@ -35,7 +35,7 @@ export namespace colorcpp
             b += other.b;
             return *this;
         }
-        constexpr LRGB operator -(const LRGB& other) const noexcept
+        [[nodiscard]] constexpr LRGB operator -(const LRGB& other) const noexcept
         {
             return{ (r - other.r), (g - other.g), (b - other.b) };
         }
@@ -46,7 +46,7 @@ export namespace colorcpp
             b -= other.b;
             return *this;
         }
-        constexpr LRGB operator *(double s) const noexcept
+        [[nodiscard]] constexpr LRGB operator *(double s) const noexcept
         {
             return{ r * s, g * s, b * s };
         }
@@ -58,6 +58,6 @@ export namespace colorcpp
             return *this;
         }
 
-        friend constexpr bool operator==(const LRGB& a, const LRGB& b) = default;
+        [[nodiscard]] friend constexpr bool operator==(const LRGB& a, const LRGB& b) = default;
     };
 }

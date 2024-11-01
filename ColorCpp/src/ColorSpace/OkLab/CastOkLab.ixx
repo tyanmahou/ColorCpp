@@ -20,7 +20,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<OkLab, XYZ65>
     {
-        constexpr static OkLab Cast(const XYZ65& xyz)
+        [[nodiscard]] constexpr static OkLab Cast(const XYZ65& xyz)
         {
             auto&& [x, y, z] = xyz;
 
@@ -42,7 +42,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<XYZ65, OkLab>
     {
-        constexpr static XYZ65 Cast(const OkLab& lab)
+        [[nodiscard]] constexpr static XYZ65 Cast(const OkLab& lab)
         {
             double l_ = lab.l + 0.3963377774 * lab.a + 0.2158037573 * lab.b;
             double m_ = lab.l - 0.1055613458 * lab.a - 0.0638541728 * lab.b;
@@ -65,7 +65,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<OkLab, LRGB>
     {
-        constexpr static OkLab Cast(const LRGB& rgb)
+        [[nodiscard]] constexpr static OkLab Cast(const LRGB& rgb)
         {
             const auto& [r, g, b] = rgb;
 
@@ -87,7 +87,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<LRGB, OkLab>
     {
-        constexpr static LRGB Cast(const OkLab& lab)
+        [[nodiscard]] constexpr static LRGB Cast(const OkLab& lab)
         {
             double l_ = lab.l + 0.3963377774 * lab.a + 0.2158037573 * lab.b;
             double m_ = lab.l - 0.1055613458 * lab.a - 0.0638541728 * lab.b;

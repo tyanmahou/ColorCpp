@@ -17,7 +17,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<RGBA, RGBA32>
     {
-        constexpr static RGBA Cast(const RGBA32& rgba)
+        [[nodiscard]] constexpr static RGBA Cast(const RGBA32& rgba)
         {
             return
             {
@@ -31,7 +31,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<RGBA32, RGBA>
     {
-        constexpr static RGBA32 Cast(const RGBA& rgba)
+        [[nodiscard]] constexpr static RGBA32 Cast(const RGBA& rgba)
         {
             return
             {

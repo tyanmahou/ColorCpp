@@ -8,7 +8,7 @@ export namespace colorcpp
     template<>
     struct ColorDiffTrait<ITP>
     {
-        constexpr static double Diff(const ITP& a, const ITP& b)
+        [[nodiscard]] constexpr static double Diff(const ITP& a, const ITP& b)
         {
             const ITP diff = a - b;
             return Math::Sqrt(

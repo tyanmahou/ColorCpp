@@ -8,7 +8,7 @@ export namespace colorcpp
     template<>
     struct ColorDiffTrait<RYB>
     {
-        constexpr static double Diff(const RYB& a, const RYB& b)
+        [[nodiscard]] constexpr static double Diff(const RYB& a, const RYB& b)
         {
             const RYB diff = a - b;
             return Math::Sqrt(

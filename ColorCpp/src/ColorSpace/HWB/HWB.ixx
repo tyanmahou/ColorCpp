@@ -24,7 +24,7 @@ export namespace colorcpp
         /// </summary>
         double b;
 
-        constexpr HWB operator +(const HWB& other) const noexcept
+        [[nodiscard]] constexpr HWB operator +(const HWB& other) const noexcept
         {
             return{
                 InternalUtil::RepeatHue360(h + other.h),
@@ -37,7 +37,7 @@ export namespace colorcpp
             *this = (*this) + other;
             return *this;
         }
-        constexpr HWB operator -(const HWB& other) const noexcept
+        [[nodiscard]] constexpr HWB operator -(const HWB& other) const noexcept
         {
             return{
                 InternalUtil::RepeatHue360(h - other.h),
@@ -50,6 +50,19 @@ export namespace colorcpp
             *this = (*this) - other;
             return *this;
         }
-        friend constexpr bool operator==(const HWB& a, const HWB& b) = default;
+
+        [[nodiscard]] constexpr HWB operator *(double s) const noexcept
+        {
+            return{ InternalUtil::RepeatHue360(h * s), w * s, b * s };
+        }
+        constexpr HWB& operator *=(double s) noexcept
+        {
+            h = InternalUtil::RepeatHue360(h * s);
+            w *= s;
+            b *= s;
+            return *this;
+        }
+
+        [[nodiscard]] friend constexpr bool operator==(const HWB& a, const HWB& b) = default;
     };
 }

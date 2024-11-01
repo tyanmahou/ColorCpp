@@ -18,7 +18,7 @@ export namespace colorcpp
     template<class Illuminant>
     struct ColorCastTraits<Lab_<Illuminant>, XYZ_<Illuminant>>
     {
-        constexpr static Lab_<Illuminant> Cast(const XYZ_<Illuminant>& xyz)
+        [[nodiscard]] constexpr static Lab_<Illuminant> Cast(const XYZ_<Illuminant>& xyz)
         {
             auto&& [x, y, z] = xyz;
 
@@ -38,7 +38,7 @@ export namespace colorcpp
     template<class Illuminant>
     struct ColorCastTraits<XYZ_<Illuminant>, Lab_<Illuminant>>
     {
-        constexpr static XYZ_<Illuminant> Cast(const Lab_<Illuminant>& lab)
+        [[nodiscard]] constexpr static XYZ_<Illuminant> Cast(const Lab_<Illuminant>& lab)
         {
             const auto& [xr, yr, zr] = WhitePoint<Illuminant>;
 

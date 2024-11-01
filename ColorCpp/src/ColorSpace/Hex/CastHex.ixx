@@ -16,7 +16,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<RGBA32, Hex>
     {
-        constexpr static RGBA32 Cast(const Hex& hex)
+        [[nodiscard]] constexpr static RGBA32 Cast(const Hex& hex)
         {
             auto hexView = hex.hexView();
 
@@ -31,7 +31,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<Hex, RGBA32>
     {
-        constexpr static Hex Cast(const RGBA32& rgba)
+        [[nodiscard]] constexpr static Hex Cast(const RGBA32& rgba)
         {
             const auto& [r, g, b, a] = rgba;
             char hex[8] = {

@@ -17,7 +17,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<HSI, RGB>
     {
-        constexpr static HSI Cast(const RGB& rgb)
+        [[nodiscard]] constexpr static HSI Cast(const RGB& rgb)
         {
             auto [hue, max, min] = InternalUtil::HueMaxMin(rgb);
             double i = (rgb.r + rgb.g + rgb.b) / 3.0;
@@ -31,7 +31,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<RGB, HSI>
     {
-        constexpr static RGB Cast(const HSI& hsi)
+        [[nodiscard]] constexpr static RGB Cast(const HSI& hsi)
         {
             auto [h, s, i] = hsi;
 

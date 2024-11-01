@@ -16,7 +16,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<XYZ65, LRGB>
     {
-        constexpr static XYZ65 Cast(const LRGB& rgb)
+        [[nodiscard]] constexpr static XYZ65 Cast(const LRGB& rgb)
         {
             const auto& [r, g, b] = rgb;
             return {
@@ -29,7 +29,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<LRGB, XYZ65>
     {
-        constexpr static LRGB Cast(const XYZ65& xyz)
+        [[nodiscard]] constexpr static LRGB Cast(const XYZ65& xyz)
         {
             return LRGB{
                 .r = 3.2409699419045226 * xyz.x - 1.5373831775700939 * xyz.y - 0.4986107602930034 * xyz.z,
@@ -43,7 +43,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<XYZ50, LRGB>
     {
-        constexpr static XYZ50 Cast(const LRGB& rgb)
+        [[nodiscard]] constexpr static XYZ50 Cast(const LRGB& rgb)
         {
             const auto& [r, g, b] = rgb;
             return {
@@ -56,7 +56,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<LRGB, XYZ50>
     {
-        constexpr static LRGB Cast(const XYZ50& xyz)
+        [[nodiscard]] constexpr static LRGB Cast(const XYZ50& xyz)
         {
             return LRGB{
                 .r = 3.1341359569958707 * xyz.x - 1.6173863321612538 * xyz.y - 0.4906619460083532 * xyz.z,
@@ -70,7 +70,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<XYZ65, XYZ50>
     {
-        constexpr static XYZ65 Cast(const XYZ50& xyz)
+        [[nodiscard]] constexpr static XYZ65 Cast(const XYZ50& xyz)
         {
             return {
                 .x = 0.955473421488075 * xyz.x - 0.02309845494876471 * xyz.y + 0.06325924320057072 * xyz.z,
@@ -82,7 +82,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<XYZ50, XYZ65>
     {
-        constexpr static XYZ50 Cast(const XYZ65& xyz)
+        [[nodiscard]] constexpr static XYZ50 Cast(const XYZ65& xyz)
         {
             return {
                 .x = 1.0479297925449969 * xyz.x + 0.022946870601609652 * xyz.y - 0.05019226628920524 * xyz.z,

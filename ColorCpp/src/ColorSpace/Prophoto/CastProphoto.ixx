@@ -8,14 +8,14 @@ import :Math;
 namespace
 {
     using namespace colorcpp;
-    inline constexpr double Gamma(double v)
+    [[nodiscard]] inline constexpr double Gamma(double v)
     {
         if (double abs = Math::Abs(v);  abs >= 1 / 512.0) {
             return Math::Sign(v) * Math::Pow(abs, 1 / 1.8);
         }
         return 16.0 * v;
     }
-    inline constexpr double Linearlize(double v)
+    [[nodiscard]] inline constexpr double Linearlize(double v)
     {
         if (double abs = Math::Abs(v);  abs >= 16 / 512.0) {
             return Math::Sign(v) * Math::Pow(abs, 1.8);
@@ -35,7 +35,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<Prophoto, XYZ50>
     {
-        constexpr static Prophoto Cast(const XYZ50& xyz)
+        [[nodiscard]] constexpr static Prophoto Cast(const XYZ50& xyz)
         {
             const auto& [x, y, z] = xyz;
             double r = 1.3457868816471585 * x - 0.2555720873797946 * y - 0.0511018649755453 * z;
@@ -51,7 +51,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<XYZ50, Prophoto>
     {
-        constexpr static XYZ50 Cast(const Prophoto& rgb)
+        [[nodiscard]] constexpr static XYZ50 Cast(const Prophoto& rgb)
         {
             double r = ::Linearlize(rgb.r);
             double g = ::Linearlize(rgb.g);

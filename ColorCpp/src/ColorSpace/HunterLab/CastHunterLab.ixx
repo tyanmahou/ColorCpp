@@ -9,11 +9,11 @@ namespace colorcpp
 {
     namespace
     {
-        inline constexpr double Ka(double xn, double yn)
+        [[nodiscard]] inline constexpr double Ka(double xn, double yn)
         {
             return 17500.0 * (xn + yn) / 198.04;
         }
-        inline constexpr double Kb(double yn, double zn)
+        [[nodiscard]] inline constexpr double Kb(double yn, double zn)
         {
             return 7000.0 * (yn + zn) / 218.11;
         }
@@ -31,7 +31,7 @@ export namespace colorcpp
     template<class Illuminant>
     struct ColorCastTraits<HunterLab_<Illuminant>, XYZ_<Illuminant>>
     {
-        constexpr static HunterLab_<Illuminant> Cast(const XYZ_<Illuminant>& xyz)
+        [[nodiscard]] constexpr static HunterLab_<Illuminant> Cast(const XYZ_<Illuminant>& xyz)
         {
             constexpr auto w = WhitePoint<Illuminant>;
             constexpr auto ka = Ka(w.x, w.y);
@@ -51,7 +51,7 @@ export namespace colorcpp
     template<class Illuminant>
     struct ColorCastTraits<XYZ_<Illuminant>, HunterLab_<Illuminant>>
     {
-        constexpr static XYZ_<Illuminant> Cast(const HunterLab_<Illuminant>& lab)
+        [[nodiscard]] constexpr static XYZ_<Illuminant> Cast(const HunterLab_<Illuminant>& lab)
         {
             constexpr auto w = WhitePoint<Illuminant>;
             constexpr auto ka = Ka(w.x, w.y);

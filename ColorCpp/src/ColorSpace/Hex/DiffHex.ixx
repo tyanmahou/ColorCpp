@@ -10,7 +10,7 @@ export namespace colorcpp
     template<>
     struct ColorDiffTrait<Hex>
     {
-        constexpr static double Diff(const Hex& a, const Hex& b)
+        [[nodiscard]] constexpr static double Diff(const Hex& a, const Hex& b)
         {
             RGBA32 a2 = ColorCastTraits<RGBA32, Hex>::Cast(a);
             RGBA32 b2 = ColorCastTraits<RGBA32, Hex>::Cast(b);

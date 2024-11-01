@@ -22,7 +22,7 @@ export namespace colorcpp
         /// </summary>
         double b;
 
-        constexpr DisplayP3 operator +(const DisplayP3& other) const noexcept
+        [[nodiscard]] constexpr DisplayP3 operator +(const DisplayP3& other) const noexcept
         {
             return{ (r + other.r), (g + other.g), (b + other.b) };
         }
@@ -33,7 +33,7 @@ export namespace colorcpp
             b += other.b;
             return *this;
         }
-        constexpr DisplayP3 operator -(const DisplayP3& other) const noexcept
+        [[nodiscard]] constexpr DisplayP3 operator -(const DisplayP3& other) const noexcept
         {
             return{ (r - other.r), (g - other.g), (b - other.b) };
         }
@@ -44,7 +44,7 @@ export namespace colorcpp
             b -= other.b;
             return *this;
         }
-        constexpr DisplayP3 operator *(double s) const noexcept
+        [[nodiscard]] constexpr DisplayP3 operator *(double s) const noexcept
         {
             return{ r * s, g * s, b * s };
         }
@@ -56,6 +56,6 @@ export namespace colorcpp
             return *this;
         }
 
-        friend constexpr bool operator==(const DisplayP3& a, const DisplayP3& b) = default;
+        [[nodiscard]] friend constexpr bool operator==(const DisplayP3& a, const DisplayP3& b) = default;
     };
 }

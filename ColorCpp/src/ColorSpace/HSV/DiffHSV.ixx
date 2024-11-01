@@ -9,7 +9,7 @@ export namespace colorcpp
     template<class Model>
     struct ColorDiffTrait<HSV_<Model>>
     {
-        constexpr static double Diff(const HSV_<Model>& a, const HSV_<Model>& b)
+        [[nodiscard]] constexpr static double Diff(const HSV_<Model>& a, const HSV_<Model>& b)
         {
             const double h = InternalUtil::DiffHueSaturation(a, b);
             const double s = a.s - b.s;

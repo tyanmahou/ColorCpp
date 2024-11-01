@@ -6,7 +6,7 @@ import <string_view>;
 namespace
 {
     template<colorcpp::Character CharT>
-    inline constexpr char ToUpper(CharT c)
+    [[nodiscard]] inline constexpr char ToUpper(CharT c)
     {
         return c >= 'a' ? c - ('a' - 'A') : c;
     }
@@ -48,17 +48,17 @@ export namespace colorcpp
                 _hex[7] = (code.length() == 8) ? ToUpper(code[7]) : 'F';
             }
         }
-        std::string hex() const
+        [[nodiscard]] std::string hex() const
         {
             return std::string(_hex, 8);
         }
-        constexpr std::string_view hexView() const& noexcept
+        [[nodiscard]] constexpr std::string_view hexView() const& noexcept
         {
             return { _hex, 8 };
         }
         std::string_view hexView() const&& noexcept = delete;
 
-        friend constexpr bool operator==(const Hex& a, const Hex& b) = default;
+        [[nodiscard]] friend constexpr bool operator==(const Hex& a, const Hex& b) = default;
     private:
         /// <summary>
         /// 文字コード (#なし)

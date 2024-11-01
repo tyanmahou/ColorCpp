@@ -11,7 +11,7 @@ export namespace colorcpp
         double a;
         double b;
 
-        constexpr OkLab operator +(const OkLab& other) const noexcept
+        [[nodiscard]] constexpr OkLab operator +(const OkLab& other) const noexcept
         {
             return { (l + other.l), (a + other.a), (b + other.b) };
         }
@@ -22,7 +22,7 @@ export namespace colorcpp
             b += other.b;
             return *this;
         }
-        constexpr OkLab operator -(const OkLab& other) const noexcept
+        [[nodiscard]] constexpr OkLab operator -(const OkLab& other) const noexcept
         {
             return{ (l - other.l), (a - other.a), (b - other.b) };
         }
@@ -33,7 +33,17 @@ export namespace colorcpp
             b -= other.b;
             return *this;
         }
-
-        friend constexpr bool operator==(const OkLab& a, const OkLab& b) = default;
+        [[nodiscard]] constexpr OkLab operator *(double s) const noexcept
+        {
+            return{ l * s, a * s, b * s };
+        }
+        constexpr OkLab& operator *=(double s) noexcept
+        {
+            l *= s;
+            a *= s;
+            b *= s;
+            return *this;
+        }
+        [[nodiscard]] friend constexpr bool operator==(const OkLab& a, const OkLab& b) = default;
     };
 }

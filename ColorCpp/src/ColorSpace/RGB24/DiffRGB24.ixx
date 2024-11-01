@@ -9,7 +9,7 @@ export namespace colorcpp
     template<>
     struct ColorDiffTrait<RGB24>
     {
-        constexpr static double Diff(const RGB24& a, const RGB24& b)
+        [[nodiscard]] constexpr static double Diff(const RGB24& a, const RGB24& b)
         {
             const int32 _r = static_cast<int32>(a.r) - static_cast<int32>(b.r);
             const int32 _g = static_cast<int32>(a.g) - static_cast<int32>(b.g);

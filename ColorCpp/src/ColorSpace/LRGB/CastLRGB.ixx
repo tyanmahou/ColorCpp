@@ -17,7 +17,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<LRGB, RGB>
     {
-        constexpr static LRGB Cast(const RGB& rgb)
+        [[nodiscard]] constexpr static LRGB Cast(const RGB& rgb)
         {
             return LRGB{
                 InternalUtil::SRGBToLinear(rgb.r),
@@ -29,7 +29,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<RGB, LRGB>
     {
-        constexpr static RGB Cast(const LRGB& rgb)
+        [[nodiscard]] constexpr static RGB Cast(const LRGB& rgb)
         {
             return RGB{
                 InternalUtil::LinearToSRGB(rgb.r),

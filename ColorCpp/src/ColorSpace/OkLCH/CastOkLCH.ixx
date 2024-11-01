@@ -19,7 +19,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<OkLCH, OkLab>
     {
-        constexpr static OkLCH Cast(const OkLab& lab)
+        [[nodiscard]] constexpr static OkLCH Cast(const OkLab& lab)
         {
             double l = lab.l;
             double c = Math::Sqrt(lab.a * lab.a + lab.b * lab.b);
@@ -35,7 +35,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<OkLab, OkLCH>
     {
-        constexpr static OkLab Cast(const OkLCH& lch)
+        [[nodiscard]] constexpr static OkLab Cast(const OkLCH& lch)
         {
             double h = lch.h * std::numbers::pi / 180.0;
             return OkLab{

@@ -1,4 +1,5 @@
 ﻿export module ColorCpp:LCH;
+import :InternalUtil;
 
 export namespace colorcpp
 {
@@ -23,7 +24,41 @@ export namespace colorcpp
         /// </summary>
         double h;
 
-        friend constexpr bool operator==(const LCH_& a, const LCH_& b) = default;
+        [[nodiscard]] constexpr LCH_ operator +(const LCH_& other) const noexcept
+        {
+            return { (l + other.l), (c + other.c), InternalUtil::RepeatHue360(h + other.h) };
+        }
+        constexpr LCH_& operator +=(const LCH_& other) noexcept
+        {
+            l += other.l;
+            c += other.c;
+            h = InternalUtil::RepeatHue360(h + other.h);
+            return *this;
+        }
+        [[nodiscard]] constexpr LCH_ operator -(const LCH_& other) const noexcept
+        {
+            return{ (l - other.l), (c - other.c), InternalUtil::RepeatHue360(h - other.h) };
+        }
+        constexpr LCH_& operator -=(const LCH_& other) noexcept
+        {
+            l -= other.l;
+            c -= other.c;
+            h = InternalUtil::RepeatHue360(h - other.h);
+            return *this;
+        }
+        [[nodiscard]] constexpr LCH_ operator *(double s) const noexcept
+        {
+            return{ l * s, c * s, InternalUtil::RepeatHue360(h * s) };
+        }
+        constexpr LCH_& operator *=(double s) noexcept
+        {
+            l *= s;
+            c *= s;
+            h = InternalUtil::RepeatHue360(h * s);
+            return *this;
+        }
+
+        [[nodiscard]] friend constexpr bool operator==(const LCH_& a, const LCH_& b) = default;
     };
 
     using LCH50 = LCH_<struct D50>;

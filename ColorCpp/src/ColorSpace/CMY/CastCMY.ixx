@@ -18,7 +18,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<CMY, RGB>
     {
-        constexpr static CMY Cast(const RGB& rgb)
+        [[nodiscard]] constexpr static CMY Cast(const RGB& rgb)
         {
             return {
                 .c = 1 - rgb.r,
@@ -30,7 +30,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<RGB, CMY>
     {
-        constexpr static RGB Cast(const CMY& cmy)
+        [[nodiscard]] constexpr static RGB Cast(const CMY& cmy)
         {
             return {
                 .r = 1 - cmy.c,

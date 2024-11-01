@@ -19,7 +19,7 @@ export namespace colorcpp
         /// </summary>
         double y;
 
-        constexpr CMY operator +(const CMY& other) const noexcept
+        [[nodiscard]] constexpr CMY operator +(const CMY& other) const noexcept
         {
             return{ (c + other.c), (m + other.m), (y + other.y) };
         }
@@ -30,7 +30,7 @@ export namespace colorcpp
             y += other.y;
             return *this;
         }
-        constexpr CMY operator -(const CMY& other) const noexcept
+        [[nodiscard]] constexpr CMY operator -(const CMY& other) const noexcept
         {
             return{ (c - other.c), (m - other.m), (y - other.y) };
         }
@@ -41,7 +41,7 @@ export namespace colorcpp
             y -= other.y;
             return *this;
         }
-        constexpr CMY operator *(double s) const noexcept
+        [[nodiscard]] constexpr CMY operator *(double s) const noexcept
         {
             return{ c * s, m * s, y * s };
         }
@@ -53,6 +53,6 @@ export namespace colorcpp
             return *this;
         }
 
-        friend constexpr bool operator==(const CMY& a, const CMY& b) = default;
+        [[nodiscard]] friend constexpr bool operator==(const CMY& a, const CMY& b) = default;
     };
 }

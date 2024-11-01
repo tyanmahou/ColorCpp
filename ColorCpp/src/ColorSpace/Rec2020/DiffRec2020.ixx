@@ -8,7 +8,7 @@ export namespace colorcpp
     template<>
     struct ColorDiffTrait<Rec2020>
     {
-        constexpr static double Diff(const Rec2020& a, const Rec2020& b)
+        [[nodiscard]] constexpr static double Diff(const Rec2020& a, const Rec2020& b)
         {
             return InternalUtil::DiffRGB(a, b);
         }

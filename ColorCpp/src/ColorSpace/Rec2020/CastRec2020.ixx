@@ -10,7 +10,7 @@ namespace
     using namespace colorcpp;
     constexpr double alpha = 1.09929682680944;
     constexpr double beta = 0.018053968510807;
-    inline constexpr double Gamma(double v)
+    [[nodiscard]] inline constexpr double Gamma(double v)
     {
         const double sign = (v >= 0 ? 1.0 : -1.0);
         if (double abs = Math::Abs(v);  abs >= beta) {
@@ -18,7 +18,7 @@ namespace
         }
         return 4.5 * v;
     }
-    inline constexpr double Linearlize(double v)
+    [[nodiscard]] inline constexpr double Linearlize(double v)
     {
         const double sign = (v >= 0 ? 1.0 : -1.0);
         if (double abs = Math::Abs(v); abs >= beta * 4.5) {
@@ -39,7 +39,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<Rec2020, XYZ>
     {
-        constexpr static Rec2020 Cast(const XYZ& xyz)
+        [[nodiscard]] constexpr static Rec2020 Cast(const XYZ& xyz)
         {
             const auto& [x, y, z] = xyz;
             double r = 1.7166511879712683 * x - 0.3556707837763925 * y - 0.2533662813736599 * z;
@@ -55,7 +55,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<XYZ, Rec2020>
     {
-        constexpr static XYZ Cast(const Rec2020& rgb)
+        [[nodiscard]] constexpr static XYZ Cast(const Rec2020& rgb)
         {
             double r = ::Linearlize(rgb.r);
             double g = ::Linearlize(rgb.g);

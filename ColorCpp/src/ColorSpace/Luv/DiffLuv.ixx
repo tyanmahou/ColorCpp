@@ -8,7 +8,7 @@ export namespace colorcpp
     template<class Illuminant>
     struct ColorDiffTrait<Luv_<Illuminant>>
     {
-        constexpr static double Diff(const Luv_<Illuminant>& a, const Luv_<Illuminant>& b)
+        [[nodiscard]] constexpr static double Diff(const Luv_<Illuminant>& a, const Luv_<Illuminant>& b)
         {
             const Luv_<Illuminant> diff = a - b;
             return Math::Sqrt(

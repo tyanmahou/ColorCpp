@@ -16,7 +16,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<YIQ, RGB>
     {
-        constexpr static YIQ Cast(const RGB& rgb)
+        [[nodiscard]] constexpr static YIQ Cast(const RGB& rgb)
         {
             auto&& [r, g, b] = rgb;
             return {
@@ -30,7 +30,7 @@ export namespace colorcpp
     template<>
     struct ColorCastTraits<RGB, YIQ>
     {
-        constexpr static RGB Cast(const YIQ& yiq)
+        [[nodiscard]] constexpr static RGB Cast(const YIQ& yiq)
         {
             auto&& [y, i, q] = yiq;
             return {

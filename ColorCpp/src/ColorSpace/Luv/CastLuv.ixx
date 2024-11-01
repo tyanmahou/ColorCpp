@@ -10,21 +10,21 @@ namespace colorcpp
 {
     namespace
     {
-        inline constexpr double CalcU(double x, double y, double z)
+        [[nodiscard]] inline constexpr double CalcU(double x, double y, double z)
         {
             return (4 * x) / (x + 15 * y + 3 * z);
         }
         template<class Illuminant>
-        inline constexpr double CalcU(const XYZ_<Illuminant>& xyz)
+        [[nodiscard]] inline constexpr double CalcU(const XYZ_<Illuminant>& xyz)
         {
             return CalcU(xyz.x, xyz.y, xyz.z);
         }
-        inline constexpr double CalcV(double x, double y, double z)
+        [[nodiscard]] inline constexpr double CalcV(double x, double y, double z)
         {
             return (9 * y) / (x + 15 * y + 3 * z);
         }
         template<class Illuminant>
-        inline constexpr double CalcV(const XYZ_<Illuminant>& xyz)
+        [[nodiscard]] inline constexpr double CalcV(const XYZ_<Illuminant>& xyz)
         {
             return CalcV(xyz.x, xyz.y, xyz.z);
         }
@@ -42,7 +42,7 @@ export namespace colorcpp
     template<class Illuminant>
     struct ColorCastTraits<Luv_<Illuminant>, XYZ_<Illuminant>>
     {
-        constexpr static Luv_<Illuminant> Cast(const XYZ_<Illuminant>& xyz)
+        [[nodiscard]] constexpr static Luv_<Illuminant> Cast(const XYZ_<Illuminant>& xyz)
         {
             const auto& w = WhitePoint<Illuminant>;
             const auto& [x, y, z] = xyz;
@@ -58,7 +58,7 @@ export namespace colorcpp
     template<class Illuminant>
     struct ColorCastTraits<XYZ_<Illuminant>, Luv_<Illuminant>>
     {
-        constexpr static XYZ_<Illuminant> Cast(const Luv_<Illuminant>& luv)
+        [[nodiscard]] constexpr static XYZ_<Illuminant> Cast(const Luv_<Illuminant>& luv)
         {
             const auto& w = WhitePoint<Illuminant>;
             const auto& [l, u, v] = luv;

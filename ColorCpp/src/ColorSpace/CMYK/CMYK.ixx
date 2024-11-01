@@ -24,7 +24,7 @@ export namespace colorcpp
         /// </summary>
         double k;
 
-        constexpr CMYK operator +(const CMYK& other) const noexcept
+        [[nodiscard]] constexpr CMYK operator +(const CMYK& other) const noexcept
         {
             return{ (c + other.c), (m + other.m), (y + other.y), (k + other.k) };
         }
@@ -36,7 +36,7 @@ export namespace colorcpp
             k += other.k;
             return *this;
         }
-        constexpr CMYK operator -(const CMYK& other) const noexcept
+        [[nodiscard]] constexpr CMYK operator -(const CMYK& other) const noexcept
         {
             return{ (c - other.c), (m - other.m), (y - other.y), (k - other.k) };
         }
@@ -48,7 +48,7 @@ export namespace colorcpp
             k -= other.k;
             return *this;
         }
-        constexpr CMYK operator *(double s) const noexcept
+        [[nodiscard]] constexpr CMYK operator *(double s) const noexcept
         {
             return{ c * s, m * s, y * s, k * s };
         }
@@ -61,6 +61,6 @@ export namespace colorcpp
             return *this;
         }
 
-        friend constexpr bool operator==(const CMYK& a, const CMYK& b) = default;
+        [[nodiscard]] friend constexpr bool operator==(const CMYK& a, const CMYK& b) = default;
     };
 }

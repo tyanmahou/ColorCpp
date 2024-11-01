@@ -8,7 +8,7 @@ export namespace colorcpp
     template<>
     struct ColorDiffTrait<DisplayP3>
     {
-        constexpr static double Diff(const DisplayP3& a, const DisplayP3& b)
+        [[nodiscard]] constexpr static double Diff(const DisplayP3& a, const DisplayP3& b)
         {
             return InternalUtil::DiffRGB(a, b);
         }
