@@ -1,7 +1,7 @@
 ﻿export module ColorCpp:ColorDiff;
 export import :ColorDiffTrait;
 export import :ColorDiff.Euclidean;
-
+export import :ColorDiff.CIE76;
 export import :DiffA98;
 export import :DiffCMY;
 export import :DiffCMYK;
@@ -38,5 +38,6 @@ export namespace colorcpp
     public:
         template<class Type>
         inline static constexpr EuclideanDiff<Type> Euclidean = {};
+        inline static constexpr CIE76Diff CIE76 = {};
     };
 }
