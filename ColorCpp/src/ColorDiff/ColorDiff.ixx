@@ -1,9 +1,10 @@
 ﻿export module ColorCpp:ColorDiff;
 export import :ColorDiffTrait;
-export import :ColorDiff.Euclidean;
 export import :ColorDiff.CIE76;
 export import :ColorDiff.CIE94;
+export import :ColorDiff.CIE2000;
 export import :ColorDiff.CMC;
+export import :ColorDiff.Euclidean;
 
 export import :DiffA98;
 export import :DiffCMY;
