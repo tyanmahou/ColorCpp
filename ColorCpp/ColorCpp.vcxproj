@@ -151,6 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\ColorCast\ColorCastDependency.ixx" />
+    <ClCompile Include="src\ColorDiff\CIE2000\CIE2000.ixx" />
     <ClCompile Include="src\ColorDiff\CIE76\CIE76.ixx" />
     <ClCompile Include="src\ColorDiff\CIE94\CIE94.ixx" />
     <ClCompile Include="src\ColorDiff\CMC\CMC.ixx" />

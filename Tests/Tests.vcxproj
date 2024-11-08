@@ -145,6 +145,7 @@
     <ClInclude Include="tests\TestUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="tests\ColorDiff\CIE2000.cpp" />
     <ClCompile Include="tests\ColorDiff\CIE76.cpp" />
     <ClCompile Include="tests\ColorDiff\CIE94.cpp" />
     <ClCompile Include="tests\ColorDiff\CMC.cpp" />
