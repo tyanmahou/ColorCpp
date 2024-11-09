@@ -78,6 +78,22 @@ export namespace colorcpp
         }
 
         template<class T, class U>
+        [[nodiscard]] static constexpr double CIE2000(const T& a, const U& b)
+        {
+            return CIE2000Diff{}(a, b);
+        }
+        template<
+            double kL,
+            double kC,
+            double kH,
+            class T,
+            class U
+        >
+        [[nodiscard]] static constexpr double CIE2000(const T& a, const U& b)
+        {
+            return CIE2000Diff{ kL , kC, kH}(a, b);
+        }
+        template<class T, class U>
         [[nodiscard]] static constexpr double CMC(const T& a, const U& b)
         {
             return CMCDiff{}(a, b);
