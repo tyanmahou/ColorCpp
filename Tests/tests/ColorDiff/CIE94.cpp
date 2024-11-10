@@ -22,7 +22,7 @@ TEST_CASE("CIE94")
         const double diff = ColorDiff::CIE94_GraphicArts(a, b);
         REQUIRE(diff == 114.891_nearly(0.001));
 
-        REQUIRE(diff == ColorDiff::CIE94<1.0, 0.045, 0.015>(a, b));
+        REQUIRE(diff == ColorDiff::CIE94(1.0, 0.045, 0.015)(a, b));
     }
     SECTION("CIE94 Textiles Diff")
     {
@@ -31,6 +31,6 @@ TEST_CASE("CIE94")
 
         const double diff = ColorDiff::CIE94_Textiles(a, b);
         REQUIRE(diff == 77.280_nearly(0.001));
-        REQUIRE(diff == ColorDiff::CIE94<2.0, 0.048, 0.014>(a, b));
+        REQUIRE(diff == ColorDiff::CIE94(2.0, 0.048, 0.014)(a, b));
     }
 }

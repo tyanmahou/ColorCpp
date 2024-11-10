@@ -55,17 +55,12 @@ export namespace colorcpp
         {
             return CIE94Diff{}(a, b);
         }
-        template<
-            double kL,
-            double k1,
-            double k2,
-            class T,
-            class U
-        >
-        [[nodiscard]] static constexpr double CIE94(const T& a, const U& b)
+
+        [[nodiscard]] static constexpr CIE94Diff CIE94(double kL, double k1, double k2)
         {
-            return CIE94Diff{ kL, k1, k2 }(a, b);
+            return CIE94Diff{ kL, k1, k2 };
         }
+
         template<class T, class U>
         [[nodiscard]] static constexpr double CIE94_GraphicArts(const T& a, const U& b)
         {
@@ -82,31 +77,19 @@ export namespace colorcpp
         {
             return CIE2000Diff{}(a, b);
         }
-        template<
-            double kL,
-            double kC,
-            double kH,
-            class T,
-            class U
-        >
-        [[nodiscard]] static constexpr double CIE2000(const T& a, const U& b)
+        [[nodiscard]] static constexpr CIE2000Diff CIE2000(double kL, double kC, double kH)
         {
-            return CIE2000Diff{ kL , kC, kH}(a, b);
+            return CIE2000Diff{ kL, kC, kH };
         }
+
         template<class T, class U>
         [[nodiscard]] static constexpr double CMC(const T& a, const U& b)
         {
             return CMCDiff{}(a, b);
         }
-        template<
-            double l,
-            double c,
-            class T,
-            class U
-        >
-        [[nodiscard]] static constexpr double CMC(const T& a, const U& b)
+        [[nodiscard]] static constexpr CMCDiff CMC(double l, double c)
         {
-            return CMCDiff{l, c}(a, b);
+            return CMCDiff{ l, c };
         }
     };
 }
