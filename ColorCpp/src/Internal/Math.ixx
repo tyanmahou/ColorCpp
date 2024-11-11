@@ -8,6 +8,9 @@ export namespace colorcpp
     class Math
     {
     public:
+        static constexpr double Pi = std::numbers::pi;
+        static constexpr double TwoPi = std::numbers::pi * 2.0;
+
         [[nodiscard]] static constexpr inline double Min(double x, double y) noexcept
         {
             return std::min(x, y);
@@ -64,15 +67,36 @@ export namespace colorcpp
         {
             return x * x * x * x;
         }
+        [[nodiscard]] static constexpr inline double Pow5(double x) noexcept
+        {
+            return x * x * x * x * x;
+        }
+        [[nodiscard]] static constexpr inline double Pow6(double x) noexcept
+        {
+            return x * x * x * x * x * x;
+        }
+        [[nodiscard]] static constexpr inline double Pow7(double x) noexcept
+        {
+            return x * x * x * x * x * x * x;
+        }
         // TODO: C++26でconstexpr対応
         [[nodiscard]] static constexpr inline double Cbrt(auto x) noexcept
         {
             return std::cbrt(x);
         }
         // TODO: C++26でconstexpr対応
+        [[nodiscard]] static constexpr inline double Exp(auto x) noexcept
+        {
+            return std::exp(x);
+        }
+        // TODO: C++26でconstexpr対応
         [[nodiscard]] static constexpr inline double Sin(auto x) noexcept
         {
             return std::sin(x);
+        }
+        [[nodiscard]] static constexpr inline double SinDeg(double x) noexcept
+        {
+            return Sin(x * Pi / 180.0);
         }
         // TODO: C++26でconstexpr対応
         [[nodiscard]] static constexpr inline double Cos(auto x) noexcept
@@ -81,11 +105,14 @@ export namespace colorcpp
         }
         [[nodiscard]] static constexpr inline double CosDeg(double x) noexcept
         {
-            return Cos(x * std::numbers::pi / 180.0);
+            return Cos(x * Pi / 180.0);
         }
         // TODO: C++26でconstexpr対応
         [[nodiscard]] static constexpr inline double Atan2(auto y, auto x) noexcept
         {
+            if (y == 0 && x == 0) {
+                return 0;
+            }
             return std::atan2(y, x);
         }
 
