@@ -89,6 +89,14 @@ export namespace colorcpp
         {
             return std::exp(x);
         }
+        [[nodiscard]] static constexpr inline double DegToRad(double x) noexcept
+        {
+            return x * Pi / 180.0;
+        }
+        [[nodiscard]] static constexpr inline double RadToDeg(double x) noexcept
+        {
+            return x * 180 / Pi;
+        }
         // TODO: C++26でconstexpr対応
         [[nodiscard]] static constexpr inline double Sin(auto x) noexcept
         {
@@ -114,6 +122,10 @@ export namespace colorcpp
                 return 0;
             }
             return std::atan2(y, x);
+        }
+        [[nodiscard]] static constexpr inline double Atan2Deg(double y, double x) noexcept
+        {
+            return Atan2(y, x) * 180.0 / std::numbers::pi;
         }
 
         // TODO: C++23でconstexpr対応

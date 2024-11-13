@@ -2,7 +2,6 @@
 import :Math;
 import :RGB;
 import :Type;
-import <numbers>;
 import <tuple>;
 
 export namespace colorcpp
@@ -15,7 +14,7 @@ export namespace colorcpp
         {
             const double ah = RepeatHue360(a.h);
             const double bh = RepeatHue360(b.h);
-            const double dH = Math::Sin((((bh - ah + 360) / 2) * std::numbers::pi) / 180);
+            const double dH = Math::SinDeg(((bh - ah + 360) / 2));
             return 2 * Math::Sqrt(a.s * b.s) * dH;
         }
         template<class HC>
@@ -23,7 +22,7 @@ export namespace colorcpp
         {
             const double ah = RepeatHue360(a.h);
             const double bh = RepeatHue360(b.h);
-            const double dH = Math::Sin((((bh - ah + 360) / 2) * std::numbers::pi) / 180);
+            const double dH = Math::SinDeg(((bh - ah + 360) / 2));
             return 2 * Math::Sqrt(a.c * b.c) * dH;
         }
         [[nodiscard]] constexpr static double DiffHue(double a, double b)
