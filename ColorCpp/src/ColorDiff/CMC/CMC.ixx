@@ -3,7 +3,6 @@ import :Lab;
 import :ColorCast;
 import :Math;
 import :InternalUtil;
-import <numbers>;
 
 export namespace colorcpp
 {
@@ -21,7 +20,7 @@ export namespace colorcpp
             const double c1 = Math::Sqrt(a1 * a1 + b1 * b1);
             const double c2 = Math::Sqrt(a2 * a2 + b2 * b2);
 
-            double h1 = Math::Atan2(b1, b1) * 180.0 / std::numbers::pi;
+            double h1 = Math::Atan2Deg(b1, b1);
             h1 = InternalUtil::RepeatHue360(h1);
 
             const double dL2 = Math::Pow2(l1 - l2);
