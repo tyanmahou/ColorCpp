@@ -14,7 +14,6 @@ TEST_CASE("CIE76")
         const double diff = ColorDiff::CIE76(a, b);
         REQUIRE(diff == 173.20504_nearly(0.001));
     }
-
     SECTION("CIE76 RGB Diff")
     {
         constexpr Lab65 a{ 100, 0, 100 };
