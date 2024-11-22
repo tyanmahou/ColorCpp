@@ -42,3 +42,20 @@ and the color difference.
 - CMC
 - Euclidean
 
+## Example
+
+color space conversion
+
+```cpp
+constexpr RGB rgb{ 1.0, 1.0, 1.0 };
+HSV hsv = ColorCast<HSV>(rgb);
+```
+
+color difference
+
+```cpp
+constexpr RGB a{ 1.0, 0.0, 1.0 };
+constexpr RGB b{ 0, 1.0, 0 };
+
+double diff = ColorDiff::Euclidean<RGB>(a, b);
+```
