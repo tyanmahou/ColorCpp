@@ -16,6 +16,7 @@ namespace
 
 namespace colorcpp
 {
+    // Color Cast
     template<>
     struct ColorCastDependency<MyRGB>
     {
@@ -95,7 +96,7 @@ TEST_CASE("Custom")
         constexpr MyRGB a{ 1, 0, 1 };
         constexpr MyRGB b{ 0, 1, 0 };
 
-        const double diff = ColorDiff::Euclidean(a, b);
+        const double diff = ColorDiff::Euclidean<MyRGB>(a, b);
         REQUIRE(diff == 1.7320504_nearly);
     }
 }
