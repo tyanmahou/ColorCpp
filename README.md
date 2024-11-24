@@ -44,6 +44,12 @@ and the color difference.
 
 ## Example
 
+import module
+```
+import ColorCpp;
+```
+
+
 color space conversion
 
 ```cpp
@@ -61,3 +67,78 @@ double diff = ColorDiff::Euclidean<RGB>(a, b);
 ```
 
 ## Customaization Point
+
+You can introduce user-defined types by template specialization of function objects.
+
+```cpp
+struct MyRGB
+{
+    float r;
+    float g;
+    float b;
+};
+
+// Customaization Point
+namespace colorcpp
+{
+    // Color Cast
+    template<>
+    struct ColorCastDependency<MyRGB>
+    {
+        using depend_type = RGB;
+    };
+    template<>
+    struct ColorCastTraits<MyRGB, RGB>
+    {
+        [[nodiscard]] constexpr static MyRGB Cast(const RGB& from)
+        {
+            const auto& [r, g, b] = from;
+            return {
+                static_cast<float>(r),
+                static_cast<float>(g),
+                static_cast<float>(b),
+            };
+        }
+    };
+    template<>
+    struct ColorCastTraits<RGB, MyRGB>
+    {
+        [[nodiscard]] constexpr static RGB Cast(const MyRGB& from)
+        {
+            const auto& [r, g, b] = from;
+            return {
+                static_cast<double>(r),
+                static_cast<double>(g),
+                static_cast<double>(b),
+            };
+        }
+    };
+
+    // Euclidean Diff
+    template<>
+    struct ColorDiffTrait<MyRGB>
+    {
+        [[nodiscard]] static double Diff(const MyRGB& left, const MyRGB& right)
+        {
+            const float r = left.r - right.r;
+            const float g = left.g - right.g;
+            const float b = left.b - right.b;
+            return std::sqrt(static_cast<double>(r * r + g * g + b * b));
+        }
+    };
+}
+
+```
+
+```cpp
+{
+    constexpr RGB src{};
+    MyRGB dst = ColorCast<MyRGB>(src);
+}
+{
+    constexpr MyRGB a{ 1, 0, 1 };
+    constexpr MyRGB b{ 0, 1, 0 };
+
+    double diff = ColorDiff::Euclidean<MyRGB>(a, b);
+}
+```
