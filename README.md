@@ -59,3 +59,5 @@ constexpr RGB b{ 0, 1.0, 0 };
 
 double diff = ColorDiff::Euclidean<RGB>(a, b);
 ```
+
+## Customaization Point
