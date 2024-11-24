@@ -122,6 +122,9 @@
     <ClCompile Include="tests\ColorDiff\CIE2000.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="tests\Custom\Custom.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".runsettings" />
