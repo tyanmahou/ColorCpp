@@ -85,6 +85,8 @@ namespace colorcpp
     template<>
     struct ColorCastDependency<MyRGB>
     {
+        // By defining a mutually convertible depend_type,
+        // casting from any type is made possible.
         using depend_type = RGB;
     };
     template<>
