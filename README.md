@@ -144,3 +144,7 @@ namespace colorcpp
     double diff = ColorDiff::Euclidean<MyRGB>(a, b);
 }
 ```
+
+### Siv3D Support
+
+[SivColorCpp.hpp](https://github.com/tyanmahou/ColorCpp/blob/main/Siv3D/SivColorCpp.hpp)
